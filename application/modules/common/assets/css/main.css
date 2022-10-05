@@ -1296,6 +1296,7 @@ ul.activity-list>li .timestamp {
 
 .custom-tabs-line.tabs-line-bottom ul>li {
     margin-bottom: -1px;
+    cursor: pointer;
 }
 
 .custom-tabs-line.tabs-line-bottom a {

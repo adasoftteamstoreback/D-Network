@@ -24,6 +24,20 @@
   border-collapse: separate;
 }
 
+.xWSODCloseNoti {
+  position: absolute;
+  right: 0;
+  top: 0;
+  margin: 12px;
+  opacity: 0.3;
+  color: grey;
+  cursor: pointer;
+}
+.xWSODCloseNoti:hover {
+  opacity: 1;
+  color: #000;
+}
+
 
 </style>
 <?php
@@ -34,7 +48,6 @@ if ($aDataList['rtCode'] == '1') {
 }
 ?>
 <div>
-
 <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
     <div class='row'>
     <div class="col-xs-12 col-sm-3 col-md-3 col-lg-3" style="width:25%;float:left;">
@@ -339,6 +352,7 @@ if ($aDataList['rtCode'] == '1') {
 
 
 <div class="alert-container" hidden>
+  <a id='oahSODCloseNoti' class='xWSODCloseNoti '><i class="fa fa-times" aria-hidden="true"></i></a>
   <div class="alert" id = 'toaseAlert' style="border: 1px solid !important;">
     <p id='toase1'>รับคำสั่งซื้อแล้วเลขที่ Docno</p> 
     <p id='toase2'>เลขที่อ้างอิง rtDocRefNo</p>
@@ -353,6 +367,11 @@ if ($aDataList['rtCode'] == '1') {
 
 <script>
 clearInterval(oSetSaleOrderDataInterval);
+
+$('#oahSODCloseNoti').click(function(){
+    var alert = $(".alert-container");
+    alert.slideUp();
+});
 
 var x = document.getElementById("myAudio"); 
 
@@ -393,6 +412,15 @@ function JSxSORecallRabbit(){
                     //     }, 4000);
                     // });
                     // playAudio();
+                    // var alert = $(".alert-container");
+                    // if(alert.css('display') != 'block'){
+                    //     $("#toaseAlert").empty();
+                    //     var tToaseText = "<p>ไม่พบคำสั่งซื้อเลขที่ "+aReturnData['tDocno']+"</p>";
+                    //     $('#toaseAlert').append(tToaseText);
+                    //     alert.hide();
+                    //     alert.slideDown();
+                    //     playAudio();
+                    // }
                 }else{
                     var nflag = '0';
                     var aItems = aReturnData['aItems'];
@@ -424,25 +452,23 @@ function JSxSORecallRabbit(){
                         tAddtr += 'onclick="JSvSODJumptoSOPage(\'' + aItems['rtDocNo'] + '\');" >ตรวจสอบ</button>';
                         tAddtr += "<button id='obtSODRentBook' disabled='' class='btn xCNBTNDefult xCNBTNDefult1Btn'>จองช่องฝาก</button></td></tr>";
                         $('#SODTable > tbody').prepend(tAddtr);
-                        $("#toaseAlert").empty();
-                        var tToaseText = "<p>รับคำสั่งซื้อแล้วเลขที่ "+aItems['rtDocNo']+"</p>";
-                        tToaseText += "<p>เลขที่อ้างอิง "+aItems['rtDocRefNo']+"</p>";
-                        tToaseText += "<p>วันที่ "+aItems['rtDocRefDate']+"</p>";
-                        tToaseText += "<p>รหัสสาขา "+aItems['rtBchCode']+"</p>";
-                        // toase1.text('รับคำสั่งซื้อแล้วเลขที่ '+aItems['rtDocNo']);
-                        // toase2.text('เลขที่อ้างอิง '+aItems['rtDocRefNo']);
-                        // toase3.text('วันที่ '+aItems['rtDocRefDate']);
-                        // toase4.text('รหัสสาขา '+aItems['rtBchCode']);
-                        $('#toaseAlert').append(tToaseText);
-                        $(function() {
+
                         var alert = $(".alert-container");
-                        alert.hide();
+                        if(alert.css('display') != 'block'){
+                            $("#toaseAlert").empty();
+                            var tToaseText = "<p>รับคำสั่งซื้อแล้วเลขที่ "+aItems['rtDocNo']+"</p>";
+                            tToaseText += "<p>เลขที่อ้างอิง "+aItems['rtDocRefNo']+"</p>";
+                            tToaseText += "<p>วันที่ "+aItems['rtDocRefDate']+"</p>";
+                            tToaseText += "<p>รหัสสาขา "+aItems['rtBchCode']+"</p>";
+                            // toase1.text('รับคำสั่งซื้อแล้วเลขที่ '+aItems['rtDocNo']);
+                            // toase2.text('เลขที่อ้างอิง '+aItems['rtDocRefNo']);
+                            // toase3.text('วันที่ '+aItems['rtDocRefDate']);
+                            // toase4.text('รหัสสาขา '+aItems['rtBchCode']);
+                            $('#toaseAlert').append(tToaseText);
+                            alert.hide();
                             alert.slideDown();
-                            window.setTimeout(function() {
-                            alert.slideUp();
-                            }, 4000);
-                        });
-                        playAudio();
+                            playAudio();
+                        }
                     }
                 }
 
