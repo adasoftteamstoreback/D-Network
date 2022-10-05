@@ -1,0 +1,3082 @@
+{
+  "ReportVersion": "2022.1.4.0",
+  "ReportGuid": "53c1ba8241e24307be8da82d73614d78",
+  "ReportName": "Frm_PSInvoiceSale",
+  "ReportAlias": "Frm_PSInvoiceSale",
+  "ReportCreated": "/Date(1582089004000+0700)/",
+  "ReportChanged": "/Date(1663132720497+0700)/",
+  "EngineVersion": "EngineV2",
+  "ReportUnit": "Millimeters",
+  "Script": "using System;\r\nusing System.Drawing;\r\nusing System.Windows.Forms;\r\nusing System.Data;\r\nusing Stimulsoft.Controls;\r\nusing Stimulsoft.Base.Drawing;\r\nusing Stimulsoft.Report;\r\nusing Stimulsoft.Report.Dialogs;\r\nusing Stimulsoft.Report.Components;\r\n\r\nnamespace Reports\r\n{\r\n    public class Frm_PSInvoiceSale : Stimulsoft.Report.StiReport\r\n    {\r\n        public Frm_PSInvoiceSale()        {\r\n            this.InitializeComponent();\r\n        }\r\n\r\n        #region StiReport Designer generated code - do not modify\r\n\t\t#endregion StiReport Designer generated code - do not modify\r\n    }\r\n}\r\n",
+  "ReferencedAssemblies": {
+    "0": "System.Dll",
+    "1": "System.Drawing.Dll",
+    "2": "System.Windows.Forms.Dll",
+    "3": "System.Data.Dll",
+    "4": "System.Xml.Dll",
+    "5": "Stimulsoft.Controls.Dll",
+    "6": "Stimulsoft.Base.Dll",
+    "7": "Stimulsoft.Report.Dll"
+  },
+  "Dictionary": {
+    "Variables": {
+      "0": {
+        "Value": "1",
+        "Name": "SP_nLang",
+        "Alias": "SP_nLang",
+        "Type": "System.String",
+        "Key": "4eb8936b7c964a56854ebfb2bdac5a3f"
+      },
+      "1": {
+        "Value": "1",
+        "Name": "nLanguage",
+        "Alias": "nLanguage",
+        "Type": "System.Int32",
+        "Key": "94d0be4604a740669125c87845cd4275",
+        "AllowUseAsSqlParameter": true
+      },
+      "2": {
+        "Value": "00001",
+        "Name": "SP_tCompCode",
+        "Alias": "SP_tCompCode",
+        "Type": "System.String",
+        "Key": "466540dcabb548ee89458f50d136a2d4",
+        "AllowUseAsSqlParameter": true
+      },
+      "3": {
+        "Value": "00001",
+        "Name": "SP_tCmpBch",
+        "Alias": "SP_tCmpBch",
+        "Type": "System.String",
+        "Key": "c652eabaf6e74df1a3e1515f3a2d164a",
+        "AllowUseAsSqlParameter": true
+      },
+      "4": {
+        "Value": "3",
+        "Name": "SP_nAddSeq",
+        "Alias": "SP_nAddSeq",
+        "Type": "System.Int32",
+        "Key": "26b47611dc4d47f589b3897a162ee971",
+        "AllowUseAsSqlParameter": true
+      },
+      "5": {
+        "Value": "S22000010000003",
+        "Name": "SP_tDocNo",
+        "Alias": "SP_tDocNo",
+        "Type": "System.String",
+        "Key": "9293f1a5c9474bf48c888b4763f31ad4",
+        "AllowUseAsSqlParameter": true
+      },
+      "6": {
+        "Value": "1",
+        "Name": "SP_tStaPrn",
+        "Alias": "SP_tStaPrn",
+        "Type": "System.String",
+        "Key": "a82435a6fdff4beaa7f73f0d76b18d76",
+        "AllowUseAsSqlParameter": true
+      },
+      "7": {
+        "Name": "SP_tGrdStr",
+        "Alias": "SP_tGrdStr",
+        "Type": "System.String",
+        "Key": "aea166b93f944092a174b1133c06f585",
+        "AllowUseAsSqlParameter": true
+      },
+      "8": {
+        "Value": "00001",
+        "Name": "SP_tDocBch",
+        "Alias": "SP_tDocBch",
+        "Type": "System.String",
+        "Key": "7354a31517e14b39a9e37d4ea09a6d0d",
+        "AllowUseAsSqlParameter": true
+      }
+    },
+    "DataSources": {
+      "0": {
+        "Ident": "StiSqlSource",
+        "Name": "TPSTSalHD",
+        "Alias": "TPSTSalHD",
+        "Key": "b12c4828c5e244d98b59516764e0c488",
+        "Columns": {
+          "0": {
+            "Name": "FTXshRefDoc",
+            "Index": -1,
+            "NameInSource": "FTXshRefDoc",
+            "Alias": "FTXshRefDoc",
+            "Type": "System.String",
+            "Key": "c4798ba5bbec4be7a690c89f44ab0b94"
+          },
+          "1": {
+            "Name": "FTXshRefDocNoFull",
+            "Index": -1,
+            "NameInSource": "FTXshRefDocNoFull",
+            "Alias": "FTXshRefDocNoFull",
+            "Type": "System.String",
+            "Key": "50040806954a48c68d04ba40021aa9c6"
+          },
+          "2": {
+            "Name": "FTXshRefDocNoSale",
+            "Index": -1,
+            "NameInSource": "FTXshRefDocNoSale",
+            "Alias": "FTXshRefDocNoSale",
+            "Type": "System.String",
+            "Key": "feb69fde0b394db1b9c8ac1140a5262e"
+          },
+          "3": {
+            "Name": "FNXshDocType",
+            "Index": -1,
+            "NameInSource": "FNXshDocType",
+            "Alias": "FNXshDocType",
+            "Type": "System.Int32",
+            "Key": "a05d69d64171469389083ef04ef5d391"
+          },
+          "4": {
+            "Name": "FTBchCode",
+            "Index": -1,
+            "NameInSource": "FTBchCode",
+            "Alias": "FTBchCode",
+            "Type": "System.String",
+            "Key": "e585b686748a435a8009f1e6392080cd"
+          },
+          "5": {
+            "Name": "FTXshRefExt",
+            "Index": -1,
+            "NameInSource": "FTXshRefExt",
+            "Alias": "FTXshRefExt",
+            "Type": "System.String",
+            "Key": "ac169320f9a742d993deaf553d0cefc6"
+          },
+          "6": {
+            "Name": "FTPosRegNo",
+            "Index": -1,
+            "NameInSource": "FTPosRegNo",
+            "Alias": "FTPosRegNo",
+            "Type": "System.String",
+            "Key": "0c6d846bf274496794e11dd58ebe4f9d"
+          },
+          "7": {
+            "Name": "FTXshStaApv",
+            "Index": -1,
+            "NameInSource": "FTXshStaApv",
+            "Alias": "FTXshStaApv",
+            "Type": "System.String",
+            "Key": "cc31c1f008e94f3687beedd2160fcdf9"
+          },
+          "8": {
+            "Name": "FTUsrApp",
+            "Index": -1,
+            "NameInSource": "FTUsrApp",
+            "Alias": "FTUsrApp",
+            "Type": "System.String",
+            "Key": "0cc0aef7042b4d548993fb77f54f305a"
+          },
+          "9": {
+            "Name": "FTCstCode",
+            "Index": -1,
+            "NameInSource": "FTCstCode",
+            "Alias": "FTCstCode",
+            "Type": "System.String",
+            "Key": "f5079aafa87c493c9536c3aa3a225214"
+          },
+          "10": {
+            "Name": "FTAddName",
+            "Index": -1,
+            "NameInSource": "FTAddName",
+            "Alias": "FTAddName",
+            "Type": "System.String",
+            "Key": "0ff2cf3b1e3b4f73af9cadd976b7c783"
+          },
+          "11": {
+            "Name": "FTCstTaxNo",
+            "Index": -1,
+            "NameInSource": "FTCstTaxNo",
+            "Alias": "FTCstTaxNo",
+            "Type": "System.String",
+            "Key": "2620e53c834b48d6b4b33df6f745b3b4"
+          },
+          "12": {
+            "Name": "FTBchName",
+            "Index": -1,
+            "NameInSource": "FTBchName",
+            "Alias": "FTBchName",
+            "Type": "System.String",
+            "Key": "c0ed746f826646efbab63c75b87b645f"
+          },
+          "13": {
+            "Name": "FTAddTel",
+            "Index": -1,
+            "NameInSource": "FTAddTel",
+            "Alias": "FTAddTel",
+            "Type": "System.String",
+            "Key": "fa42d7f904dc4a69ae80b3cc6319820b"
+          },
+          "14": {
+            "Name": "FTAddFax",
+            "Index": -1,
+            "NameInSource": "FTAddFax",
+            "Alias": "FTAddFax",
+            "Type": "System.String",
+            "Key": "94e0c175fe3647e5b219f5d7df5899d9"
+          },
+          "15": {
+            "Name": "FTXshDocNo",
+            "Index": -1,
+            "NameInSource": "FTXshDocNo",
+            "Alias": "FTXshDocNo",
+            "Type": "System.String",
+            "Key": "6edb972aed934a09be61789fc62f82b1"
+          },
+          "16": {
+            "Name": "FDXshDocDate",
+            "Index": -1,
+            "NameInSource": "FDXshDocDate",
+            "Alias": "FDXshDocDate",
+            "Type": "System.String",
+            "Key": "638657b21e704b3fa0db4692425c5ef5"
+          },
+          "17": {
+            "Name": "FTXshDocDate",
+            "Index": -1,
+            "NameInSource": "FTXshDocDate",
+            "Alias": "FTXshDocDate",
+            "Type": "System.String",
+            "Key": "c1a4f348b5ca43eb9ecc5702b5a75eaa"
+          },
+          "18": {
+            "Name": "FTXshDocTime",
+            "Index": -1,
+            "NameInSource": "FTXshDocTime",
+            "Alias": "FTXshDocTime",
+            "Type": "System.String",
+            "Key": "cc45821e86294ba6bc4d07ce3c7cda90"
+          },
+          "19": {
+            "Name": "FTXshRefInt",
+            "Index": -1,
+            "NameInSource": "FTXshRefInt",
+            "Alias": "FTXshRefInt",
+            "Type": "System.String",
+            "Key": "1645e217345b450697748abe456a2f81"
+          },
+          "20": {
+            "Name": "FTCreateBy",
+            "Index": -1,
+            "NameInSource": "FTCreateBy",
+            "Alias": "FTCreateBy",
+            "Type": "System.String",
+            "Key": "95e061ad9b3d4b46b57b83f7245343b6"
+          },
+          "21": {
+            "Name": "FTSpnCode",
+            "Index": -1,
+            "NameInSource": "FTSpnCode",
+            "Alias": "FTSpnCode",
+            "Type": "System.String",
+            "Key": "ce8ca530537f4512b99b818a90942641"
+          },
+          "22": {
+            "Name": "FTSpnName",
+            "Index": -1,
+            "NameInSource": "FTSpnName",
+            "Alias": "FTSpnName",
+            "Type": "System.String",
+            "Key": "c344d2ab080d4971a63d0e2e06ac8b80"
+          },
+          "23": {
+            "Name": "FTUsrCode",
+            "Index": -1,
+            "NameInSource": "FTUsrCode",
+            "Alias": "FTUsrCode",
+            "Type": "System.String",
+            "Key": "111147ff7c74443e84f70354af76be1b"
+          },
+          "24": {
+            "Name": "FTUsrName",
+            "Index": -1,
+            "NameInSource": "FTUsrName",
+            "Alias": "FTUsrName",
+            "Type": "System.String",
+            "Key": "99e011ae366d46ec97c3820e4a1c8eba"
+          },
+          "25": {
+            "Name": "FTXshRecorder",
+            "Index": -1,
+            "NameInSource": "FTXshRecorder",
+            "Alias": "FTXshRecorder",
+            "Type": "System.String",
+            "Key": "a45b476165ae4153bd1846fe55b687da"
+          },
+          "26": {
+            "Name": "FTXshVATInOrEx",
+            "Index": -1,
+            "NameInSource": "FTXshVATInOrEx",
+            "Alias": "FTXshVATInOrEx",
+            "Type": "System.String",
+            "Key": "e59770e526ba40f4910c1ea274598288"
+          },
+          "27": {
+            "Name": "FTXshStaDoc",
+            "Index": -1,
+            "NameInSource": "FTXshStaDoc",
+            "Alias": "FTXshStaDoc",
+            "Type": "System.String",
+            "Key": "4c8c6686f2fe4769b7509db1f38146c5"
+          },
+          "28": {
+            "Name": "FTXshStaApv1",
+            "Index": -1,
+            "NameInSource": "FTXshStaApv",
+            "Alias": "FTXshStaApv1",
+            "Type": "System.String",
+            "Key": "2cc4c4d786d448e08ee39b5e1703c551"
+          },
+          "29": {
+            "Name": "FTXshStaPrcStk",
+            "Index": -1,
+            "NameInSource": "FTXshStaPrcStk",
+            "Alias": "FTXshStaPrcStk",
+            "Type": "System.String",
+            "Key": "7085da42a4ef41a2bb4a1a25d0afb1c3"
+          },
+          "30": {
+            "Name": "FTXshApvCode",
+            "Index": -1,
+            "NameInSource": "FTXshApvCode",
+            "Alias": "FTXshApvCode",
+            "Type": "System.String",
+            "Key": "b0223eba919e412b837138054ca75b76"
+          },
+          "31": {
+            "Name": "FTXshCtrName",
+            "Index": -1,
+            "NameInSource": "FTXshCtrName",
+            "Alias": "FTXshCtrName",
+            "Type": "System.String",
+            "Key": "7390398180494398b2e14828a5f78cf3"
+          },
+          "32": {
+            "Name": "FTXshRmk",
+            "Index": -1,
+            "NameInSource": "FTXshRmk",
+            "Alias": "FTXshRmk",
+            "Type": "System.String",
+            "Key": "48473ba70f8c46bfa3234062987b60ab"
+          },
+          "33": {
+            "Name": "FTAddVersion",
+            "Index": -1,
+            "NameInSource": "FTAddVersion",
+            "Alias": "FTAddVersion",
+            "Type": "System.String",
+            "Key": "af0341bdeedb4b9895c2790f09ed0455"
+          },
+          "34": {
+            "Name": "FTAddV2Desc1",
+            "Index": -1,
+            "NameInSource": "FTAddV2Desc1",
+            "Alias": "FTAddV2Desc1",
+            "Type": "System.String",
+            "Key": "d223e4af2826490fbf01255e300bdee2"
+          },
+          "35": {
+            "Name": "FTAddV2Desc2",
+            "Index": -1,
+            "NameInSource": "FTAddV2Desc2",
+            "Alias": "FTAddV2Desc2",
+            "Type": "System.String",
+            "Key": "db450ea5c07c49ba8f5c98e31bceb6dc"
+          },
+          "36": {
+            "Name": "FTAddRefNo",
+            "Index": -1,
+            "NameInSource": "FTAddRefNo",
+            "Alias": "FTAddRefNo",
+            "Type": "System.String",
+            "Key": "f43f9262c0d64672a21f722590eb529e"
+          },
+          "37": {
+            "Name": "FTAddV1PvnCode",
+            "Index": -1,
+            "NameInSource": "FTAddV1PvnCode",
+            "Alias": "FTAddV1PvnCode",
+            "Type": "System.String",
+            "Key": "44159d009f444f338723f026d1f2bcef"
+          },
+          "38": {
+            "Name": "FTAddV1DstCode",
+            "Index": -1,
+            "NameInSource": "FTAddV1DstCode",
+            "Alias": "FTAddV1DstCode",
+            "Type": "System.String",
+            "Key": "a0a548634f5c48e2ac7f95a9ebb2c287"
+          },
+          "39": {
+            "Name": "FTAddV1SubDist",
+            "Index": -1,
+            "NameInSource": "FTAddV1SubDist",
+            "Alias": "FTAddV1SubDist",
+            "Type": "System.String",
+            "Key": "d6017815044f42f0a77afc849505118a"
+          },
+          "40": {
+            "Name": "FTPvnName",
+            "Index": -1,
+            "NameInSource": "FTPvnName",
+            "Alias": "FTPvnName",
+            "Type": "System.String",
+            "Key": "2c85f10921b142fcb4e1e3b0084b0a43"
+          },
+          "41": {
+            "Name": "FTDstName",
+            "Index": -1,
+            "NameInSource": "FTDstName",
+            "Alias": "FTDstName",
+            "Type": "System.String",
+            "Key": "6d522611f498499386bfb2ebcdcd4b1e"
+          },
+          "42": {
+            "Name": "FTSudName",
+            "Index": -1,
+            "NameInSource": "FTSudName",
+            "Alias": "FTSudName",
+            "Type": "System.String",
+            "Key": "3be17eb0664d412ab56fdb5fe7c5d230"
+          },
+          "43": {
+            "Name": "FTAddName1",
+            "Index": -1,
+            "NameInSource": "FTAddName",
+            "Alias": "FTAddName1",
+            "Type": "System.String",
+            "Key": "d7e2cf9370ac46e2a91225aacfea4705"
+          },
+          "44": {
+            "Name": "FTAddV1No",
+            "Index": -1,
+            "NameInSource": "FTAddV1No",
+            "Alias": "FTAddV1No",
+            "Type": "System.String",
+            "Key": "ff5d7a9ad7a14e39a49ec19c3f652129"
+          },
+          "45": {
+            "Name": "FTAddV1Village",
+            "Index": -1,
+            "NameInSource": "FTAddV1Village",
+            "Alias": "FTAddV1Village",
+            "Type": "System.String",
+            "Key": "b01c5927e41e4bef889547b9adbd1225"
+          },
+          "46": {
+            "Name": "FTAddV1Soi",
+            "Index": -1,
+            "NameInSource": "FTAddV1Soi",
+            "Alias": "FTAddV1Soi",
+            "Type": "System.String",
+            "Key": "44f9f667d2f449529974f665c54372f7"
+          },
+          "47": {
+            "Name": "FTAddV1Road",
+            "Index": -1,
+            "NameInSource": "FTAddV1Road",
+            "Alias": "FTAddV1Road",
+            "Type": "System.String",
+            "Key": "b13d287e71ab4169a6a35f03057ab7b9"
+          },
+          "48": {
+            "Name": "FTAddV1PostCode",
+            "Index": -1,
+            "NameInSource": "FTAddV1PostCode",
+            "Alias": "FTAddV1PostCode",
+            "Type": "System.String",
+            "Key": "022eff6c03fe46c98340c04082b80717"
+          },
+          "49": {
+            "Name": "FCXshTotal",
+            "Index": -1,
+            "NameInSource": "FCXshTotal",
+            "Alias": "FCXshTotal",
+            "Type": "System.Decimal",
+            "Key": "bdaf20eac0fc45f3a3d701e8e5df9bff"
+          },
+          "50": {
+            "Name": "FCXshVat",
+            "Index": -1,
+            "NameInSource": "FCXshVat",
+            "Alias": "FCXshVat",
+            "Type": "System.Decimal",
+            "Key": "c1de59dba21c4d86b21e446ccb7e3a33"
+          },
+          "51": {
+            "Name": "FCXshDiscount",
+            "Index": -1,
+            "NameInSource": "FCXshDiscount",
+            "Alias": "FCXshDiscount",
+            "Type": "System.Decimal",
+            "Key": "139e8037552c425bae61ae8690f79cc2"
+          },
+          "52": {
+            "Name": "FCXshVatAmt",
+            "Index": -1,
+            "NameInSource": "FCXshVatAmt",
+            "Alias": "FCXshVatAmt",
+            "Type": "System.Decimal",
+            "Key": "bf45c138ed53468c8482a38b2ab272fc"
+          },
+          "53": {
+            "Name": "FCXshVatable",
+            "Index": -1,
+            "NameInSource": "FCXshVatable",
+            "Alias": "FCXshVatable",
+            "Type": "System.Decimal",
+            "Key": "327909e35a9f497c9f1da2daeb6287a3"
+          },
+          "54": {
+            "Name": "FCXshTotalAFDis",
+            "Index": -1,
+            "NameInSource": "FCXshTotalAFDis",
+            "Alias": "FCXshTotalAFDis",
+            "Type": "System.Decimal",
+            "Key": "35b642d7a2d14517979221d31a0c9922"
+          },
+          "55": {
+            "Name": "FCXshGrandBFRnd",
+            "Index": -1,
+            "NameInSource": "FCXshGrandBFRnd",
+            "Alias": "FCXshGrandBFRnd",
+            "Type": "System.Decimal",
+            "Key": "457e8ae6606448b487f1df6771d68e8a"
+          },
+          "56": {
+            "Name": "FCXshRnd",
+            "Index": -1,
+            "NameInSource": "FCXshRnd",
+            "Alias": "FCXshRnd",
+            "Type": "System.Decimal",
+            "Key": "054eab69d0b140319c09558c7d34454d"
+          },
+          "57": {
+            "Name": "FCXshGrandAmt",
+            "Index": -1,
+            "NameInSource": "FCXshGrandAmt",
+            "Alias": "FCXshGrandAmt",
+            "Type": "System.Double",
+            "Key": "0daf2c3628fb4545b56a69705d063e01"
+          },
+          "58": {
+            "Name": "FCXshAmtV",
+            "Index": -1,
+            "NameInSource": "FCXshAmtV",
+            "Alias": "FCXshAmtV",
+            "Type": "System.Decimal",
+            "Key": "ec1548693f3647149b2fce6dab95cfdf"
+          },
+          "59": {
+            "Name": "FCXshGrand",
+            "Index": -1,
+            "NameInSource": "FCXshGrand",
+            "Alias": "FCXshGrand",
+            "Type": "System.Decimal",
+            "Key": "f1c06b7801e842cd9006ed61aa51a775"
+          },
+          "60": {
+            "Name": "FTXshGndText",
+            "Index": -1,
+            "NameInSource": "FTXshGndText",
+            "Alias": "FTXshGndText",
+            "Type": "System.String",
+            "Key": "6958d0f8c0804d83bdae91aaf651a21d"
+          },
+          "61": {
+            "Name": "FNXshDocPrint",
+            "Index": -1,
+            "NameInSource": "FNXshDocPrint",
+            "Alias": "FNXshDocPrint",
+            "Type": "System.Int32",
+            "Key": "7dc78115a25e40b59116ea250ce68a69"
+          },
+          "62": {
+            "Name": "FTXshStaETax",
+            "Index": -1,
+            "NameInSource": "FTXshStaETax",
+            "Alias": "FTXshStaETax",
+            "Type": "System.String",
+            "Key": "93671c5836a545e2a2be1e10ee483c32"
+          },
+          "63": {
+            "Name": "FTAddStaBusiness",
+            "Index": -1,
+            "NameInSource": "FTAddStaBusiness",
+            "Alias": "FTAddStaBusiness",
+            "Type": "System.String",
+            "Key": "a3a9899c15cf47119cc6ed1e130baa62"
+          },
+          "64": {
+            "Name": "FTUsrNameApp",
+            "Index": -1,
+            "NameInSource": "FTUsrNameApp",
+            "Alias": "FTUsrNameApp",
+            "Type": "System.String",
+            "Key": "b453370bc27a48a2b037700c2270dd4f"
+          },
+          "65": {
+            "Name": "FTRsnCodeMst",
+            "Index": -1,
+            "NameInSource": "FTRsnCodeMst",
+            "Alias": "FTRsnCodeMst",
+            "Type": "System.String",
+            "Key": "5321f7a266f64109b362c1df5fb89de1"
+          },
+          "66": {
+            "Name": "FTRsnNameMst",
+            "Index": -1,
+            "NameInSource": "FTRsnNameMst",
+            "Alias": "FTRsnNameMst",
+            "Type": "System.String",
+            "Key": "7653587e12614f95bb100ec186e49205"
+          },
+          "67": {
+            "Name": "FTXshDocNoMst",
+            "Index": -1,
+            "NameInSource": "FTXshDocNoMst",
+            "Alias": "FTXshDocNoMst",
+            "Type": "System.String",
+            "Key": "70a237a6446b4ddfa9e8ea20c905beac"
+          },
+          "68": {
+            "Name": "FCXshAmtNV",
+            "Index": -1,
+            "NameInSource": "FCXshAmtNV",
+            "Alias": "FCXshAmtNV",
+            "Type": "System.Decimal"
+          }
+        },
+        "NameInSource": "SaleInv",
+        "CommandTimeout": 5000,
+        "SqlCommand": "SELECT  CASE WHEN ISNULL(HD.FTXshStaDoc,'') IN ('1','5') THEN RefInt.FTXshRefDocNo ELSE RefExt.FTXshRefDocNo\r\n\t\tEND AS FTXshRefDoc,FTXshRefDocNoFull,\r\n\t\tCASE HD.FNXshDocType\r\n\t\tWHEN 10 THEN FTXshRefDocNoXN\r\n\t\tWHEN 11 THEN FTXshRefDocNoXN\r\n\t\tELSE FTXshRefDocNoSale\r\n\t\tEND AS FTXshRefDocNoSale\r\n\t\t,HD.FNXshDocType,\r\n\tHD.FTBchCode,RefExt.FTXshRefDocNo AS FTXshRefExt,\r\n\tPos.FTPosRegNo,\r\n\tHD.FTXshStaApv, \r\n\tApp_L.FTUsrName AS FTUsrApp,\r\n\tHD.FTCstCode,\r\n\tHDAddr.FTAddName,\r\n\tISNULL(HDAddr.FTAddTaxNo,'')  AS FTCstTaxNo,\t\t\r\n\tCASE WHEN HDAddr.FTAddStaBusiness = '1' THEN CASE WHEN HDAddr.FTAddStaHQ = '1' THEN '(สำนักงานใหญ่) ' ELSE '(สาขา : ' + HDAddr.FTAddStaBchCode + ')'  END ELSE HDAddr.FTAddStaBchCode  END \tAS FTBchName,\r\n\tHDAddr.FTAddTel,\r\n\tHDAddr.FTAddFax,\r\n\tHD.FTXshDocNo,CONVERT(VARCHAR(10),HD.FDXshDocDate,121) AS FDXshDocDate,CONVERT(VARCHAR(10),HD.FDXshDocDate,103) AS FTXshDocDate,CONVERT(VARCHAR(10),HD.FDXshDocDate,8) AS FTXshDocTime,\r\n\tRefInt.FTXshRefDocNo AS FTXshRefInt,HD.FTCreateBy,\r\n\tISNULL(HD.FTSpnCode,'') AS FTSpnCode,Spn_L.FTSpnName,\r\n\tISNULL(HD.FTUsrCode,'') AS FTUsrCode,Usr_L.FTUsrName,\r\n    Red_L.FTUsrName AS FTXshRecorder,\r\n\tISNULL(HD.FTXshVATInOrEx,'') AS FTXshVATInOrEx,\r\n\tISNULL(HD.FTXshStaDoc,'') AS FTXshStaDoc,\r\n\tISNULL(HD.FTXshStaApv,'') AS FTXshStaApv,\r\n\tISNULL(HD.FTXshStaPrcStk,'') AS FTXshStaPrcStk,\r\n\tISNULL(HD.FTXshApvCode,'') AS FTXshApvCode,\r\n\tISNULL(HDCst.FTXshCtrName,'') AS FTXshCtrName,\r\n\tISNULL(HD.FTXshRmk,'') AS FTXshRmk,\r\n\tISNULL(HDAddr.FTAddVersion,'') AS FTAddVersion,\r\n\tHDAddr.FTAddV2Desc1,\r\n\tHDAddr.FTAddV2Desc2,\r\n\tISNULL(HDAddr.FTAddRefNo,'') AS FTAddRefNo,\r\n\tISNULL(HDAddr.FTAddV1PvnCode,'') AS FTAddV1PvnCode, ISNULL(HDAddr.FTAddV1DstCode,'') AS FTAddV1DstCode,\r\n\tISNULL(HDAddr.FTAddV1SubDist,'') AS FTAddV1SubDist, \r\n\tISNULL(Pro_L.FTPvnName,'') AS FTPvnName,\r\n\tISNULL(Dis_L.FTDstName,'') AS FTDstName,\r\n\tISNULL(SDis_L.FTSudName,'') AS FTSudName,\r\n\tHDAddr.FTAddName, \r\n\tISNULL(HDAddr.FTAddV1No, '') AS FTAddV1No,\r\n\tISNULL(HDAddr.FTAddV1Village, '') AS FTAddV1Village,\r\n\tISNULL(HDAddr.FTAddV1Soi, '') AS FTAddV1Soi,\r\n\tISNULL(HDAddr.FTAddV1Road, '') AS FTAddV1Road,\r\n\tISNULL(HDAddr.FTAddV1PostCode, '') AS FTAddV1PostCode,\r\n\tISNULL(HD.FCXshTotal,0) AS FCXshTotal,ISNULL(HD.FCXshVat,0) AS FCXshVat,ISNULL(HD.FCXshChg,0) - ISNULL(HD.FCXshDis,0) AS FCXshDiscount,\r\n    ISNULL(HD.FCXshVatable,0) + ISNULL(HD.FCXshVat,0) AS FCXshVatAmt,\r\n\tISNULL(HD.FCXshAmtNV,0) AS FCXshAmtNV, \r\n\tISNULL(HD.FCXshVatable,0) AS FCXshVatable,\r\n\tISNULL(HD.FCXshTotalAfDisChgV,0)+ISNULL(HD.FCXshTotalAfDisChgNV,0) AS FCXshTotalAFDis,\r\n    ISNULL(HD.FCXshGrand,0)-ISNULL(HD.FCXshRnd,0) AS FCXshGrandBFRnd,\r\n\tISNULL(HD.FCXshRnd,0) AS FCXshRnd,\r\n\tISNULL(HD.FCXshGrand,0) AS FCXshGrandAmt,\r\n\tISNULL(HD.FCXshAmtV,0) AS FCXshAmtV,\r\n\tCASE WHEN HD.FTXshVATInOrEx='1' THEN ISNULL(HD.FCXshTotal,0)+(ISNULL(HD.FCXshChg,0) - ISNULL(HD.FCXshDis,0)) ELSE (ISNULL(HD.FCXshTotal,0)+(ISNULL(HD.FCXshChg,0) - ISNULL(HD.FCXshDis,0)))+HD.FCXshVat END AS FCXshGrand,\r\n    HD.FTXshGndText, \r\n\tHD.FNXshDocPrint,\r\n\tISNULL(HD.FTXshStaETax,'2') AS FTXshStaETax,\r\n\tHDAddr.FTAddStaBusiness,\r\n\tApver_L.FTUsrName AS FTUsrNameApp,\r\n\tHDMst.FTRsnCode AS FTRsnCodeMst,RanMst.FTRsnName AS FTRsnNameMst,\r\n\tHDMst.FTXshDocNo AS FTXshDocNoMst\r\n\tFROM TPSTTaxHD  HD WITH (NOLOCK)  INNER JOIN \r\n     TPSTTaxHDCst HDCst WITH (NOLOCK) ON HD.FTBchCode = HDCst.FTBchCode AND HD.FTXshDocNo = HDCst.FTXshDocNo \r\n\r\n\t LEFT JOIN\r\n\t(\r\nSELECT FTBchCode, FTXshDocNo, FTXshRefDocNo, FTXshRefDocNo AS FTXshRefDocNoXN, FTXshRefType, FTXshRefKey, FDXshRefDocDate\r\n\tFROM TPSTTaxHDDocRef WITH (NOLOCK) \r\n\t\tWHERE FTXshRefType = '1' AND FTXshRefKey IN ('CLAIM','ABBFULLTAX')\r\n\t) RefDN ON HD.FTBchCode =RefDN.FTBchCode AND HD.FTXshDocNo = RefDN.FTXshDocNo\r\n\r\n\t LEFT JOIN\r\n\t(\r\nSELECT FTBchCode, FTXshDocNo, FTXshRefDocNo, FTXshRefDocNo AS FTXshRefDocNoSale, FTXshRefType, FTXshRefKey, FDXshRefDocDate\r\n\tFROM TPSTTaxHDDocRef WITH (NOLOCK) \r\n\t\tWHERE FTXshRefType = '1' AND FTXshRefKey IN ('ABB')\r\n\t) RefInt ON HD.FTBchCode =RefInt.FTBchCode AND HD.FTXshDocNo = RefInt.FTXshDocNo\r\n\t LEFT JOIN\r\n\t(\r\nSELECT FTBchCode, FTXshDocNo, FTXshRefDocNo, FTXshRefDocNo AS FTXshRefDocNoFull, FTXshRefType, FTXshRefKey, FDXshRefDocDate\r\n\tFROM TPSTTaxHDDocRef WITH (NOLOCK) \r\n\t\tWHERE FTXshRefType = '1' AND FTXshRefKey = 'FULLTAX' AND FTXshDocNo = @ptDocNo \r\n\t) RefIntFull ON HD.FTBchCode =RefIntFull.FTBchCode AND HD.FTXshDocNo = RefIntFull.FTXshDocNo\r\n\t LEFT JOIN\r\n\t\t(\r\nSELECT FTBchCode, FTXshDocNo, FTXshRefDocNo, FTXshRefType, FTXshRefKey, FDXshRefDocDate\r\n\tFROM TPSTTaxHDDocRef WITH (NOLOCK) \r\n\t\t\tWHERE FTXshRefType = '3'\r\n\t\t) RefExt ON HD.FTBchCode =RefExt.FTBchCode AND HD.FTXshDocNo = RefExt.FTXshDocNo\r\n\t LEFT JOIN\r\n\t TCNMPos Pos WITH (NOLOCK) ON HD.FTPosCode = Pos.FTPosCode AND HD.FTBchCode = Pos.FTBchCode  LEFT JOIN \r\n\t TCNMCst Cst WITH (NOLOCK) ON HD.FTCstCode = Cst.FTCstCode LEFT JOIN\r\n\t TCNMCst_L Cst_L WITH (NOLOCK) ON HD.FTCstCode = Cst_L.FTCstCode AND Cst_L.FNLngID = @pnLanguage LEFT JOIN\r\n     TCNMSpn_L Spn_L WITH (NOLOCK) ON  HD.FTSpnCode = Spn_L.FTSpnCode AND Spn_L.FNLngID = @pnLanguage LEFT JOIN\r\n\t TCNMUser_L Usr_L  WITH (NOLOCK) ON HD.FTUsrCode = Usr_L.FTUsrCode AND Usr_L.FNLngID = @pnLanguage LEFT JOIN\r\n\t TCNMUser_L Red_L   WITH (NOLOCK) ON HD.FTLastUpdBy = Red_L.FTUsrCode AND Red_L.FNLngID = @pnLanguage LEFT JOIN\r\n\t TCNMUser_L Apver_L  WITH (NOLOCK) ON HD.FTXshApvCode = Apver_L.FTUsrCode AND Apver_L.FNLngID = @pnLanguage LEFT JOIN\r\n     TCNMUser_L App_L  WITH (NOLOCK) ON HD.FTXshApvCode = App_L.FTUsrCode AND App_L.FNLngID = @pnLanguage LEFT JOIN\r\n\t TPSTTaxHDAddress HDAddr WITH (NoLock) ON  HD.FTBchCode = HDAddr.FTBchCode AND HD.FTXshDocNo = HDAddr.FTXshDocNo LEFT JOIN\r\n\t TPSTTaxHD HDMst WITH (NOLOCK) ON HD.FTBchCode = HDMst.FTBchCode AND HD.FTXshRefAE= HDMst.FTXshDocNo AND HDMst.FTXshStaDoc = '5' LEFT JOIN\r\n\t TPSTTaxHDAddress HDAddrEdit WITH (NoLock) ON  HDMst.FTBchCode = HDAddrEdit.FTBchCode AND HDMst.FTXshDocNo = HDAddrEdit.FTXshDocNo LEFT JOIN\r\n\t TCNMRsn_L RanMst WITH (NOLOCK) ON HDMst.FTRsnCode = RanMst.FTRsnCode AND RanMst.FNLngID = @pnLanguage \r\n\t LEFT JOIN TCNMProvince_L Pro_L WITH (NoLock) ON HDAddr.FTAddV1PvnCode = Pro_L.FTPvnCode AND Pro_L.FNLngID = @pnLanguage\r\n\t LEFT JOIN TCNMDistrict_L Dis_L WITH (NoLock) ON HDAddr.FTAddV1DstCode = Dis_L.FTDstCode AND Dis_L.FNLngID = @pnLanguage\r\n\t LEFT JOIN TCNMSubDistrict_L SDis_L WITH (NoLock) ON HDAddr.FTAddV1SubDist = SDis_L.FTSudCode AND SDis_L.FNLngID = @pnLanguage\r\nWHERE HD.FTXshDocNo = @ptDocNo AND HD.FTBchCode = @ptDocBch",
+        "Parameters": {
+          "0": {
+            "Name": "ptDocNo",
+            "Expression": "SP_tDocNo",
+            "Type": 22,
+            "Size": 20
+          },
+          "1": {
+            "Name": "pnLanguage",
+            "Expression": "nLanguage",
+            "Type": 8,
+            "Size": 3
+          },
+          "2": {
+            "Name": "ptDocBch",
+            "Expression": "SP_tDocBch",
+            "Type": 22,
+            "Size": 5
+          }
+        }
+      },
+      "1": {
+        "Ident": "StiSqlSource",
+        "Name": "Company",
+        "Alias": "Company",
+        "Key": "924c7ea89aa54e84b85e0d6656c0f893",
+        "Columns": {
+          "0": {
+            "Name": "FTCompName",
+            "Index": -1,
+            "NameInSource": "FTCompName",
+            "Alias": "FTCompName",
+            "Type": "System.String"
+          },
+          "1": {
+            "Name": "FTBchCode",
+            "Index": -1,
+            "NameInSource": "FTBchCode",
+            "Alias": "FTBchCode",
+            "Type": "System.String"
+          },
+          "2": {
+            "Name": "FTAddrType",
+            "Index": -1,
+            "NameInSource": "FTAddrType",
+            "Alias": "FTAddrType",
+            "Type": "System.String"
+          },
+          "3": {
+            "Name": "FTAddName",
+            "Index": -1,
+            "NameInSource": "FTAddName",
+            "Alias": "FTAddName",
+            "Type": "System.String"
+          },
+          "4": {
+            "Name": "FTBchName",
+            "Index": -1,
+            "NameInSource": "FTBchName",
+            "Alias": "FTBchName",
+            "Type": "System.String"
+          },
+          "5": {
+            "Name": "FTAddV1No",
+            "Index": -1,
+            "NameInSource": "FTAddV1No",
+            "Alias": "FTAddV1No",
+            "Type": "System.String"
+          },
+          "6": {
+            "Name": "FTAddV1Soi",
+            "Index": -1,
+            "NameInSource": "FTAddV1Soi",
+            "Alias": "FTAddV1Soi",
+            "Type": "System.String"
+          },
+          "7": {
+            "Name": "FTAddV1Village",
+            "Index": -1,
+            "NameInSource": "FTAddV1Village",
+            "Alias": "FTAddV1Village",
+            "Type": "System.String"
+          },
+          "8": {
+            "Name": "FTAddV1Road",
+            "Index": -1,
+            "NameInSource": "FTAddV1Road",
+            "Alias": "FTAddV1Road",
+            "Type": "System.String"
+          },
+          "9": {
+            "Name": "FTAddV1SubDist",
+            "Index": -1,
+            "NameInSource": "FTAddV1SubDist",
+            "Alias": "FTAddV1SubDist",
+            "Type": "System.String"
+          },
+          "10": {
+            "Name": "FTSudName",
+            "Index": -1,
+            "NameInSource": "FTSudName",
+            "Alias": "FTSudName",
+            "Type": "System.String"
+          },
+          "11": {
+            "Name": "FTAddV1DstCode",
+            "Index": -1,
+            "NameInSource": "FTAddV1DstCode",
+            "Alias": "FTAddV1DstCode",
+            "Type": "System.String"
+          },
+          "12": {
+            "Name": "FTDstName",
+            "Index": -1,
+            "NameInSource": "FTDstName",
+            "Alias": "FTDstName",
+            "Type": "System.String"
+          },
+          "13": {
+            "Name": "FTAddV1PvnCode",
+            "Index": -1,
+            "NameInSource": "FTAddV1PvnCode",
+            "Alias": "FTAddV1PvnCode",
+            "Type": "System.String"
+          },
+          "14": {
+            "Name": "FTPvnName",
+            "Index": -1,
+            "NameInSource": "FTPvnName",
+            "Alias": "FTPvnName",
+            "Type": "System.String"
+          },
+          "15": {
+            "Name": "FTAddV1PostCode",
+            "Index": -1,
+            "NameInSource": "FTAddV1PostCode",
+            "Alias": "FTAddV1PostCode",
+            "Type": "System.String"
+          },
+          "16": {
+            "Name": "FTAddV2Desc1",
+            "Index": -1,
+            "NameInSource": "FTAddV2Desc1",
+            "Alias": "FTAddV2Desc1",
+            "Type": "System.String"
+          },
+          "17": {
+            "Name": "FTAddV2Desc2",
+            "Index": -1,
+            "NameInSource": "FTAddV2Desc2",
+            "Alias": "FTAddV2Desc2",
+            "Type": "System.String"
+          },
+          "18": {
+            "Name": "FTAddTel",
+            "Index": -1,
+            "NameInSource": "FTAddTel",
+            "Alias": "FTAddTel",
+            "Type": "System.String"
+          },
+          "19": {
+            "Name": "FTAddFax",
+            "Index": -1,
+            "NameInSource": "FTAddFax",
+            "Alias": "FTAddFax",
+            "Type": "System.String"
+          },
+          "20": {
+            "Name": "FTAddWebsite",
+            "Index": -1,
+            "NameInSource": "FTAddWebsite",
+            "Alias": "FTAddWebsite",
+            "Type": "System.String"
+          },
+          "21": {
+            "Name": "FTAddTaxNo",
+            "Index": -1,
+            "NameInSource": "FTAddTaxNo",
+            "Alias": "FTAddTaxNo",
+            "Type": "System.String"
+          }
+        },
+        "NameInSource": "SaleInv",
+        "CommandTimeout": 5000,
+        "SqlCommand": "SELECT \r\n\tCASE WHEN FTAddRefCode = ISNULL(FTAddRefCodeMer,'') THEN FTMerName ELSE \r\n\tCASE WHEN FTAddRefCode = ISNULL(FTAddRefCodeAgn,'') THEN FTAgnName ELSE  \r\n\t\tCASE WHEN FTAddRefCode = ISNULL(FTAddRefCodeBch,'') THEN FTCmpName ELSE \r\n\t\t\tCASE WHEN FTAddRefCode = ISNULL(FTAddRefCodeCmp,'') THEN FTCmpName ELSE \r\n(SELECT CmpL.FTCmpName \r\n\tFROM TCNMComp Cmp  WITH (NOLOCK) LEFT JOIN\r\n\t\t\t\t TCNMComp_L CmpL  WITH (NOLOCK) ON Cmp.FTCmpCode = CmpL.FTCmpCode AND FNLngID = @pnLanguage\r\n\t\t\t\t WHERE FTBchCode = @ptCompCode)   \r\n\t\t\tEND\r\n\t\tEND\r\n\tEND\r\nEND\r\nAS \tFTCompName,FTBchCode,\r\nFTAddrType,FTAddName,(SELECT FTBchName FROM TCNMBranch_L  WITH (NOLOCK) WHERE  FTBchCode = @ptDocBch AND FNLngID = @pnLanguage ) AS FTBchName,\r\nFTAddV1No,FTAddV1Soi,FTAddV1Village,FTAddV1Road,FTAddV1SubDist,FTSudName,FTAddV1DstCode,FTDstName,FTAddV1PvnCode,FTPvnName,FTAddV1PostCode,FTAddV2Desc1,FTAddV2Desc2,\r\nFTAddTel,FTAddFax,FTAddWebsite  ,FTAddTaxNo\r\nFROM\r\n(SELECT BchMst.FTBchCode, AddrL.FTAddRefCode,FTAddRefCodeMer,Mer.FTMerName,Agn.FTAddRefCodeAgn,Agn.FTAgnName,Bch.FTAddRefCodeBch,\r\n\tBch.FTCmpName AS FTCmpNameBch,FTAddRefCodeCmp,\r\n\t(SELECT FTCmpName FROM TCNMComp_L WHERE FTCmpCode = @ptCompCode AND FNLngID = @pnLanguage) AS FTCmpName,\r\n\tFTAddVersion AS FTAddrType,AddrL.FTAddName,\r\n\tFTAddV1No,FTAddV1Soi,FTAddV1Village,FTAddV1Road,FTAddV1SubDist,SDstL.FTSudName,FTAddV1DstCode,DstL.FTDstName,FTAddV1PvnCode,PvnL.FTPvnName,FTAddV1PostCode,FTAddV2Desc1,FTAddV2Desc2,\r\n\tAddrL.FTAddTel,AddrL.FTAddFax,AddrL.FTAddWebsite  ,FTAddTaxNo\r\n\tFROM TCNMBranch BchMst  WITH (NOLOCK) LEFT JOIN \r\n\tTCNMAddress_L AddrL  WITH (NOLOCK) ON BchMst.FTBchCode = AddrL.FTAddRefCode\r\n\t LEFT JOIN\r\n\t\t\t (\r\nSELECT FTBchCode,Bch.FTMerCode,FTMerName,FTAddRefCode AS FTAddRefCodeMer\r\n\tFROM  TCNMBranch Bch WITH (NOLOCK) \r\n\t\t\t\tINNER JOIN TCNMAddress_L AddrL WITH (NOLOCK) ON Bch.FTMerCode = AddrL.FTAddRefCode AND AddrL.FTAddGrpType = '7' AND AddrL.FTAddRefNo = '1'\r\n\t\t\t\tLEFT JOIN TCNMMerChant_L MerL WITH (NOLOCK) ON Bch.FTMerCode = MerL.FTMerCode AND MerL.FNLngID = @pnLanguage\r\n\t\t\t\tWHERE FTBchCode = @ptCmpBch  \r\n\t\t\t ) Mer ON AddrL.FTAddRefCode  = Mer.FTAddRefCodeMer \r\n\r\n\t LEFT JOIN\r\n\t\t\t\r\n(SELECT FTBchCode,Agn.FTAgnCode,AgnL.FTAgnName,FTAddRefCode AS FTAddRefCodeAgn\r\n\tFROM  TCNMAgency Agn WITH (NOLOCK) \r\n\t\t\t INNER JOIN TCNMAddress_L AddrL WITH (NOLOCK) ON Agn.FTAgnCode = AddrL.FTAddRefCode  AND  AddrL.FTAddGrpType = '5' \r\n\t\t\t LEFT JOIN TCNMAgency_L AgnL WITH (NOLOCK) ON Agn.FTAgnCode = AgnL.FTAgnCode AND AgnL.FNLngID = @pnLanguage\r\n\t\t\t WHERE AddrL.FTAddRefNo = '1'\r\n\t\t\t) Agn  ON AddrL.FTAddRefCode  = Agn.FTAddRefCodeAgn\r\n\r\n\t LEFT JOIN\r\n\t\t\r\n(SELECT Bch.FTBchCode,CmpL.FTCmpName,FTAddRefCode AS FTAddRefCodeBch\r\n\tFROM  TCNMBranch Bch WITH (NOLOCK) \r\n\t\t\t LEFT JOIN TCNMComp Cmp WITH (NOLOCK) ON Cmp.FTBchCode = Bch.FTBchCode \r\n\t\t\t INNER JOIN TCNMAddress_L AddrL WITH (NOLOCK) ON Bch.FTBchCode = AddrL.FTAddRefCode  AND AddrL.FTAddRefNo = '1'\r\n\t\t\t LEFT JOIN TCNMComp_L CmpL WITH (NOLOCK) ON Cmp.FTCmpCode = CmpL.FTCmpCode AND CmpL.FNLngID = @pnLanguage\r\n\t\t\t WHERE Bch.FTBchCode = @ptCmpBch \r\n\t\t\t) Bch ON  AddrL.FTAddRefCode  = Bch.FTAddRefCodeBch\r\n\t LEFT JOIN\r\n\t\t\r\n(SELECT Cmp.FTBchCode,CmpL.FTCmpName,FTAddRefCode AS FTAddRefCodeCmp\r\n\tFROM  TCNMComp Cmp WITH (NOLOCK) \r\n\t\t\t INNER JOIN TCNMAddress_L AddrL WITH (NOLOCK) ON Cmp.FTBchCode = AddrL.FTAddRefCode  AND AddrL.FTAddRefNo = '1'\r\n\t\t\t LEFT JOIN TCNMComp_L CmpL WITH (NOLOCK) ON Cmp.FTCmpCode = CmpL.FTCmpCode AND CmpL.FNLngID = @pnLanguage\r\n\t\t\t WHERE Cmp.FTBchCode = @ptCmpBch \r\n\t\t\t) Cmp ON  AddrL.FTAddRefCode  = Cmp.FTAddRefCodeCmp\r\n\t LEFT JOIN TCNMProvince_L PvnL WITH (NoLock) ON  AddrL.FTAddV1PvnCode = PvnL.FTPvnCode AND PvnL.FNLngID = @pnLanguage\r\n\t LEFT JOIN TCNMDistrict_L DstL WITH (NoLock) ON  AddrL.FTAddV1DstCode = DstL.FTDstCode AND DstL.FNLngID = @pnLanguage\t\t\r\n\t LEFT JOIN TCNMSubDistrict_L SDstL WITH (NoLock) ON  AddrL.FTAddV1SubDist = SDstL.FTSudCode AND SDstL.FNLngID = @pnLanguage\t\t\r\n\t WHERE BchMst.FTBchCode = @ptCmpBch OR\r\n\t    (AddrL.FTAddRefCode = Mer.FTMerCode OR AddrL.FTAddRefCode = Agn.FTAgnCode OR AddrL.FTAddRefCode = Bch.FTBchcode OR AddrL.FTAddRefCode = Cmp.FTBchcode )\r\n) AddrSum",
+        "Parameters": {
+          "0": {
+            "Name": "ptCompCode",
+            "Expression": "SP_tCompCode",
+            "Type": 22,
+            "Size": 5
+          },
+          "1": {
+            "Name": "pnLanguage",
+            "Expression": "nLanguage",
+            "Type": 16,
+            "Size": 3
+          },
+          "2": {
+            "Name": "pnAddSeq",
+            "Expression": "SP_nAddSeq",
+            "Type": 8,
+            "Size": 3
+          },
+          "3": {
+            "Name": "ptCmpBch",
+            "Expression": "SP_tCmpBch",
+            "Type": 22,
+            "Size": 5
+          },
+          "4": {
+            "Name": "ptDocBch",
+            "Expression": "SP_tDocBch",
+            "Type": 22,
+            "Size": 5
+          }
+        }
+      },
+      "2": {
+        "Ident": "StiSqlSource",
+        "Name": "TPSTSalDT",
+        "Alias": "TPSTSalDT",
+        "Key": "647abf96391c4f67a67fe2425572cfdc",
+        "Columns": {
+          "0": {
+            "Name": "FTBchCode",
+            "Index": -1,
+            "NameInSource": "FTBchCode",
+            "Alias": "FTBchCode",
+            "Type": "System.String",
+            "Key": "154f7556d9cb48abab9d7a0335d2c711"
+          },
+          "1": {
+            "Name": "FTXshDocNo",
+            "Index": -1,
+            "NameInSource": "FTXshDocNo",
+            "Alias": "FTXshDocNo",
+            "Type": "System.String",
+            "Key": "1b1709fff9584ac7b20d727ffc9096ee"
+          },
+          "2": {
+            "Name": "FTPdtCode",
+            "Index": -1,
+            "NameInSource": "FTPdtCode",
+            "Alias": "FTPdtCode",
+            "Type": "System.String",
+            "Key": "d7572e7491364ffaa885ff5d7b6ab36b"
+          },
+          "3": {
+            "Name": "FTXsdBarCode",
+            "Index": -1,
+            "NameInSource": "FTXsdBarCode",
+            "Alias": "FTXsdBarCode",
+            "Type": "System.String",
+            "Key": "b117496f1ab946fab40a05b9af671938"
+          },
+          "4": {
+            "Name": "FTPdtName",
+            "Index": -1,
+            "NameInSource": "FTPdtName",
+            "Alias": "FTPdtName",
+            "Type": "System.String",
+            "Key": "83543fe664cc470c86597db1e265dc73"
+          },
+          "5": {
+            "Name": "FTPunCode",
+            "Index": -1,
+            "NameInSource": "FTPunCode",
+            "Alias": "FTPunCode",
+            "Type": "System.String",
+            "Key": "7a398758b79b4bbf984b051df214cfbe"
+          },
+          "6": {
+            "Name": "FTPunName",
+            "Index": -1,
+            "NameInSource": "FTPunName",
+            "Alias": "FTPunName",
+            "Type": "System.String",
+            "Key": "60e1cf7ef2394734a41e52e1003d7db6"
+          },
+          "7": {
+            "Name": "FCXsdQty",
+            "Index": -1,
+            "NameInSource": "FCXsdQty",
+            "Alias": "FCXsdQty",
+            "Type": "System.Decimal",
+            "Key": "93e3fcf4652d4ddca7131022339a8a98"
+          },
+          "8": {
+            "Name": "FCXsdSetPrice",
+            "Index": -1,
+            "NameInSource": "FCXsdSetPrice",
+            "Alias": "FCXsdSetPrice",
+            "Type": "System.Decimal",
+            "Key": "69e31bbc35c14dfba48f902db39e4333"
+          },
+          "9": {
+            "Name": "FCXsdDiscount",
+            "Index": -1,
+            "NameInSource": "FCXsdDiscount",
+            "Alias": "FCXsdDiscount",
+            "Type": "System.Decimal",
+            "Key": "00740ad2717c45fd8d723948c8d282c6"
+          },
+          "10": {
+            "Name": "FCXsdNet",
+            "Index": -1,
+            "NameInSource": "FCXsdNet",
+            "Alias": "FCXsdNet",
+            "Type": "System.Decimal",
+            "Key": "d8dff3e983bc4c2eb5e57d12f5dbc653"
+          },
+          "11": {
+            "Name": "FNXsdSeqNo",
+            "Index": -1,
+            "NameInSource": "FNXsdSeqNo",
+            "Alias": "FNXsdSeqNo",
+            "Type": "System.Int32",
+            "Key": "2405cb5ffe35424a8a442ef80a6ad432"
+          },
+          "12": {
+            "Name": "FCXddDisPmt",
+            "Index": -1,
+            "NameInSource": "FCXddDisPmt",
+            "Alias": "FCXddDisPmt",
+            "Type": "System.Decimal",
+            "Key": "9cff101d8baa4a13acc5ce8df7c8bef8"
+          },
+          "13": {
+            "Name": "FVXsdSumNet",
+            "Index": -1,
+            "NameInSource": "FVXsdSumNet",
+            "Alias": "FVXsdSumNet",
+            "Type": "System.Decimal",
+            "Key": "e8572bb2df8f415e8ae97ba7fa53b1be"
+          },
+          "14": {
+            "Name": "FVXsdSumGrand",
+            "Index": -1,
+            "NameInSource": "FVXsdSumGrand",
+            "Alias": "FVXsdSumGrand",
+            "Type": "System.Decimal",
+            "Key": "af6ed4ec90a344088a949e05e3619840"
+          },
+          "15": {
+            "Name": "FCXsdSetPricePD",
+            "Index": -1,
+            "NameInSource": "FCXsdSetPricePD",
+            "Alias": "FCXsdSetPricePD",
+            "Type": "System.Decimal",
+            "Key": "ea814ec7b1b14de4b2e29f7b5abddd0c"
+          },
+          "16": {
+            "Name": "FCXsdNetPD",
+            "Index": -1,
+            "NameInSource": "FCXsdNetPD",
+            "Alias": "FCXsdNetPD",
+            "Type": "System.Decimal",
+            "Key": "014b7e92f64c4b92967d6920cdda219f"
+          },
+          "17": {
+            "Name": "FCXsdSetPriceUse",
+            "Index": -1,
+            "NameInSource": "FCXsdSetPriceUse",
+            "Alias": "FCXsdSetPriceUse",
+            "Type": "System.Decimal",
+            "Key": "8c0d7e2e8abf40d4976ddcc06135cf30"
+          },
+          "18": {
+            "Name": "FCXsdNetUse",
+            "Index": -1,
+            "NameInSource": "FCXsdNetUse",
+            "Alias": "FCXsdNetUse",
+            "Type": "System.Decimal",
+            "Key": "c4139a8d1f6b4dc18492c8ed77d671ab"
+          },
+          "19": {
+            "Name": "FTXsdDCText",
+            "Index": -1,
+            "NameInSource": "FTXsdDCText",
+            "Alias": "FTXsdDCText",
+            "Type": "System.String",
+            "Key": "e00804a1e5c14a3badbb3d99d2c47648"
+          },
+          "20": {
+            "Name": "FCDisTotal",
+            "Index": -1,
+            "NameInSource": "FCDisTotal",
+            "Alias": "FCDisTotal",
+            "Type": "System.Decimal",
+            "Key": "7867f51bbe164f808c84d685deb2e0d0"
+          }
+        },
+        "NameInSource": "SaleInv",
+        "CommandTimeout": 5000,
+        "SqlCommand": "SELECT  FTBchCode,FTXshDocNo,FTPdtCode,FTXsdBarCode,FTPdtName, FTPunCode,FTPunName,\r\n\tSUM(ISNULL(FCXsdQty,0)) AS FCXsdQty,\r\n\tISNULL(FCXsdSetPrice,0) AS FCXsdSetPrice,FTXsdDCText,\r\n\tSUM(ISNULL(FCXsdDiscount,0)) AS FCXsdDiscount,SUM(ISNULL(FCXddDisPmt,0)) AS FCXddDisPmt ,\r\n\tSUM(ISNULL(FCXsdNet,0)) AS FCXsdNet,\r\n\tISNULL(FCXsdSetPricePD,0) AS FCXsdSetPricePD  ,SUM(ISNULL(FCXsdNetPD,0)) AS FCXsdNetPD,\r\n\tISNULL(FCXsdSetPriceUse,0) AS FCXsdSetPriceUse  ,\r\n\tSUM(ISNULL(FCXsdNetUse,0)) AS FCXsdNetUse,\t\r\n\tISNULL(FVXsdSumNet,0) AS FVXsdSumNet,\r\n\tISNULL(FVXsdSumGrand,0) AS FVXsdSumGrand,\r\n\tFNXsdSeqNo,\r\n\t(SELECT SUM(\r\n\t\t\tCASE FTXddDisChgType\r\n\t\t\tWHEN '1' THEN ISNULL(FCXddValue,0)*-1 \r\n\t\t\tWHEN '2' THEN ISNULL(FCXddValue,0)*-1 \r\n\t\t\tELSE ISNULL(FCXddValue,0)\r\n\t\t\tEND\r\n\t\t\t) AS FCXddValue\r\n     FROM TPSTTaxDTDis WHERE FTXshDocNo = @ptDocNo AND FTBchCode = @ptDocBch  \r\n\t) AS FCDisTotal\r\nFROM\r\n  (\r\nSELECT DT.FTBchCode, DT.FTXshDocNo,\r\n\tDT.FTPdtCode,DT.FTXsdBarCode, Pdt_L.FTPdtName, DT.FTPunCode,\r\n\tPun_L.FTPunName,\r\n\tDT.FCXsdQty,\r\n\tDT.FCXsdSetPrice,ISNULL(FTXsdDCText,'') AS FTXsdDCText,\r\n\tISNULL(DisDT.FCXddValue,0) AS FCXsdDiscount,ISNULL(DTDis.FCXddValue,0)*-1 AS FCXddDisPmt,\r\n\t(DT.FCXsdNet) AS FCXsdNet,\r\n\tISNULL(PD.FCXsdSetPrice,0) AS FCXsdSetPricePD  ,ISNULL(PD.FCXsdNet,0) AS FCXsdNetPD,\r\n\tCASE WHEN ISNULL(PD.FCXsdSetPrice,0) = 0 THEN DT.FCXsdSetPrice ELSE ISNULL(PD.FCXsdSetPrice,0) END AS FCXsdSetPriceUse  ,\r\n\tCASE WHEN ISNULL(PD.FCXsdNet,0) = 0 THEN DT.FCXsdNet ELSE ISNULL(PD.FCXsdNet,0) END AS FCXsdNetUse,\t\r\n\tDT.FNXsdSeqNo,\r\n\tFVXsdSumNet,\r\n\tFVXsdSumGrand\r\n\tFROM TPSTTaxDT DT WITH (NoLock)\r\n\tLEFT JOIN\r\n\t(\r\nSELECT D2.FTBchCode,D2.FTXshDocNo, D2.FNXsdSeqNo,\r\n\tSUM(\r\n\tCASE FTXddDisChgType\r\n\t\t\tWHEN '1' THEN ISNULL(FCXddValue,0)*-1 \r\n\t\t\tWHEN '2' THEN ISNULL(FCXddValue,0)*-1 \r\n\t\t\tELSE ISNULL(FCXddValue,0)\r\n\t\t\tEND\r\n\t\t\t) AS FCXddValue,\r\n\t\tFTXsdDCText = STUFF(\r\n(SELECT ',' + CASE FTXddDisChgType \r\n\t\t\t\t\t\t\t\t              WHEN '1' THEN '-' + FTXddDisChgTxt \r\n\t\t\t\t\t\t\t\t\t\t\t  WHEN '2' THEN '-' + FTXddDisChgTxt \r\n\t\t\t\t\t\t\t\t\t\t\t  ELSE FTXddDisChgTxt \r\n\t\t\t\t\t\t\t\t\t\t\t  END\r\n\t\t\t\t\t\t\t\t FROM TPSTTaxDTDis D1\r\n\t\t\t\t\t\t\t\t\t\t\tWHERE D1.FTBchCode = D2.FTBchCode AND D1.FTXshDocNo = D2.FTXshDocNo AND D1.FNXsdSeqNo = D2.FNXsdSeqNo\r\n\t\t\t\t\t\t\t\t\t\t\tFOR XML PATH ('')\t\t\t\r\n\t\t\t\t\t\t\t\t), 1, 1, ''\r\n\t\t\t\t\t\t   ) \r\n\t\tFROM TPSTTaxDTDis D2\r\n\t\tWHERE FNXddStaDis = 1\r\n\t\tGROUP BY D2.FTBchCode,D2.FTXshDocNo,D2.FNXsdSeqNo\t\r\n\t) DisDT  ON DT.FTBchCode = DisDT.FTBchCode AND DT.FTXshDocNo = DisDT.FTXshDocNo AND DT.FNXsdSeqNo = DisDT.FNXsdSeqNo\r\n\tLEFT JOIN \r\n\t(\r\nSELECT FTBchCode,FTXshDocNo,FNXsdSeqNo,\r\n\tISNULL(FCXddNet,0) AS FCXddNet, \r\n\tSUM(ISNULL(FCXddValue,0)) AS FCXddValue\r\n\tFROM TPSTTaxDTDis  WITH (NoLock) \r\n\t\tWHERE FNXddStaDis = 0 AND FTXddDisChgType IN ('1','2') \r\n\t\tGROUP BY  FTBchCode,FTXshDocNo,FNXsdSeqNo,\r\n\t\tISNULL(FCXddNet,0)\r\n\t) DTDis ON DT.FTBchCode = DTDis.FTBchCode AND DT.FTXshDocNo = DTDis.FTXshDocNo AND DT.FNXsdSeqNo = DTDis.FNXsdSeqNo\r\n\t\r\n\tLEFT JOIN\r\n\t( \r\nSELECT FTBchCode,FTXshDocNo,SUM(FCXsdNet)  AS FVXsdSumNet \r\n\tFROM TPSTTaxDT DT WITH (NOLOCK)\r\n\t WHERE ISNULL(DT.FTXsdStaPdt,'1') <> '4' AND DT.FTXshDocNo = @ptDocNo AND DT.FTBchCode = @ptDocBch\r\n\t GROUP BY FTBchCode,FTXshDocNo\r\n\t) SumDT ON  DT.FTBchCode = SumDT.FTBchCode AND DT.FTXshDocNo = SumDT.FTXshDocNo\r\n\tLEFT JOIN\r\n\t(\r\nSELECT FTBchCode,FTXshDocNo,SUM((FCXshGrand-FCXshRnd)+FCXshDis-FCXshChg)  AS FVXsdSumGrand \r\n\tFROM TPSTTaxHD HD WITH (NOLOCK)\r\n\t WHERE HD.FTXshStaDoc = '1' AND HD.FTXshDocNo = @ptDocNo AND HD.FTBchCode = @ptDocBch\r\n\t GROUP BY FTBchCode,FTXshDocNo\r\n\t   ) SumHD ON DT.FTBchCode = SumHD.FTBchCode AND DT.FTXshDocNo = SumHD.FTXshDocNo\r\n\t\r\n\tLEFT JOIN\r\n\t(\r\nSELECT PD.FTBchCode,PD.FTXshDocNo,PD.FNXsdSeqNo,PD.FCXsdSetPrice ,PD.FCXsdNet\r\n\tFROM TPSTTaxPD PD WITH (NOLOCK) \r\n\t  WHERE FTXpdGetType = '4' AND  PD.FTXshDocNo = @ptDocNo AND PD.FTBchCode = @ptDocBch\r\n\t) PD ON DT.FTBchCode = PD.FTBchCode AND DT.FTXshDocNo = PD.FTXshDocNo AND Dt.FNXsdSeqNo = PD.FNXsdSeqNo\r\n\tLEFT JOIN TCNMPdt_L Pdt_L WITH (NoLock) ON DT.FTPdtCode = Pdt_L.FTPdtCode AND Pdt_L.FNLngID = @pnLanguage\r\n\tLEFT JOIN TCNMPdtUnit_L Pun_L WITH (NoLock) ON DT.FTPunCode = Pun_L.FTPunCode AND Pun_L.FNLngID = @pnLanguage\r\n\tWHERE ISNULL(DT.FTXsdStaPdt,'1') <> '4' AND DT.FTXshDocNo = @ptDocNo AND DT.FTBchCode = @ptDocBch\r\n   ) SumAll\r\nGROUP BY FNXsdSeqNo,FTBchCode,FTXshDocNo,FTPdtCode,FTXsdBarCode,FTPdtName, FTPunCode,FTPunName,FCXsdSetPrice,FTXsdDCText,FCXsdSetPricePD,FCXsdSetPriceUse,\r\nFVXsdSumNet,FVXsdSumGrand",
+        "Parameters": {
+          "0": {
+            "Name": "ptDocNo",
+            "Expression": "SP_tDocNo",
+            "Type": 22,
+            "Size": 20
+          },
+          "1": {
+            "Name": "pnLanguage",
+            "Expression": "nLanguage",
+            "Type": 8,
+            "Size": 3
+          },
+          "2": {
+            "Name": "ptDocBch",
+            "Expression": "SP_tDocBch",
+            "Type": 22,
+            "Size": 5
+          }
+        }
+      },
+      "3": {
+        "Ident": "StiSqlSource",
+        "Name": "TPSTSalVat",
+        "Alias": "TPSTSalVat",
+        "Key": "74da8584739b49e8bc6bb1e6ac6c5cc5",
+        "Columns": {
+          "0": {
+            "Name": "FTBchCode",
+            "Index": -1,
+            "NameInSource": "FTBchCode",
+            "Alias": "FTBchCode",
+            "Type": "System.String"
+          },
+          "1": {
+            "Name": "FTXshDocNo",
+            "Index": -1,
+            "NameInSource": "FTXshDocNo",
+            "Alias": "FTXshDocNo",
+            "Type": "System.String"
+          },
+          "2": {
+            "Name": "FCXsdVat",
+            "Index": -1,
+            "NameInSource": "FCXsdVat",
+            "Alias": "FCXsdVat",
+            "Type": "System.Decimal"
+          },
+          "3": {
+            "Name": "FCXsdVatable",
+            "Index": -1,
+            "NameInSource": "FCXsdVatable",
+            "Alias": "FCXsdVatable",
+            "Type": "System.Decimal"
+          },
+          "4": {
+            "Name": "FCXsdNetAfHD",
+            "Index": -1,
+            "NameInSource": "FCXsdNetAfHD",
+            "Alias": "FCXsdNetAfHD",
+            "Type": "System.Decimal"
+          },
+          "5": {
+            "Name": "FCXsdVatNew",
+            "Index": -1,
+            "NameInSource": "FCXsdVatNew",
+            "Alias": "FCXsdVatNew",
+            "Type": "System.Decimal"
+          }
+        },
+        "NameInSource": "SaleInv",
+        "CommandTimeout": 5000,
+        "SqlCommand": "SELECT HD.FTBchCode,HD.FTXshDocNo,\r\n\tSUM(CAST(FCXsdVat AS DECIMAL(18,2))) AS FCXsdVat ,\r\n\t SUM(CAST(FCXsdVatable AS DECIMAL(18,2))) AS FCXsdVatable, SUM(FCXsdNetAfHD) AS FCXsdNetAfHD ,\r\n     SUM(FCXsdNetAfHD-CAST(FCXsdVatable AS DECIMAL(18,2))) AS FCXsdVatNew\r\n\t FROM TPSTTaxDT DT INNER JOIN TPSTTaxHD HD ON DT.FTBchCode = HD.FTBchCode AND DT.FTXshDocNo = HD.FTXshDocNo\r\n\t WHERE HD.FTXshDocNo = \t@ptDocNo AND ISNULL(FTXsdStaPdt,'1') <> '4' AND HD.FTBchCode = @ptDocBch\r\n\t GROUP BY HD.FTBchCode,HD.FTXshDocNo   ",
+        "Parameters": {
+          "0": {
+            "Name": "ptDocNo",
+            "Expression": "SP_tDocNo",
+            "Type": 22,
+            "Size": 20
+          },
+          "1": {
+            "Name": "ptDocBch",
+            "Expression": "SP_tDocBch",
+            "Type": 22,
+            "Size": 5
+          }
+        }
+      },
+      "4": {
+        "Ident": "StiSqlSource",
+        "Name": "TPSTSalRC",
+        "Alias": "TPSTSalRC",
+        "Key": "114d60dec7d9460d801b014373669a20",
+        "Columns": {
+          "0": {
+            "Name": "FTBchCode",
+            "Index": -1,
+            "NameInSource": "FTBchCode",
+            "Alias": "FTBchCode",
+            "Type": "System.String"
+          },
+          "1": {
+            "Name": "FTXshDocNo",
+            "Index": -1,
+            "NameInSource": "FTXshDocNo",
+            "Alias": "FTXshDocNo",
+            "Type": "System.String"
+          },
+          "2": {
+            "Name": "FTRcvCode",
+            "Index": -1,
+            "NameInSource": "FTRcvCode",
+            "Alias": "FTRcvCode",
+            "Type": "System.String"
+          },
+          "3": {
+            "Name": "FTFmtCode",
+            "Index": -1,
+            "NameInSource": "FTFmtCode",
+            "Alias": "FTFmtCode",
+            "Type": "System.String"
+          },
+          "4": {
+            "Name": "FTFmtName",
+            "Index": -1,
+            "NameInSource": "FTFmtName",
+            "Alias": "FTFmtName",
+            "Type": "System.String"
+          },
+          "5": {
+            "Name": "FTXrcRefNo1",
+            "Index": -1,
+            "NameInSource": "FTXrcRefNo1",
+            "Alias": "FTXrcRefNo1",
+            "Type": "System.String"
+          },
+          "6": {
+            "Name": "FTXrcRefNo2",
+            "Index": -1,
+            "NameInSource": "FTXrcRefNo2",
+            "Alias": "FTXrcRefNo2",
+            "Type": "System.String"
+          },
+          "7": {
+            "Name": "FCXrcNet",
+            "Index": -1,
+            "NameInSource": "FCXrcNet",
+            "Alias": "FCXrcNet",
+            "Type": "System.Decimal"
+          },
+          "8": {
+            "Name": "FTRcvName",
+            "Index": -1,
+            "NameInSource": "FTRcvName",
+            "Alias": "FTRcvName",
+            "Type": "System.String"
+          }
+        },
+        "NameInSource": "SaleInv",
+        "CommandTimeout": 5000,
+        "SqlCommand": "SELECT FTBchCode,FTXshDocNo,RC.FTRcvCode,RC.FTRcvName,Rcv.FTFmtCode,RvlL.FTFmtName,RC.FCXrcNet,RC.FTXrcRefNo1,RC.FTXrcRefNo2 \r\n\tFROM TPSTTaxRC RC\r\nINNER JOIN TFNMRcv Rcv WITH (NOLOCK) ON RC.FTRcvCode = Rcv.FTRcvCode\r\nINNER JOIN TSysRcvFmt_L RvlL WITH (NOLOCK) ON Rcv.FTFmtCode = RvlL.FTFmtCode AND RvlL.FNLngID = @pnLanguage\r\nWHERE FTXshDocNo = @ptDocNo AND RC.FTBchCode = @ptDocBch\r\nORDER BY FTRcvCode",
+        "Parameters": {
+          "0": {
+            "Name": "ptDocNo",
+            "Expression": "SP_tDocNo",
+            "Type": 22,
+            "Size": 20
+          },
+          "1": {
+            "Name": "pnLanguage",
+            "Expression": "nLanguage",
+            "Type": 8,
+            "Size": 3
+          },
+          "2": {
+            "Name": "ptDocBch",
+            "Expression": "SP_tDocBch",
+            "Type": 22,
+            "Size": 5
+          }
+        }
+      },
+      "5": {
+        "Ident": "StiSqlSource",
+        "Name": "TPSTSalDTSN",
+        "Alias": "TPSTSalDTSN",
+        "Key": "69ce1de9252f42a89e33ada4e89083c3",
+        "Columns": {
+          "0": {
+            "Name": "FTBchCode",
+            "Index": -1,
+            "NameInSource": "FTBchCode",
+            "Alias": "FTBchCode",
+            "Type": "System.String"
+          },
+          "1": {
+            "Name": "FTXshDocNo",
+            "Index": -1,
+            "NameInSource": "FTXshDocNo",
+            "Alias": "FTXshDocNo",
+            "Type": "System.String"
+          },
+          "2": {
+            "Name": "FNXsdSeqNo",
+            "Index": -1,
+            "NameInSource": "FNXsdSeqNo",
+            "Alias": "FNXsdSeqNo",
+            "Type": "System.Int32"
+          },
+          "3": {
+            "Name": "FTPdtSerial",
+            "Index": -1,
+            "NameInSource": "FTPdtSerial",
+            "Alias": "FTPdtSerial",
+            "Type": "System.String"
+          },
+          "4": {
+            "Name": "FTXsdStaRet",
+            "Index": -1,
+            "NameInSource": "FTXsdStaRet",
+            "Alias": "FTXsdStaRet",
+            "Type": "System.String"
+          }
+        },
+        "NameInSource": "SaleInv",
+        "SqlCommand": "SELECT  FTBchCode, FTXshDocNo, FNXsdSeqNo, FTPdtSerial, FTXsdStaRet\r\n\tFROM TPSTTaxDTSN \r\n\tWHERE FTBchCode = @ptDocBch AND FTXshDocNo = @ptDocNo",
+        "Parameters": {
+          "0": {
+            "Name": "ptDocNo",
+            "Expression": "SP_tDocNo",
+            "Type": 22,
+            "Size": 20
+          },
+          "1": {
+            "Name": "ptDocBch",
+            "Expression": "SP_tDocBch",
+            "Type": 22,
+            "Size": 5
+          }
+        }
+      },
+      "6": {
+        "Ident": "StiSqlSource",
+        "Name": "Company2",
+        "Alias": "Company2",
+        "Key": "5ae5d9df39f44ffc83e7ffe3a7b73f50",
+        "Columns": {
+          "0": {
+            "Name": "FTCompName",
+            "Index": -1,
+            "NameInSource": "FTCompName",
+            "Alias": "FTCompName",
+            "Type": "System.String",
+            "Key": "2d8905c4a44c4d6bb0f37bc98deebf19"
+          },
+          "1": {
+            "Name": "FTBchCode",
+            "Index": -1,
+            "NameInSource": "FTBchCode",
+            "Alias": "FTBchCode",
+            "Type": "System.String",
+            "Key": "ee96a31df39c49ddbed512564fee4e2e"
+          },
+          "2": {
+            "Name": "FTAddrType",
+            "Index": -1,
+            "NameInSource": "FTAddrType",
+            "Alias": "FTAddrType",
+            "Type": "System.String",
+            "Key": "1d4885a87d364653822c5a07debcd30a"
+          },
+          "3": {
+            "Name": "FTAddName",
+            "Index": -1,
+            "NameInSource": "FTAddName",
+            "Alias": "FTAddName",
+            "Type": "System.String",
+            "Key": "13e1d062163e477391624f7ed0f88678"
+          },
+          "4": {
+            "Name": "FTBchName",
+            "Index": -1,
+            "NameInSource": "FTBchName",
+            "Alias": "FTBchName",
+            "Type": "System.String",
+            "Key": "ea337ad7e6bc443e9b026f105df4cce5"
+          },
+          "5": {
+            "Name": "FTAddV1No",
+            "Index": -1,
+            "NameInSource": "FTAddV1No",
+            "Alias": "FTAddV1No",
+            "Type": "System.String",
+            "Key": "0ccb2e66fd074e828df4a8584b06e560"
+          },
+          "6": {
+            "Name": "FTAddV1Soi",
+            "Index": -1,
+            "NameInSource": "FTAddV1Soi",
+            "Alias": "FTAddV1Soi",
+            "Type": "System.String",
+            "Key": "9561e843e96249b5baafc8890962c219"
+          },
+          "7": {
+            "Name": "FTAddV1Village",
+            "Index": -1,
+            "NameInSource": "FTAddV1Village",
+            "Alias": "FTAddV1Village",
+            "Type": "System.String",
+            "Key": "1b121abc6cb44b7bbeffc5c1d4d359a0"
+          },
+          "8": {
+            "Name": "FTAddV1Road",
+            "Index": -1,
+            "NameInSource": "FTAddV1Road",
+            "Alias": "FTAddV1Road",
+            "Type": "System.String",
+            "Key": "e8013383caec46d5bc6109f348c7bd0a"
+          },
+          "9": {
+            "Name": "FTAddV1SubDist",
+            "Index": -1,
+            "NameInSource": "FTAddV1SubDist",
+            "Alias": "FTAddV1SubDist",
+            "Type": "System.String",
+            "Key": "38c38b0c0975480e99be2ee9043ac343"
+          },
+          "10": {
+            "Name": "FTSudName",
+            "Index": -1,
+            "NameInSource": "FTSudName",
+            "Alias": "FTSudName",
+            "Type": "System.String",
+            "Key": "257c4906c7414a81b8911e61766c9bba"
+          },
+          "11": {
+            "Name": "FTAddV1DstCode",
+            "Index": -1,
+            "NameInSource": "FTAddV1DstCode",
+            "Alias": "FTAddV1DstCode",
+            "Type": "System.String",
+            "Key": "08022176b80348ea88d145ce73feb5fd"
+          },
+          "12": {
+            "Name": "FTDstName",
+            "Index": -1,
+            "NameInSource": "FTDstName",
+            "Alias": "FTDstName",
+            "Type": "System.String",
+            "Key": "e5a614e6956d4176836fbb61a2d8b0b7"
+          },
+          "13": {
+            "Name": "FTAddV1PvnCode",
+            "Index": -1,
+            "NameInSource": "FTAddV1PvnCode",
+            "Alias": "FTAddV1PvnCode",
+            "Type": "System.String",
+            "Key": "290997c53d9d44a890614879e1d21fa2"
+          },
+          "14": {
+            "Name": "FTPvnName",
+            "Index": -1,
+            "NameInSource": "FTPvnName",
+            "Alias": "FTPvnName",
+            "Type": "System.String",
+            "Key": "ac6fad093aee4259b2908c6f6157c593"
+          },
+          "15": {
+            "Name": "FTAddV1PostCode",
+            "Index": -1,
+            "NameInSource": "FTAddV1PostCode",
+            "Alias": "FTAddV1PostCode",
+            "Type": "System.String",
+            "Key": "ba87958b2e71441fbcf20a9c4e2f00dd"
+          },
+          "16": {
+            "Name": "FTAddV2Desc1",
+            "Index": -1,
+            "NameInSource": "FTAddV2Desc1",
+            "Alias": "FTAddV2Desc1",
+            "Type": "System.String",
+            "Key": "7a8ade74d12f461c9ad93b888c933448"
+          },
+          "17": {
+            "Name": "FTAddV2Desc2",
+            "Index": -1,
+            "NameInSource": "FTAddV2Desc2",
+            "Alias": "FTAddV2Desc2",
+            "Type": "System.String",
+            "Key": "e2b81a970f1f44458e7c4d2b09fc8fe5"
+          },
+          "18": {
+            "Name": "FTAddTel",
+            "Index": -1,
+            "NameInSource": "FTAddTel",
+            "Alias": "FTAddTel",
+            "Type": "System.String",
+            "Key": "ce505663bc284c59a8f672a81bb09a79"
+          },
+          "19": {
+            "Name": "FTAddFax",
+            "Index": -1,
+            "NameInSource": "FTAddFax",
+            "Alias": "FTAddFax",
+            "Type": "System.String",
+            "Key": "9ada20549722449d90bb95329e27ee2f"
+          },
+          "20": {
+            "Name": "FTAddWebsite",
+            "Index": -1,
+            "NameInSource": "FTAddWebsite",
+            "Alias": "FTAddWebsite",
+            "Type": "System.String",
+            "Key": "af99bb4ae2da49c19030b872b0998d12"
+          },
+          "21": {
+            "Name": "FTAddTaxNo",
+            "Index": -1,
+            "NameInSource": "FTAddTaxNo",
+            "Alias": "FTAddTaxNo",
+            "Type": "System.String",
+            "Key": "f6752300dbcf448a8edc27f0da878fd2"
+          }
+        },
+        "NameInSource": "SaleInv",
+        "CommandTimeout": 5000,
+        "SqlCommand": "SELECT \r\n\tCASE WHEN FTAddRefCode = ISNULL(FTAddRefCodeMer,'') THEN FTMerName ELSE \r\n\tCASE WHEN FTAddRefCode = ISNULL(FTAddRefCodeAgn,'') THEN FTAgnName ELSE  \r\n\t\tCASE WHEN FTAddRefCode = ISNULL(FTAddRefCodeBch,'') THEN FTCmpName ELSE \r\n\t\t\tCASE WHEN FTAddRefCode = ISNULL(FTAddRefCodeCmp,'') THEN FTCmpName ELSE \r\n(SELECT CmpL.FTCmpName \r\n\tFROM TCNMComp Cmp  WITH (NOLOCK) LEFT JOIN\r\n\t\t\t\t TCNMComp_L CmpL  WITH (NOLOCK) ON Cmp.FTCmpCode = CmpL.FTCmpCode AND FNLngID = @pnLanguage\r\n\t\t\t\t WHERE FTBchCode = @ptCompCode)   \r\n\t\t\tEND\r\n\t\tEND\r\n\tEND\r\nEND\r\nAS \tFTCompName,FTBchCode,\r\nFTAddrType,FTAddName,(SELECT FTBchName FROM TCNMBranch_L  WITH (NOLOCK) WHERE  FTBchCode = @ptDocBch AND FNLngID = @pnLanguage ) AS FTBchName,\r\nFTAddV1No,FTAddV1Soi,FTAddV1Village,FTAddV1Road,FTAddV1SubDist,FTSudName,FTAddV1DstCode,FTDstName,FTAddV1PvnCode,FTPvnName,FTAddV1PostCode,FTAddV2Desc1,FTAddV2Desc2,\r\nFTAddTel,FTAddFax,FTAddWebsite  ,FTAddTaxNo\r\nFROM\r\n(SELECT BchMst.FTBchCode, AddrL.FTAddRefCode,FTAddRefCodeMer,Mer.FTMerName,Agn.FTAddRefCodeAgn,Agn.FTAgnName,Bch.FTAddRefCodeBch,\r\n\tBch.FTCmpName AS FTCmpNameBch,FTAddRefCodeCmp,\r\n\t(SELECT FTCmpName FROM TCNMComp_L WHERE FTCmpCode = @ptCompCode AND FNLngID = @pnLanguage) AS FTCmpName,\r\n\tFTAddVersion AS FTAddrType,AddrL.FTAddName,\r\n\tFTAddV1No,FTAddV1Soi,FTAddV1Village,FTAddV1Road,FTAddV1SubDist,SDstL.FTSudName,FTAddV1DstCode,DstL.FTDstName,FTAddV1PvnCode,PvnL.FTPvnName,FTAddV1PostCode,FTAddV2Desc1,FTAddV2Desc2,\r\n\tAddrL.FTAddTel,AddrL.FTAddFax,AddrL.FTAddWebsite  ,FTAddTaxNo\r\n\tFROM TCNMBranch BchMst  WITH (NOLOCK) LEFT JOIN \r\n\tTCNMAddress_L AddrL  WITH (NOLOCK) ON BchMst.FTBchCode = AddrL.FTAddRefCode AND FTAddRefNo = '2'\r\n\t LEFT JOIN\r\n\t\t\t (\r\nSELECT FTBchCode,Bch.FTMerCode,FTMerName,FTAddRefCode AS FTAddRefCodeMer\r\n\tFROM  TCNMBranch Bch WITH (NOLOCK) \r\n\t\t\t\tINNER JOIN TCNMAddress_L AddrL WITH (NOLOCK) ON Bch.FTMerCode = AddrL.FTAddRefCode AND AddrL.FTAddGrpType = '7' AND AddrL.FTAddRefNo = '2'\r\n\t\t\t\tLEFT JOIN TCNMMerChant_L MerL WITH (NOLOCK) ON Bch.FTMerCode = MerL.FTMerCode AND MerL.FNLngID = @pnLanguage\r\n\t\t\t\tWHERE FTBchCode = @ptCmpBch  \r\n\t\t\t ) Mer ON AddrL.FTAddRefCode  = Mer.FTAddRefCodeMer \r\n\r\n\t LEFT JOIN\r\n\t\t\t\r\n(SELECT FTBchCode,Agn.FTAgnCode,AgnL.FTAgnName,FTAddRefCode AS FTAddRefCodeAgn\r\n\tFROM  TCNMAgency Agn WITH (NOLOCK) \r\n\t\t\t INNER JOIN TCNMAddress_L AddrL WITH (NOLOCK) ON Agn.FTAgnCode = AddrL.FTAddRefCode  AND  AddrL.FTAddGrpType = '5'\r\n\t\t\t LEFT JOIN TCNMAgency_L AgnL WITH (NOLOCK) ON Agn.FTAgnCode = AgnL.FTAgnCode AND AgnL.FNLngID = @pnLanguage\r\n\t\t\t WHERE AddrL.FTAddRefNo = '2'\r\n\t\t\t) Agn  ON AddrL.FTAddRefCode  = Agn.FTAddRefCodeAgn\r\n\r\n\t LEFT JOIN\r\n\t\t\r\n(SELECT Bch.FTBchCode,CmpL.FTCmpName,FTAddRefCode AS FTAddRefCodeBch\r\n\tFROM  TCNMBranch Bch WITH (NOLOCK) \r\n\t\t\t LEFT JOIN TCNMComp Cmp WITH (NOLOCK) ON Cmp.FTBchCode = Bch.FTBchCode \r\n\t\t\t INNER JOIN TCNMAddress_L AddrL WITH (NOLOCK) ON Bch.FTBchCode = AddrL.FTAddRefCode  AND AddrL.FTAddRefNo = '2'\r\n\t\t\t LEFT JOIN TCNMComp_L CmpL WITH (NOLOCK) ON Cmp.FTCmpCode = CmpL.FTCmpCode AND CmpL.FNLngID = @pnLanguage\r\n\t\t\t WHERE Bch.FTBchCode = @ptCmpBch \r\n\t\t\t) Bch ON  AddrL.FTAddRefCode  = Bch.FTAddRefCodeBch\r\n\t LEFT JOIN\r\n\t\t\r\n(SELECT Cmp.FTBchCode,CmpL.FTCmpName,FTAddRefCode AS FTAddRefCodeCmp\r\n\tFROM  TCNMComp Cmp WITH (NOLOCK) \r\n\t\t\t INNER JOIN TCNMAddress_L AddrL WITH (NOLOCK) ON Cmp.FTBchCode = AddrL.FTAddRefCode  AND AddrL.FTAddRefNo = '2'\r\n\t\t\t LEFT JOIN TCNMComp_L CmpL WITH (NOLOCK) ON Cmp.FTCmpCode = CmpL.FTCmpCode AND CmpL.FNLngID = @pnLanguage\r\n\t\t\t WHERE Cmp.FTBchCode = @ptCmpBch \r\n\t\t\t) Cmp ON  AddrL.FTAddRefCode  = Cmp.FTAddRefCodeCmp\r\n\t LEFT JOIN TCNMProvince_L PvnL WITH (NoLock) ON  AddrL.FTAddV1PvnCode = PvnL.FTPvnCode AND PvnL.FNLngID = @pnLanguage\r\n\t LEFT JOIN TCNMDistrict_L DstL WITH (NoLock) ON  AddrL.FTAddV1DstCode = DstL.FTDstCode AND DstL.FNLngID = @pnLanguage\t\t\r\n\t LEFT JOIN TCNMSubDistrict_L SDstL WITH (NoLock) ON  AddrL.FTAddV1SubDist = SDstL.FTSudCode AND SDstL.FNLngID = @pnLanguage\t\t\r\n\t WHERE BchMst.FTBchCode = @ptCmpBch OR\r\n\t    (AddrL.FTAddRefCode = Mer.FTMerCode OR AddrL.FTAddRefCode = Agn.FTAgnCode OR AddrL.FTAddRefCode = Bch.FTBchcode OR AddrL.FTAddRefCode = Cmp.FTBchcode )\r\n) AddrSum",
+        "Parameters": {
+          "0": {
+            "Name": "ptCompCode",
+            "Expression": "SP_tCompCode",
+            "Type": 22,
+            "Size": 5
+          },
+          "1": {
+            "Name": "pnLanguage",
+            "Expression": "nLanguage",
+            "Type": 16,
+            "Size": 3
+          },
+          "2": {
+            "Name": "pnAddSeq",
+            "Expression": "SP_nAddSeq",
+            "Type": 8,
+            "Size": 3
+          },
+          "3": {
+            "Name": "ptCmpBch",
+            "Expression": "SP_tCmpBch",
+            "Type": 22,
+            "Size": 5
+          },
+          "4": {
+            "Name": "ptDocBch",
+            "Expression": "SP_tDocBch",
+            "Type": 22,
+            "Size": 5
+          }
+        }
+      },
+      "7": {
+        "Ident": "StiSqlSource",
+        "Name": "TPSTSalVatRate",
+        "Alias": "TPSTSalVatRate",
+        "Key": "30484dc5a8054178b92f060ead84aa68",
+        "Columns": {
+          "0": {
+            "Name": "FTBchCode",
+            "Index": -1,
+            "NameInSource": "FTBchCode",
+            "Alias": "FTBchCode",
+            "Type": "System.String"
+          },
+          "1": {
+            "Name": "FTXshDocNo",
+            "Index": -1,
+            "NameInSource": "FTXshDocNo",
+            "Alias": "FTXshDocNo",
+            "Type": "System.String"
+          },
+          "2": {
+            "Name": "FCXsdVatRate",
+            "Index": -1,
+            "NameInSource": "FCXsdVatRate",
+            "Alias": "FCXsdVatRate",
+            "Type": "System.Decimal"
+          }
+        },
+        "NameInSource": "SaleInv",
+        "CommandTimeout": 5000,
+        "SqlCommand": "SELECT HD.FTBchCode,HD.FTXshDocNo,\r\n\t MAX(CAST(FCXsdVatRate AS DECIMAL(18,2))) AS FCXsdVatRate \r\n\t FROM TPSTTaxDT DT INNER JOIN TPSTTaxHD HD ON DT.FTBchCode = HD.FTBchCode AND DT.FTXshDocNo = HD.FTXshDocNo\r\n\t WHERE HD.FTXshDocNo = \t@ptDocNo AND ISNULL(FTXsdStaPdt,'1') <> '4' AND HD.FTBchCode = @ptDocBch\r\nGROUP BY HD.FTBchCode,HD.FTXshDocNo",
+        "Parameters": {
+          "0": {
+            "Name": "ptDocNo",
+            "Expression": "SP_tDocNo",
+            "Type": 22,
+            "Size": 20
+          },
+          "1": {
+            "Name": "ptDocBch",
+            "Expression": "SP_tDocBch",
+            "Type": 22,
+            "Size": 5
+          }
+        }
+      },
+      "8": {
+        "Ident": "StiSqlSource",
+        "Name": "TPSTTaxHDDocRef",
+        "Alias": "TPSTTaxHDDocRef",
+        "Key": "ccc1fdc561084c9ab5035eaed5b455b6",
+        "Columns": {
+          "0": {
+            "Name": "FTXshRefDocNo",
+            "Index": -1,
+            "NameInSource": "FTXshRefDocNo",
+            "Alias": "FTXshRefDocNo",
+            "Type": "System.String"
+          },
+          "1": {
+            "Name": "FTXshRefDocDate",
+            "Index": -1,
+            "NameInSource": "FTXshRefDocDate",
+            "Alias": "FTXshRefDocDate",
+            "Type": "System.String"
+          },
+          "2": {
+            "Name": "FTXshRefDocTime",
+            "Index": -1,
+            "NameInSource": "FTXshRefDocTime",
+            "Alias": "FTXshRefDocTime",
+            "Type": "System.String"
+          }
+        },
+        "NameInSource": "SaleInv",
+        "SqlCommand": "SELECT FTXshRefDocNo  ,\r\n\tCONVERT(VARCHAR(10),FDXshRefDocDate,103) AS FTXshRefDocDate,CONVERT(VARCHAR(10),FDXshRefDocDate,8) AS FTXshRefDocTime\r\nFROM TPSTTaxHDDocRef WITH(NOLOCK)\r\nWHERE FTXshDocNo = @ptDocNo\r\nAND FTBchCode = @ptDocBch\r\nAND FTXshRefType = '3'\r\nAND FTXshRefKey = 'DNW'",
+        "Parameters": {
+          "0": {
+            "Name": "ptDocBch",
+            "Expression": "SP_tDocBch",
+            "Type": 22,
+            "Size": 5
+          },
+          "1": {
+            "Name": "ptDocNo",
+            "Expression": "SP_tDocNo",
+            "Type": 22,
+            "Size": 20
+          }
+        }
+      }
+    },
+    "Databases": {
+      "0": {
+        "Ident": "StiSqlDatabase",
+        "Name": "SaleInv",
+        "Alias": "SaleInv",
+        "Key": "2bd6b7dbbd7c4c568b5457bcf4b7ef91"
+      }
+    }
+  },
+  "Pages": {
+    "0": {
+      "Ident": "StiPage",
+      "Name": "Page1",
+      "Guid": "1898b2c1f01141d2843ab2e021ff18a7",
+      "Alias": "Frm_PSInvoiceSale",
+      "Interaction": {
+        "Ident": "StiInteraction"
+      },
+      "Border": ";;2;;;;;solid:Black",
+      "Brush": "solid:",
+      "Components": {
+        "0": {
+          "Ident": "StiPageHeaderBand",
+          "Name": "PageHeaderBand1",
+          "ClientRectangle": "0,3.9,205,67.9",
+          "Interaction": {
+            "Ident": "StiInteraction"
+          },
+          "Border": ";;;;;;;solid:Black",
+          "Brush": "solid:",
+          "Components": {
+            "0": {
+              "Ident": "StiPanel",
+              "Name": "Panel4",
+              "CanGrow": true,
+              "ClientRectangle": "2,51.5,202.5,11.8",
+              "Interaction": {
+                "Ident": "StiInteraction"
+              },
+              "CanBreak": true,
+              "Border": ";;;;;;;solid:Black",
+              "Brush": "solid:",
+              "Components": {
+                "0": {
+                  "Ident": "StiText",
+                  "Name": "tPdtName",
+                  "Guid": "f83ec2057ea54d4286c78d53267e6593",
+                  "ClientRectangle": "52.3,3.1,66.3,5",
+                  "Interaction": {
+                    "Ident": "StiInteraction"
+                  },
+                  "Text": {
+                    "Value": "{IIF(SP_nLang == \"1\",\"รายการสินค้า\",\"Product Item\")}"
+                  },
+                  "HorAlignment": "Center",
+                  "VertAlignment": "Center",
+                  "Font": "Tahoma;9;Bold;",
+                  "Border": ";;;;;;;solid:Black",
+                  "Brush": "solid:",
+                  "TextBrush": "solid:Black",
+                  "Type": "Expression"
+                },
+                "1": {
+                  "Ident": "StiText",
+                  "Name": "tPdtCode",
+                  "Guid": "e72f660cd3844e249552e03fa57e9a51",
+                  "ClientRectangle": "14.5,3.1,36.9,5",
+                  "Interaction": {
+                    "Ident": "StiInteraction"
+                  },
+                  "Text": {
+                    "Value": "{IIF(SP_nLang == \"1\",\"รหัสสินค้า\",\"Product Code\")}"
+                  },
+                  "HorAlignment": "Center",
+                  "VertAlignment": "Center",
+                  "Font": "Tahoma;9;Bold;",
+                  "Border": ";;;;;;;solid:Black",
+                  "Brush": "solid:",
+                  "TextBrush": "solid:Black",
+                  "Type": "Expression"
+                },
+                "2": {
+                  "Ident": "StiText",
+                  "Name": "tNo",
+                  "Guid": "c5b8b173ea47462da04f4d0bbb831e0d",
+                  "ClientRectangle": "2,3.1,11.4,5",
+                  "Interaction": {
+                    "Ident": "StiInteraction"
+                  },
+                  "Text": {
+                    "Value": "{IIF(SP_nLang == \"1\",\"ลำดับ\",\"Line\")}"
+                  },
+                  "HorAlignment": "Center",
+                  "VertAlignment": "Center",
+                  "Font": "Tahoma;9;Bold;",
+                  "Border": ";;;;;;;solid:Black",
+                  "Brush": "solid:",
+                  "TextBrush": "solid:Black",
+                  "Type": "Expression"
+                },
+                "3": {
+                  "Ident": "StiText",
+                  "Name": "tQty",
+                  "Guid": "1a23894b57ac45f09c3b41aa233cdc9c",
+                  "ClientRectangle": "141.1,3.1,22.8,5",
+                  "Interaction": {
+                    "Ident": "StiInteraction"
+                  },
+                  "Text": {
+                    "Value": "{IIF(SP_nLang == \"1\",\"จำนวน\",\"Quantity\")}"
+                  },
+                  "HorAlignment": "Center",
+                  "VertAlignment": "Center",
+                  "Font": "Tahoma;9;Bold;",
+                  "Border": ";;;;;;;solid:Black",
+                  "Brush": "solid:",
+                  "TextBrush": "solid:Black",
+                  "Type": "Expression"
+                },
+                "4": {
+                  "Ident": "StiText",
+                  "Name": "tAmount",
+                  "Guid": "af0890d51b604ba58398a749762ee5d2",
+                  "ClientRectangle": "164.5,2.9,31.2,5",
+                  "Alias": "Amount",
+                  "Interaction": {
+                    "Ident": "StiInteraction"
+                  },
+                  "Text": {
+                    "Value": "{IIF(SP_nLang == \"1\",\"จำนวนเงิน\",\"Amount\")}"
+                  },
+                  "HorAlignment": "Center",
+                  "VertAlignment": "Center",
+                  "Font": "Tahoma;9;Bold;",
+                  "Border": ";;;;;;;solid:Black",
+                  "Brush": "solid:",
+                  "TextBrush": "solid:Black",
+                  "Type": "Expression"
+                },
+                "5": {
+                  "Ident": "StiText",
+                  "Name": "tUnitPrice",
+                  "Guid": "f6a13e1d13fa4009b8a0d83f1903f1ce",
+                  "ClientRectangle": "119.5,3.1,20.5,5",
+                  "Alias": "Price : Unit",
+                  "Interaction": {
+                    "Ident": "StiInteraction"
+                  },
+                  "Text": {
+                    "Value": "{IIF(SP_nLang == \"1\",\"ราคา /หน่วย\",\"Price/Unit\")}"
+                  },
+                  "HorAlignment": "Center",
+                  "VertAlignment": "Center",
+                  "Font": "Tahoma;9;Bold;",
+                  "Border": ";;;;;;;solid:Black",
+                  "Brush": "solid:",
+                  "TextBrush": "solid:Black",
+                  "Type": "Expression"
+                },
+                "6": {
+                  "Ident": "StiHorizontalLinePrimitive",
+                  "Name": "HorizontalLine2",
+                  "Guid": "61bca70f740247c69f3af2a6507fb926",
+                  "ClientRectangle": "1,9.8,197,0.254",
+                  "Interaction": {
+                    "Ident": "StiInteraction"
+                  },
+                  "StartCap": ";;;",
+                  "EndCap": ";;;"
+                },
+                "7": {
+                  "Ident": "StiStartPointPrimitive",
+                  "Name": "StartPointPrimitive2",
+                  "ClientRectangle": "1,1.5,0,0",
+                  "Interaction": {
+                    "Ident": "StiInteraction"
+                  },
+                  "ReferenceToGuid": "f0995d634c2140b0b760906527e9feb0"
+                },
+                "8": {
+                  "Ident": "StiStartPointPrimitive",
+                  "Name": "StartPointPrimitive3",
+                  "ClientRectangle": "13.6,1.5,0,0",
+                  "Interaction": {
+                    "Ident": "StiInteraction"
+                  },
+                  "ReferenceToGuid": "68e19037cda648c8a01714fc7c592db1"
+                },
+                "9": {
+                  "Ident": "StiStartPointPrimitive",
+                  "Name": "StartPointPrimitive4",
+                  "ClientRectangle": "52,1.5,0,0",
+                  "Interaction": {
+                    "Ident": "StiInteraction"
+                  },
+                  "ReferenceToGuid": "e551f81319e849f99d8fd1fc2d2ef7bf"
+                },
+                "10": {
+                  "Ident": "StiStartPointPrimitive",
+                  "Name": "StartPointPrimitive7",
+                  "ClientRectangle": "140.2,1.2,0,0",
+                  "Interaction": {
+                    "Ident": "StiInteraction"
+                  },
+                  "ReferenceToGuid": "bd2e8c010d35493db716e1b3b3d38bef"
+                },
+                "11": {
+                  "Ident": "StiStartPointPrimitive",
+                  "Name": "StartPointPrimitive9",
+                  "ClientRectangle": "1.1,1.3,0,0",
+                  "Interaction": {
+                    "Ident": "StiInteraction"
+                  },
+                  "ReferenceToGuid": "8b8665fa32b9480e8e9bd5ca8998ba60"
+                },
+                "12": {
+                  "Ident": "StiStartPointPrimitive",
+                  "Name": "StartPointPrimitive6",
+                  "ClientRectangle": "119.2,1.3,0,0",
+                  "Interaction": {
+                    "Ident": "StiInteraction"
+                  },
+                  "ReferenceToGuid": "ab94333e2e0b4eb582f20dea99361d14"
+                },
+                "13": {
+                  "Ident": "StiStartPointPrimitive",
+                  "Name": "StartPointPrimitive10",
+                  "ClientRectangle": "164.4,1.3,0,0",
+                  "Interaction": {
+                    "Ident": "StiInteraction"
+                  },
+                  "ReferenceToGuid": "ce523a63c8704d9fa07e586768841ba3"
+                }
+              }
+            },
+            "1": {
+              "Ident": "StiText",
+              "Name": "tDocNo",
+              "Guid": "955772662980477aa021d51a8f9801d0",
+              "ClientRectangle": "140.7,36.5,57.9,5",
+              "Interaction": {
+                "Ident": "StiInteraction"
+              },
+              "Text": {
+                "Value": "{IIF(SP_nLang==\"1\",\"เลขที่เอกสาร :\",\"Document No. :\")} {IIF(TPSTTaxHDDocRef.FTXshRefDocNo==\"\",TPSTSalHD.FTXshDocNo,TPSTTaxHDDocRef.FTXshRefDocNo)}"
+              },
+              "HorAlignment": "Right",
+              "VertAlignment": "Center",
+              "Font": "Tahoma;9;;",
+              "Border": ";;;;;;;solid:Black",
+              "Brush": "solid:",
+              "TextBrush": "solid:Black",
+              "Type": "Expression"
+            },
+            "2": {
+              "Ident": "StiText",
+              "Name": "tDocDate",
+              "Guid": "7334c497bcf04a288af9a563dea30c56",
+              "ClientRectangle": "138.3,41.8,60.3,5",
+              "Interaction": {
+                "Ident": "StiInteraction"
+              },
+              "Text": {
+                "Value": "{IIF(SP_nLang==\"1\",\"วันที่เอกสาร :\",\"Document Date :\")} {IIF(TPSTTaxHDDocRef.FTXshRefDocNo == \"\",TPSTSalHD.FTXshDocDate,TPSTTaxHDDocRef.FTXshRefDocDate)} "
+              },
+              "HorAlignment": "Right",
+              "VertAlignment": "Center",
+              "Font": "Tahoma;9;;",
+              "Border": ";;;;;;;solid:Black",
+              "Brush": "solid:",
+              "TextBrush": "solid:Black",
+              "Type": "Expression"
+            },
+            "3": {
+              "Ident": "StiText",
+              "Name": "Header",
+              "Guid": "4d315962442242b4b124b1a192c85374",
+              "ClientRectangle": "66.6,1.6,77.9,5.6",
+              "Alias": "Header",
+              "Interaction": {
+                "Ident": "StiInteraction"
+              },
+              "Text": {
+                "Value": "{IIF(SP_tStaPrn == \"1\", IIF(SP_nLang==\"1\",\"ใบเสร็จรับเงิน/ใบกำกับภาษี(ต้นฉบับ)\",\"Original Receipt/Tax Invoice\"),\"\")}{IIF(SP_tStaPrn != \"1\", IIF(SP_nLang==\"1\",\"ใบเสร็จรับเงิน/ใบกำกับภาษี(สำเนา)\",\"Copy Receipt / Tax Invoice\"),\"\")}\r\n"
+              },
+              "HorAlignment": "Center",
+              "VertAlignment": "Center",
+              "Font": "Tahoma;11;Bold;",
+              "Border": ";;;;;;;solid:Black",
+              "Brush": "solid:",
+              "TextBrush": "solid:Black",
+              "Type": "Expression"
+            },
+            "4": {
+              "Ident": "StiImage",
+              "Name": "Image1",
+              "ClientRectangle": "2.7,1.1,16.2,9.3",
+              "Interaction": {
+                "Ident": "StiInteraction"
+              },
+              "Border": ";;;;;;;solid:Black",
+              "Brush": "solid:",
+              "Stretch": true,
+              "ImageBytes": "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btKjo2eYwxeyML+MBwCAOig774mJGfqQgMEdAugwb2qhRbpvKB2rafyC1PKVTBNrAoHEWhRSfK1gu0G0iUFoC0Y0AmLUQ440/wDrrf/aAAwDAQACAAMAAAAQ88888888888888888888888888888888888888888888888888888888888888888888888888888888888888888888888888888888888888888888888888888888888888888888888888888888888888888888888888888888888888888888888888888888888888888888888888888888888888888888888888888888888888888888888888888888888888888888888888888888888888888888888888888888888888888888888888888888888888888888888888885wwww888884www088wwww0884www088xwwwx8888888888888888GPPPPkq37rY88888X8887L8888Qxxxy8sxxxxl847xxxh8od888/8888888888888888w9999+oIpApJ8888af8AffLtPPPIwQQUPPCwQQRPArSAAALaF/fffPPPPPPPPPPPPPPPPHffffVqaCRWk+vPPOchTTTSPPPDDzz2fOLTzzyfATRjzz/sLTTTXvPPPPPPPPPPPPPPPGv/AP8A/DtskEJiev8AOAQv/ffbafPIggglvKAwggk/F/bgggg4dvfffPPPPPPPPPPPPPPPPEssssufOic0svcvKHfrgwQQcfLFvvvqPKPvvvqhQAQVvvriqQQQVvPPPPPPPPPPPPPPPJjzzz3MW0lncwuAaPP/APo8899zx7//APo89X//AP6hTjz1v/8A/k8889rzzzzzzzzzzzzzzzxrLLLL3zzWRpWfcmi8446Y8884k4445/z2Y4456U888444448889/zzzzzzzzzzzzzzzwc4446vzzxbuMI6yjT776Ic444pf777ryl77768444orz774c444nzzzzzzzzzzzzzzzysIIIILzzytLYsMiggMMNBn7778AMMMfyoIMMNL776tyAMMMf777rzzzzzzzzzzzzzzzy44446zzyXftvKeCg0444uqw445o8447z48445s446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"
+            },
+            "5": {
+              "Ident": "StiText",
+              "Name": "Text32",
+              "Guid": "062f91e695c64037b4d69ea915a70d0f",
+              "ClientRectangle": "4.2,10.5,100.2,5",
+              "Interaction": {
+                "Ident": "StiInteraction"
+              },
+              "Text": {
+                "Value": "{Company.FTCompName}"
+              },
+              "Font": "Tahoma;9;Bold;",
+              "Border": "Bottom;;;None;;;;solid:Black",
+              "Brush": "solid:",
+              "TextBrush": "solid:Black",
+              "Margins": {
+                "Left": 0.0,
+                "Right": 0.0,
+                "Top": 3.0,
+                "Bottom": 0.0
+              },
+              "Type": "DataColumn"
+            },
+            "6": {
+              "Ident": "StiText",
+              "Name": "Text11",
+              "Guid": "7e70fc30d9af4771b6f03c789cc60097",
+              "CanGrow": true,
+              "ClientRectangle": "4.2,15.3,84,8.3",
+              "Interaction": {
+                "Ident": "StiInteraction"
+              },
+              "MaxNumberOfLines": 5,
+              "Text": {
+                "Value": "{IIF(Company.FTAddrType == \"1\",\r\nIIF(SP_nLang==\"1\",\"เลขที่ \",\"No. \") + Company.FTAddV1No +\r\nIIF(Company.FTAddV1Village ==\"\",\"\",\" \" + Company.FTAddV1Village + \" \"+ (char)13) +\r\nIIF(Company.FTAddV1Soi==\"\",\"\",IIF(SP_nLang==\"1\",\"ซอย\",\"Soi \") + Company.FTAddV1Soi + \" \") +\r\nIIF(Company.FTAddV1Road==\"\",\"\",IIF(SP_nLang==\"1\",\"ถนน\",\"\") + Company.FTAddV1Road + IIF(SP_nLang==\"1\",\"\",\" Rd.\")+ \" \")+ \r\nIIF(Company.FTAddV1SubDist==\"\",\"\",IIF(SP_nLang==\"1\",\"  \" + Company.FTSudName,\" \" + Company.FTSudName +\"  SubDistrict \")  + \" \") +\r\nIIF(Company.FTAddV1DstCode==\"\",\"\",IIF(SP_nLang==\"1\",\"  \" + Company.FTDstName,\" \" + Company.FTDstName +\"  District \")  + \" \") + \r\nIIF(Company.FTAddV1PvnCode==\"\",\"\",IIF(SP_nLang==\"1\",\"  \" + Company.FTPvnName,\" \" + Company.FTPvnName+ \"  Provin\") + \" \") +\r\nIIF(Company.FTAddV1PostCode==\"\",\"\",Company.FTAddV1PostCode)\r\n,IIF(Company.FTAddV2Desc1==\"\",\"\",Company.FTAddV2Desc1) + \" \" +  IIF(Company.FTAddV2Desc1==\"\",IIF(Company.FTAddV2Desc2==\"\",\"\",Company.FTAddV2Desc2),IIF(Company.FTAddV2Desc2==\"\",\"\",(Char)13 + Company.FTAddV2Desc2)))}"
+              },
+              "CanBreak": true,
+              "Font": "Tahoma;9;;",
+              "Border": ";;;;;;;solid:Black",
+              "Brush": "solid:",
+              "TextBrush": "solid:Black",
+              "TextOptions": {
+                "WordWrap": true
+              },
+              "LineSpacing": 1.1000000238418579,
+              "Type": "Expression"
+            },
+            "7": {
+              "Ident": "StiPanel",
+              "Name": "Panel7",
+              "CanGrow": true,
+              "ClientRectangle": "105.3,9,98.45,23.4",
+              "Interaction": {
+                "Ident": "StiInteraction"
+              },
+              "CanBreak": true,
+              "Border": ";;;;;;;solid:Black",
+              "Brush": "solid:",
+              "Components": {
+                "0": {
+                  "Ident": "StiText",
+                  "Name": "Text21",
+                  "Guid": "118e531ad68e46e9931e63c0d0237787",
+                  "ClientRectangle": "2.1,1.5,92.1,5",
+                  "Interaction": {
+                    "Ident": "StiInteraction"
+                  },
+                  "Text": {
+                    "Value": "ทำการแทนโดย"
+                  },
+                  "VertAlignment": "Center",
+                  "Font": "Tahoma;9;Bold;",
+                  "Border": "Bottom;;;None;;;;solid:Black",
+                  "Brush": "solid:",
+                  "TextBrush": "solid:Black",
+                  "Margins": {
+                    "Left": 0.0,
+                    "Right": 0.0,
+                    "Top": 3.0,
+                    "Bottom": 0.0
+                  },
+                  "LineSpacing": 1.1000000238418579,
+                  "Type": "Expression"
+                },
+                "1": {
+                  "Ident": "StiText",
+                  "Name": "Text10",
+                  "Guid": "5418a3723ee44400b4a5a22708c66476",
+                  "CanGrow": true,
+                  "ClientRectangle": "2.1,6.6,92.1,5",
+                  "Interaction": {
+                    "Ident": "StiInteraction"
+                  },
+                  "Editable": true,
+                  "Text": {
+                    "Value": "{Company2.FTAddName}"
+                  },
+                  "CanBreak": true,
+                  "Font": "Tahoma;9;Bold;",
+                  "Border": "Bottom;;;None;;;;solid:Black",
+                  "Brush": "solid:",
+                  "TextBrush": "solid:Black",
+                  "TextOptions": {
+                    "WordWrap": true
+                  },
+                  "Margins": {
+                    "Left": 0.0,
+                    "Right": 0.0,
+                    "Top": 3.0,
+                    "Bottom": 0.0
+                  },
+                  "LineSpacing": 1.1000000238418579,
+                  "Type": "Expression"
+                },
+                "2": {
+                  "Ident": "StiText",
+                  "Name": "Text24",
+                  "Guid": "e3054fc1bbb74a5f9ccc014a08d240a5",
+                  "CanGrow": true,
+                  "ClientRectangle": "2.1,11.7,78,11",
+                  "Interaction": {
+                    "Ident": "StiInteraction"
+                  },
+                  "Editable": true,
+                  "Text": {
+                    "Value": "{IIF(Company2.FTAddrType == \"1\",\r\nIIF(SP_nLang==\"1\",\"เลขที่ \",\"No. \") + Company2.FTAddV1No +\r\nIIF(Company2.FTAddV1Village ==\"\",\"\",\" \" + Company2.FTAddV1Village + \" \"+ (char)13) +\r\nIIF(Company2.FTAddV1Soi==\"\",\"\",IIF(SP_nLang==\"1\",\"ซอย\",\"Soi \") + Company2.FTAddV1Soi + \" \") +\r\nIIF(Company2.FTAddV1Road==\"\",\"\",IIF(SP_nLang==\"1\",\"ถนน\",\"\") + Company2.FTAddV1Road + IIF(SP_nLang==\"1\",\"\",\" Rd.\")+ \" \")+ \r\nIIF(Company2.FTAddV1SubDist==\"\",\"\",IIF(SP_nLang==\"1\",\"  \" + Company2.FTSudName,\" \" + Company2.FTSudName +\"  SubDistrict \")  + \" \") +\r\nIIF(Company2.FTAddV1DstCode==\"\",\"\",IIF(SP_nLang==\"1\",\"  \" + Company2.FTDstName,\" \" + Company2.FTDstName +\"  District \")  + \" \") + \r\nIIF(Company2.FTAddV1PvnCode==\"\",\"\",IIF(SP_nLang==\"1\",\"  \" + Company2.FTPvnName,\" \" + Company2.FTPvnName+ \"  Provin\") + \" \") +\r\nIIF(Company2.FTAddV1PostCode==\"\",\"\",Company2.FTAddV1PostCode)\r\n,IIF(Company2.FTAddV2Desc1==\"\",\"\",Company2.FTAddV2Desc1) + \" \" +  IIF(Company2.FTAddV2Desc1==\"\",IIF(Company2.FTAddV2Desc2==\"\",\"\",Company2.FTAddV2Desc2),IIF(Company2.FTAddV2Desc2==\"\",\"\",(Char)13 + Company2.FTAddV2Desc2)))}\r\n{IIF(SP_nLang==\"1\",\"เลขประจำตัวผู้เสียภาษี\",\"Tax ID\") + \"  \" +  Company2.FTAddTaxNo}\r\n"
+                  },
+                  "CanBreak": true,
+                  "Font": "Tahoma;9;;",
+                  "Border": "Bottom;;;None;;;;solid:Black",
+                  "Brush": "solid:",
+                  "TextBrush": "solid:Black",
+                  "TextOptions": {
+                    "WordWrap": true
+                  },
+                  "Margins": {
+                    "Left": 0.0,
+                    "Right": 0.0,
+                    "Top": 3.0,
+                    "Bottom": 0.0
+                  },
+                  "LineSpacing": 1.1000000238418579,
+                  "Type": "Expression"
+                },
+                "3": {
+                  "Ident": "StiStartPointPrimitive",
+                  "Name": "StartPointPrimitive11",
+                  "ClientRectangle": "0.6,1.2,0,0",
+                  "Interaction": {
+                    "Ident": "StiInteraction"
+                  },
+                  "ReferenceToGuid": "eee31ab2a22143649ea0be2609d2b3d0"
+                },
+                "4": {
+                  "Ident": "StiStartPointPrimitive",
+                  "Name": "StartPointPrimitive12",
+                  "ClientRectangle": "0.3,1.2,0,0",
+                  "Interaction": {
+                    "Ident": "StiInteraction"
+                  },
+                  "ReferenceToGuid": "eee31ab2a22143649ea0be2609d2b3d0"
+                }
+              }
+            },
+            "8": {
+              "Ident": "StiText",
+              "Name": "Text25",
+              "Guid": "43fec46d81454ddcb72df0cc3b488651",
+              "CanGrow": true,
+              "ClientRectangle": "4.2,33.9,129.4,12.5",
+              "Interaction": {
+                "Ident": "StiInteraction"
+              },
+              "MaxNumberOfLines": 4,
+              "Text": {
+                "Value": "{IIF(SP_nLang==\"1\",\"ลูกค้า \",\"Customer \")}  \r\n{TPSTSalHD.FTAddName}   {IIF(TPSTSalHD.FTAddStaBusiness==\"1\",TPSTSalHD.FTBchName,\"\")}  {IIF(SP_nLang==\"1\",\"เลขประจำตัวผู้เสียภาษี :\",\"TAX ID. :\")}  {TPSTSalHD.FTCstTaxNo} \r\n{IIF(TPSTSalHD.FTAddTel==\"\",\" - \",\"(\" + TPSTSalHD.FTAddTel + \") \")}\r\n"
+              },
+              "CanBreak": true,
+              "Font": "Tahoma;9;;",
+              "Border": "Bottom;;;None;;;;solid:Black",
+              "Brush": "solid:",
+              "TextBrush": "solid:Black",
+              "TextOptions": {
+                "WordWrap": true
+              },
+              "Margins": {
+                "Left": 0.0,
+                "Right": 0.0,
+                "Top": 3.0,
+                "Bottom": 0.0
+              },
+              "LineSpacing": 1.1000000238418579,
+              "Type": "Expression"
+            },
+            "9": {
+              "Ident": "StiText",
+              "Name": "Text26",
+              "CanGrow": true,
+              "ClientRectangle": "4.2,46.5,129.3,3.9",
+              "Interaction": {
+                "Ident": "StiInteraction"
+              },
+              "Editable": true,
+              "Text": {
+                "Value": "{IIF(TPSTSalHD.FTAddVersion == \"1\",\r\nIIF(SP_nLang==\"1\",\"เลขที่ \",\"No. \") + TPSTSalHD.FTAddV1No +\r\nIIF(TPSTSalHD.FTAddV1Village ==\"\",\"\",\" \" + TPSTSalHD.FTAddV1Village + (char)13) +\r\nIIF(TPSTSalHD.FTAddV1Soi==\"\",\"\",IIF(SP_nLang==\"1\",\"ซอย\",\"Soi \") + TPSTSalHD.FTAddV1Soi + \" \") +\r\nIIF(TPSTSalHD.FTAddV1Road==\"\",\"\",IIF(SP_nLang==\"1\",\"ถนน\",\"\") + TPSTSalHD.FTAddV1Road + IIF(SP_nLang==\"1\",\"\",\" Rd.\")+ (char)13)+ \r\nIIF(TPSTSalHD.FTAddV1SubDist==\"\",IIF(SP_nLang==\"1\",\"ตำบล  -\",\"Sub district  -\"),TPSTSalHD.FTSudName + \"  \") + IIF(TPSTSalHD.FTAddV1DstCode==\"\",IIF(SP_nLang==\"1\",\"อำเภอ  -\",\"District  -\"),TPSTSalHD.FTDstName + (char)13) +\r\nIIF(TPSTSalHD.FTAddV1PvnCode==\"\",IIF(SP_nLang==\"1\",\"จังหวัด  -\",\"Province  -\"),TPSTSalHD.FTPvnName + \"  \") + IIF(TPSTSalHD.FTAddV1PostCode==\"\",\"\",TPSTSalHD.FTAddV1PostCode)\r\n,\r\nTPSTSalHD.FTAddV2Desc1 + \" \" +\r\nTPSTSalHD.FTAddV2Desc2\r\n)}"
+              },
+              "CanBreak": true,
+              "Font": "Tahoma;9;;",
+              "Border": ";;;;;;;solid:Black",
+              "Brush": "solid:",
+              "TextBrush": "solid:Black",
+              "TextOptions": {
+                "WordWrap": true
+              },
+              "Type": "Expression"
+            },
+            "10": {
+              "Ident": "StiText",
+              "Name": "Text19",
+              "ClientRectangle": "4.2,23.4,100.2,7.8",
+              "Interaction": {
+                "Ident": "StiInteraction"
+              },
+              "Text": {
+                "Value": "{IIF(SP_nLang==\"1\",\"โทร\",\"Tel\") + \" : \"  + Company.FTAddTel + \"  \" + IIF(SP_nLang==\"1\",\"แฟกซ์\",\"Fax\") + \" : \" +  Company.FTAddFax}\r\n{IIF(SP_nLang==\"1\",\"เลขประจำตัวผู้เสียภาษี\",\"Tax ID\")}   {Company.FTAddTaxNo}"
+              },
+              "Font": "Tahoma;9;;",
+              "Border": ";;;;;;;solid:Black",
+              "Brush": "solid:",
+              "TextBrush": "solid:Black",
+              "Type": "Expression"
+            },
+            "11": {
+              "Ident": "StiText",
+              "Name": "Text20",
+              "ClientRectangle": "178.8,2.1,21.9,5.1",
+              "Interaction": {
+                "Ident": "StiInteraction"
+              },
+              "Text": {
+                "Value": "หน้า {PageNumber}"
+              },
+              "HorAlignment": "Right",
+              "VertAlignment": "Center",
+              "Font": "Tahoma;9;;",
+              "Border": ";;;;;;;solid:Black",
+              "Brush": "solid:",
+              "TextBrush": "solid:Black",
+              "Type": "Expression"
+            },
+            "12": {
+              "Ident": "StiEndPointPrimitive",
+              "Name": "EndPointPrimitive11",
+              "ClientRectangle": "200,33,0,0",
+              "Interaction": {
+                "Ident": "StiInteraction"
+              },
+              "ReferenceToGuid": "eee31ab2a22143649ea0be2609d2b3d0"
+            }
+          },
+          "CanGrow": false
+        },
+        "1": {
+          "Ident": "StiPageFooterBand",
+          "Name": "PageFooterBand1",
+          "ClientRectangle": "0,207.3,205,84.7",
+          "Interaction": {
+            "Ident": "StiInteraction"
+          },
+          "Border": ";;;;;;;solid:Black",
+          "Brush": "solid:",
+          "Components": {
+            "0": {
+              "Ident": "StiText",
+              "Name": "Text14",
+              "Guid": "6645aab9ed85417f8114f9a3bfdd7021",
+              "ClientRectangle": "19.7,46.2,51.4,6",
+              "Interaction": {
+                "Ident": "StiInteraction"
+              },
+              "Text": {
+                "Value": "{IIF(SP_nLang==\"1\",\"ลงนามผู้ซื้อ\",\" \")}"
+              },
+              "HorAlignment": "Center",
+              "VertAlignment": "Center",
+              "Font": "Tahoma;9;;",
+              "Border": ";;;;;;;solid:Black",
+              "Brush": "solid:",
+              "TextBrush": "solid:Black",
+              "Type": "Expression"
+            },
+            "1": {
+              "Ident": "StiText",
+              "Name": "Text16",
+              "Guid": "9a083db796a74491b58854e11cbe705e",
+              "ClientRectangle": "21.2,27.5,47,6",
+              "Interaction": {
+                "Ident": "StiInteraction"
+              },
+              "Text": {
+                "Value": "ได้รับสินค้าถูกต้องครบถ้วน"
+              },
+              "HorAlignment": "Center",
+              "VertAlignment": "Center",
+              "Font": "Tahoma;9;;",
+              "Border": ";;;;;;;solid:Black",
+              "Brush": "solid:",
+              "TextBrush": "solid:Black",
+              "Type": "Expression"
+            },
+            "2": {
+              "Ident": "StiText",
+              "Name": "Text17",
+              "Guid": "758b17115b6e4b42a1f434e1c5acadf1",
+              "ClientRectangle": "19.7,53,51.4,5.2",
+              "Interaction": {
+                "Ident": "StiInteraction"
+              },
+              "Text": {
+                "Value": "{IIF(SP_nLang==\"1\",\"วันที่............/.........../............\",\"Date.........../............./..............\")}"
+              },
+              "VertAlignment": "Center",
+              "Font": "Tahoma;9;;",
+              "Border": ";;;;;;;solid:Black",
+              "Brush": "solid:",
+              "TextBrush": "solid:Black",
+              "Type": "Expression"
+            },
+            "3": {
+              "Ident": "StiText",
+              "Name": "Text18",
+              "Guid": "8f205112b4cd4eb38367234de7929814",
+              "ClientRectangle": "20.7,40.7,51.4,4",
+              "Interaction": {
+                "Ident": "StiInteraction"
+              },
+              "Text": {
+                "Value": ".........................................."
+              },
+              "HorAlignment": "Center",
+              "Font": "Tahoma;10;;",
+              "Border": ";;;;;;;solid:Black",
+              "Brush": "solid:",
+              "TextBrush": "solid:Black",
+              "Type": "Expression"
+            },
+            "4": {
+              "Ident": "StiText",
+              "Name": "tReceive",
+              "Guid": "41b477913c774e88b72f2b4858fa677d",
+              "ClientRectangle": "137.6,46.2,45.6,6",
+              "Interaction": {
+                "Ident": "StiInteraction"
+              },
+              "Text": {
+                "Value": "ลงนามผู้ขาย"
+              },
+              "HorAlignment": "Center",
+              "VertAlignment": "Center",
+              "Font": "Tahoma;9;;",
+              "Border": ";;;;;;;solid:Black",
+              "Brush": "solid:",
+              "TextBrush": "solid:Black",
+              "Type": "Expression"
+            },
+            "5": {
+              "Ident": "StiText",
+              "Name": "tDate2",
+              "Guid": "d1939e0f93b84dad9b696b603a4c50e0",
+              "ClientRectangle": "137.6,53,45.6,5.2",
+              "Interaction": {
+                "Ident": "StiInteraction"
+              },
+              "Text": {
+                "Value": "{IIF(SP_nLang==\"1\",\"วันที่.........../............/...........\",\"Date............/........../................\")}"
+              },
+              "VertAlignment": "Center",
+              "Font": "Tahoma;9;;",
+              "Border": ";;;;;;;solid:Black",
+              "Brush": "solid:",
+              "TextBrush": "solid:Black",
+              "Type": "Expression"
+            },
+            "6": {
+              "Ident": "StiText",
+              "Name": "Text30",
+              "ClientRectangle": "4.4,61.2,195.5,5.5",
+              "Conditions": {
+                "0": {
+                  "Ident": "StiCondition",
+                  "Condition": "NotEqualTo",
+                  "Column": "TPSTSalHD.FTXshStaETax",
+                  "Value1": "1",
+                  "Enabled": false,
+                  "BorderSides": "None"
+                }
+              },
+              "Interaction": {
+                "Ident": "StiInteraction"
+              },
+              "Text": {
+                "Value": "{IIF(SP_nLang==\"1\",\"เอกสารนี้ได้จัดทำและนำส่งข้อมูลให้กรมสรรพากรด้วยวิธีการทางอิเล็กทรอนิกส์\",\"This document has been prepared and submitted to the Revenue Department by electronic means.\")}"
+              },
+              "VertAlignment": "Center",
+              "Font": "Tahoma;9;;",
+              "Border": ";;;;;;;solid:Black",
+              "Brush": "solid:",
+              "TextBrush": "solid:Red",
+              "Type": "Expression"
+            },
+            "7": {
+              "Ident": "StiText",
+              "Name": "Text12",
+              "Guid": "6cf52363aa2d492e98b8b46d56369eae",
+              "ClientRectangle": "120.5,27.5,79.4,6",
+              "Interaction": {
+                "Ident": "StiInteraction"
+              },
+              "Text": {
+                "Value": "{Company2.FTAddName}"
+              },
+              "HorAlignment": "Center",
+              "VertAlignment": "Center",
+              "Font": "Tahoma;9;;",
+              "Border": ";;;;;;;solid:Black",
+              "Brush": "solid:",
+              "TextBrush": "solid:Black",
+              "Type": "Expression"
+            },
+            "8": {
+              "Ident": "StiText",
+              "Name": "Text15",
+              "Guid": "44add5e337a94e42a8850a47167a1d38",
+              "ClientRectangle": "135.7,40.7,49,4",
+              "Interaction": {
+                "Ident": "StiInteraction"
+              },
+              "Text": {
+                "Value": ".........................................."
+              },
+              "HorAlignment": "Center",
+              "Font": "Tahoma;10;;",
+              "Border": ";;;;;;;solid:Black",
+              "Brush": "solid:",
+              "TextBrush": "solid:Black",
+              "Type": "Expression"
+            },
+            "9": {
+              "Ident": "StiText",
+              "Name": "Text13",
+              "Guid": "66855677c9a4495fbb24557182ed2d0e",
+              "PrintOn": "OnlyLastPage",
+              "ClientRectangle": "5.2,1.5,115,9",
+              "Interaction": {
+                "Ident": "StiInteraction"
+              },
+              "Text": {
+                "Value": "หมายเหตุ \r\n    จำนวนสินค้า รวมทั้งสิ้น {Format(\"{\" + Format(\"0:F{0}\", 0) + \"}\", Sum(Data1,TPSTSalDT.FCXsdQty))}   ชิ้น\r\n"
+              },
+              "Font": "Tahoma;9;;",
+              "Border": ";;;;;;;solid:Black",
+              "Brush": "solid:",
+              "TextBrush": "solid:Black",
+              "Type": "Expression"
+            },
+            "10": {
+              "Ident": "StiText",
+              "Name": "Text2",
+              "Guid": "39f5fe49f86a47b681c596edcb05ac65",
+              "ClientRectangle": "122.1,0.9,42.9,4.5",
+              "Interaction": {
+                "Ident": "StiInteraction"
+              },
+              "Text": {
+                "Value": "ราคาก่อนภาษี"
+              },
+              "HorAlignment": "Right",
+              "Font": "Tahoma;9;;",
+              "Border": ";;;;;;;solid:Black",
+              "Brush": "solid:",
+              "TextBrush": "solid:Black",
+              "Type": "Expression"
+            },
+            "11": {
+              "Ident": "StiText",
+              "Name": "Text3",
+              "Guid": "3b493e3060e84de98b5856d70ed469a9",
+              "ClientRectangle": "122.1,6.6,42.9,4.8",
+              "Interaction": {
+                "Ident": "StiInteraction"
+              },
+              "Text": {
+                "Value": "ภาษี {TPSTSalVatRate.FCXsdVatRate + \"%\"}"
+              },
+              "HorAlignment": "Right",
+              "Font": "Tahoma;9;;",
+              "Border": ";;;;;;;solid:Black",
+              "Brush": "solid:",
+              "TextBrush": "solid:Black",
+              "Type": "Expression"
+            },
+            "12": {
+              "Ident": "StiText",
+              "Name": "Text4",
+              "Guid": "7aef743e119447caa0dd6e3d6720a920",
+              "ClientRectangle": "122.1,12.6,42.9,4.5",
+              "Interaction": {
+                "Ident": "StiInteraction"
+              },
+              "Text": {
+                "Value": "จำนวนเงิน"
+              },
+              "HorAlignment": "Right",
+              "Font": "Tahoma;9;;",
+              "Border": ";;;;;;;solid:Black",
+              "Brush": "solid:",
+              "TextBrush": "solid:Black",
+              "Type": "Expression"
+            },
+            "13": {
+              "Ident": "StiText",
+              "Name": "Text5",
+              "Guid": "135912b23a0c4dfe8a2d0fca8723c391",
+              "ClientRectangle": "117.9,18,47,6",
+              "Interaction": {
+                "Ident": "StiInteraction"
+              },
+              "Text": {
+                "Value": "จำนวนเงินสุทธิ"
+              },
+              "HorAlignment": "Right",
+              "VertAlignment": "Center",
+              "Font": "Tahoma;9;;",
+              "Border": ";;;;;;;solid:Black",
+              "Brush": "solid:",
+              "TextBrush": "solid:Black",
+              "Type": "Expression"
+            },
+            "14": {
+              "Ident": "StiText",
+              "Name": "Text6",
+              "Guid": "b39af42461174e0093d93c9d52fd06c9",
+              "PrintOn": "OnlyLastPage",
+              "ClientRectangle": "168,0.9,29.9,4.5",
+              "Interaction": {
+                "Ident": "StiInteraction"
+              },
+              "Text": {
+                "Value": "{TPSTSalHD.FCXshVatable+TPSTSalHD.FCXshAmtNV}"
+              },
+              "HorAlignment": "Right",
+              "VertAlignment": "Center",
+              "Font": "Tahoma;9;;",
+              "Border": ";;;;;;;solid:Black",
+              "Brush": "solid:",
+              "TextBrush": "solid:Black",
+              "TextFormat": {
+                "Ident": "StiNumberFormatService",
+                "NegativePattern": 1,
+                "GroupSeparator": ",",
+                "State": "DecimalDigits"
+              },
+              "Type": "Expression"
+            },
+            "15": {
+              "Ident": "StiText",
+              "Name": "Text7",
+              "Guid": "1009190ed39342acb4c5e67e76d6be9f",
+              "PrintOn": "OnlyLastPage",
+              "ClientRectangle": "166.8,6,31.1,6",
+              "Interaction": {
+                "Ident": "StiInteraction"
+              },
+              "Text": {
+                "Value": "{TPSTSalVat.FCXsdVatNew}"
+              },
+              "HorAlignment": "Right",
+              "VertAlignment": "Center",
+              "Font": "Tahoma;9;;",
+              "Border": ";;;;;;;solid:Black",
+              "Brush": "solid:",
+              "TextBrush": "solid:Black",
+              "TextFormat": {
+                "Ident": "StiNumberFormatService",
+                "NegativePattern": 1,
+                "GroupSeparator": ",",
+                "State": "DecimalDigits"
+              },
+              "Type": "Expression"
+            },
+            "16": {
+              "Ident": "StiText",
+              "Name": "Text8",
+              "Guid": "5a22fc0f10d143d5b6a54e719c2e1047",
+              "PrintOn": "OnlyLastPage",
+              "ClientRectangle": "166.8,12,31.1,6",
+              "Interaction": {
+                "Ident": "StiInteraction"
+              },
+              "Text": {
+                "Value": "{TPSTSalHD.FCXshGrandBFRnd}"
+              },
+              "HorAlignment": "Right",
+              "VertAlignment": "Center",
+              "Font": "Tahoma;9;;",
+              "Border": ";;;;;;;solid:Black",
+              "Brush": "solid:",
+              "TextBrush": "solid:Black",
+              "TextFormat": {
+                "Ident": "StiNumberFormatService",
+                "NegativePattern": 1,
+                "GroupSeparator": ",",
+                "State": "DecimalDigits"
+              },
+              "Type": "DataColumn"
+            },
+            "17": {
+              "Ident": "StiText",
+              "Name": "Text9",
+              "Guid": "9e0a840ed649422187feb5d2bc6f18f0",
+              "PrintOn": "OnlyLastPage",
+              "ClientRectangle": "167.4,18,30.5,6",
+              "Interaction": {
+                "Ident": "StiInteraction"
+              },
+              "Text": {
+                "Value": "{TPSTSalHD.FCXshGrandAmt}"
+              },
+              "HorAlignment": "Right",
+              "VertAlignment": "Center",
+              "Font": "Tahoma;9;;",
+              "Border": ";;;;;;;solid:Black",
+              "Brush": "solid:",
+              "TextBrush": "solid:Black",
+              "TextFormat": {
+                "Ident": "StiNumberFormatService",
+                "NegativePattern": 1,
+                "GroupSeparator": ",",
+                "State": "DecimalDigits"
+              },
+              "Type": "Expression"
+            },
+            "18": {
+              "Ident": "StiText",
+              "Name": "Text27",
+              "ClientRectangle": "37.2,15.3,17.1,3.9",
+              "Interaction": {
+                "Ident": "StiInteraction"
+              },
+              "Border": ";;;;;;;solid:Black",
+              "Brush": "solid:",
+              "TextBrush": "solid:Black"
+            },
+            "19": {
+              "Ident": "StiEndPointPrimitive",
+              "Name": "EndPointPrimitive3",
+              "ClientRectangle": "15.6,-0.1,0,0",
+              "Interaction": {
+                "Ident": "StiInteraction"
+              },
+              "ReferenceToGuid": "68e19037cda648c8a01714fc7c592db1"
+            },
+            "20": {
+              "Ident": "StiEndPointPrimitive",
+              "Name": "EndPointPrimitive4",
+              "ClientRectangle": "54,-0.1,0,0",
+              "Interaction": {
+                "Ident": "StiInteraction"
+              },
+              "ReferenceToGuid": "e551f81319e849f99d8fd1fc2d2ef7bf"
+            },
+            "21": {
+              "Ident": "StiHorizontalLinePrimitive",
+              "Name": "HorizontalLine3",
+              "Guid": "96f5c8e573bd45049ef9502f668e32c4",
+              "ClientRectangle": "3.1,0.3,197,0.254",
+              "Interaction": {
+                "Ident": "StiInteraction"
+              },
+              "StartCap": ";;;",
+              "EndCap": ";;;"
+            },
+            "22": {
+              "Ident": "StiEndPointPrimitive",
+              "Name": "EndPointPrimitive7",
+              "ClientRectangle": "142.2,-0.1,0,0",
+              "Interaction": {
+                "Ident": "StiInteraction"
+              },
+              "ReferenceToGuid": "bd2e8c010d35493db716e1b3b3d38bef"
+            },
+            "23": {
+              "Ident": "StiEndPointPrimitive",
+              "Name": "EndPointPrimitive10",
+              "ClientRectangle": "166.4,24.3,0,0",
+              "Interaction": {
+                "Ident": "StiInteraction"
+              },
+              "ReferenceToGuid": "ce523a63c8704d9fa07e586768841ba3"
+            },
+            "24": {
+              "Ident": "StiEndPointPrimitive",
+              "Name": "EndPointPrimitive2",
+              "ClientRectangle": "199.7,24,0,0",
+              "Interaction": {
+                "Ident": "StiInteraction"
+              },
+              "ReferenceToGuid": "f0995d634c2140b0b760906527e9feb0"
+            },
+            "25": {
+              "Ident": "StiHorizontalLinePrimitive",
+              "Name": "HorizontalLinePrimitive1",
+              "ClientRectangle": "121.2,5.9,78.9,0.254",
+              "Interaction": {
+                "Ident": "StiInteraction"
+              },
+              "StartCap": ";;;",
+              "EndCap": ";;;"
+            },
+            "26": {
+              "Ident": "StiHorizontalLinePrimitive",
+              "Name": "HorizontalLinePrimitive2",
+              "ClientRectangle": "121.2,12,78.9,0.254",
+              "Interaction": {
+                "Ident": "StiInteraction"
+              },
+              "StartCap": ";;;",
+              "EndCap": ";;;"
+            },
+            "27": {
+              "Ident": "StiHorizontalLinePrimitive",
+              "Name": "HorizontalLinePrimitive3",
+              "ClientRectangle": "121.2,18,78.9,0.254",
+              "Interaction": {
+                "Ident": "StiInteraction"
+              },
+              "StartCap": ";;;",
+              "EndCap": ";;;"
+            },
+            "28": {
+              "Ident": "StiEndPointPrimitive",
+              "Name": "EndPointPrimitive9",
+              "ClientRectangle": "200,24.5,0,0",
+              "Interaction": {
+                "Ident": "StiInteraction"
+              },
+              "ReferenceToGuid": "8b8665fa32b9480e8e9bd5ca8998ba60"
+            },
+            "29": {
+              "Ident": "StiEndPointPrimitive",
+              "Name": "EndPointPrimitive6",
+              "ClientRectangle": "121.2,24.2,0,0",
+              "Interaction": {
+                "Ident": "StiInteraction"
+              },
+              "ReferenceToGuid": "ab94333e2e0b4eb582f20dea99361d14"
+            }
+          }
+        },
+        "2": {
+          "Ident": "StiGroupHeaderBand",
+          "Name": "GroupHeader1",
+          "Guid": "348c4273830e47b0827ff65d8a3777ab",
+          "ClientRectangle": "0,79.6,205,0.5",
+          "Enabled": false,
+          "Interaction": {
+            "Ident": "StiBandInteraction"
+          },
+          "Border": ";;;;;;;solid:Black",
+          "Brush": "solid:",
+          "CanGrow": false,
+          "KeepGroupHeaderTogether": false,
+          "Condition": {
+            "Value": "{TPSTSalHD.FTXshDocNo}"
+          }
+        },
+        "3": {
+          "Ident": "StiDataBand",
+          "Name": "Data1",
+          "Guid": "e76df48c7f33437ba41203f26558d114",
+          "ClientRectangle": "0,87.9,205,5.5",
+          "Interaction": {
+            "Ident": "StiBandInteraction"
+          },
+          "Border": ";;;;;;;solid:Black",
+          "Brush": "solid:",
+          "Components": {
+            "0": {
+              "Ident": "StiPanel",
+              "Name": "Panel9",
+              "ClientRectangle": "0,0.1,204.2,5.5",
+              "Interaction": {
+                "Ident": "StiInteraction"
+              },
+              "Border": ";;;;;;;solid:Black",
+              "Brush": "solid:",
+              "Components": {
+                "0": {
+                  "Ident": "StiText",
+                  "Name": "tdPdtCode",
+                  "Guid": "57ccfbadf83a4f56a3a0d979b31a8617",
+                  "CanGrow": true,
+                  "ClientRectangle": "16.5,0,36.9,5.5",
+                  "Alias": "[Product Code]",
+                  "Interaction": {
+                    "Ident": "StiInteraction"
+                  },
+                  "Text": {
+                    "Value": "{TPSTSalDT.FTPdtCode}"
+                  },
+                  "CanBreak": true,
+                  "Font": "Tahoma;9;;",
+                  "Border": ";;;;;;;solid:Black",
+                  "Brush": "solid:",
+                  "TextBrush": "solid:Black",
+                  "TextOptions": {
+                    "WordWrap": true
+                  },
+                  "Margins": {
+                    "Left": 0.0,
+                    "Right": 0.0,
+                    "Top": 4.0,
+                    "Bottom": 0.0
+                  },
+                  "Type": "DataColumn"
+                },
+                "1": {
+                  "Ident": "StiText",
+                  "Name": "LineNo",
+                  "Guid": "9acb34f3fbf747229a96375f3fd04d67",
+                  "ClientRectangle": "3,0,12.3,5.5",
+                  "Interaction": {
+                    "Ident": "StiInteraction"
+                  },
+                  "Text": {
+                    "Value": "{Line}"
+                  },
+                  "HorAlignment": "Center",
+                  "Font": "Tahoma;9;;",
+                  "Border": ";;;;;;;solid:Black",
+                  "Brush": "solid:",
+                  "TextBrush": "solid:Black",
+                  "Margins": {
+                    "Left": 0.0,
+                    "Right": 0.0,
+                    "Top": 4.0,
+                    "Bottom": 0.0
+                  },
+                  "Type": "SystemVariables"
+                },
+                "2": {
+                  "Ident": "StiText",
+                  "Name": "Qty",
+                  "Guid": "ab88f2f16bf44504bd8c109ff52d6d96",
+                  "ClientRectangle": "143.1,0,21.9,5.5",
+                  "Interaction": {
+                    "Ident": "StiInteraction"
+                  },
+                  "Text": {
+                    "Value": "{TPSTSalDT.FCXsdQty}"
+                  },
+                  "HorAlignment": "Right",
+                  "Font": "Tahoma;9;;",
+                  "Border": ";;;;;;;solid:Black",
+                  "Brush": "solid:",
+                  "TextBrush": "solid:Black",
+                  "Margins": {
+                    "Left": 0.0,
+                    "Right": 0.0,
+                    "Top": 4.0,
+                    "Bottom": 0.0
+                  },
+                  "TextFormat": {
+                    "Ident": "StiNumberFormatService",
+                    "NegativePattern": 1,
+                    "GroupSeparator": ",",
+                    "UseLocalSetting": false
+                  },
+                  "Type": "Expression"
+                },
+                "3": {
+                  "Ident": "StiText",
+                  "Name": "nAmount",
+                  "Guid": "93f86d1f8fef4811af13375cc197f474",
+                  "ClientRectangle": "166.8,0,31.2,5.5",
+                  "Alias": "Amount",
+                  "Interaction": {
+                    "Ident": "StiInteraction"
+                  },
+                  "Text": {
+                    "Value": "{IIF(TPSTSalDT.FVXsdSumGrand==TPSTSalDT.FVXsdSumNet,TPSTSalDT.FCXsdNet + TPSTSalDT.FCXddDisPmt,TPSTSalDT.FCXsdNetUse + TPSTSalDT.FCXddDisPmt)}"
+                  },
+                  "HorAlignment": "Right",
+                  "Font": "Tahoma;9;;",
+                  "Border": ";;;;;;;solid:Black",
+                  "Brush": "solid:",
+                  "TextBrush": "solid:Black",
+                  "Margins": {
+                    "Left": 0.0,
+                    "Right": 0.0,
+                    "Top": 4.0,
+                    "Bottom": 0.0
+                  },
+                  "TextFormat": {
+                    "Ident": "StiNumberFormatService",
+                    "NegativePattern": 1,
+                    "GroupSeparator": ",",
+                    "UseLocalSetting": false,
+                    "State": "DecimalDigits, GroupSeparator, GroupSize"
+                  },
+                  "Type": "Expression"
+                },
+                "4": {
+                  "Ident": "StiText",
+                  "Name": "Text1",
+                  "Guid": "3f20ef1cfb0a412889477c4df480ccf5",
+                  "CanGrow": true,
+                  "ClientRectangle": "54.9,0,66,5.5",
+                  "Alias": "[Product Code]",
+                  "Interaction": {
+                    "Ident": "StiInteraction"
+                  },
+                  "Text": {
+                    "Value": "{TPSTSalDT.FTPdtName}"
+                  },
+                  "CanBreak": true,
+                  "Font": "Tahoma;9;;",
+                  "Border": ";;;;;;;solid:Black",
+                  "Brush": "solid:",
+                  "TextBrush": "solid:Black",
+                  "TextOptions": {
+                    "WordWrap": true
+                  },
+                  "Margins": {
+                    "Left": 0.0,
+                    "Right": 0.0,
+                    "Top": 4.0,
+                    "Bottom": 0.0
+                  },
+                  "LineSpacing": 1.1000000238418579,
+                  "Type": "DataColumn"
+                },
+                "5": {
+                  "Ident": "StiText",
+                  "Name": "nSetPrice",
+                  "Guid": "db8bf2a9c8da4af48b8cf9941432fa32",
+                  "ClientRectangle": "122.1,0,19.1,5.5",
+                  "Alias": "SetPrice",
+                  "Interaction": {
+                    "Ident": "StiInteraction"
+                  },
+                  "Text": {
+                    "Value": "{IIF(TPSTSalDT.FVXsdSumNet==TPSTSalDT.FVXsdSumGrand,TPSTSalDT.FCXsdSetPrice,TPSTSalDT.FCXsdSetPriceUse)}"
+                  },
+                  "HorAlignment": "Right",
+                  "Font": "Tahoma;9;;",
+                  "Border": ";;;;;;;solid:Black",
+                  "Brush": "solid:",
+                  "TextBrush": "solid:Black",
+                  "Margins": {
+                    "Left": 0.0,
+                    "Right": 0.0,
+                    "Top": 4.0,
+                    "Bottom": 0.0
+                  },
+                  "TextFormat": {
+                    "Ident": "StiNumberFormatService",
+                    "NegativePattern": 1,
+                    "GroupSeparator": ",",
+                    "UseLocalSetting": false,
+                    "State": "DecimalDigits"
+                  },
+                  "Type": "Expression"
+                }
+              }
+            }
+          },
+          "CanGrow": false,
+          "KeepHeaderTogether": false,
+          "KeepFooterTogether": false,
+          "DataSourceName": "TPSTSalDT",
+          "FilterOn": false,
+          "Sort": {
+            "0": "ASC",
+            "1": "FNPtdSeqNo"
+          }
+        },
+        "4": {
+          "Ident": "StiVerticalLinePrimitive",
+          "Name": "VerticalLinePrimitive1",
+          "Guid": "68e19037cda648c8a01714fc7c592db1",
+          "ClientRectangle": "15.6,56.9,0.254,150.3",
+          "Interaction": {
+            "Ident": "StiInteraction"
+          },
+          "Size": 0.8,
+          "StartCap": ";;;",
+          "EndCap": ";;;"
+        },
+        "5": {
+          "Ident": "StiVerticalLinePrimitive",
+          "Name": "VerticalLinePrimitive2",
+          "Guid": "e551f81319e849f99d8fd1fc2d2ef7bf",
+          "ClientRectangle": "54,56.9,0.254,150.3",
+          "Interaction": {
+            "Ident": "StiInteraction"
+          },
+          "Size": 0.8,
+          "StartCap": ";;;",
+          "EndCap": ";;;"
+        },
+        "6": {
+          "Ident": "StiVerticalLinePrimitive",
+          "Name": "VerticalLinePrimitive4",
+          "Guid": "bd2e8c010d35493db716e1b3b3d38bef",
+          "ClientRectangle": "142.2,56.6,0.254,150.6",
+          "Interaction": {
+            "Ident": "StiInteraction"
+          },
+          "Size": 0.8,
+          "StartCap": ";;;",
+          "EndCap": ";;;"
+        },
+        "7": {
+          "Ident": "StiVerticalLinePrimitive",
+          "Name": "VerticalLinePrimitive3",
+          "Guid": "5ca93ccf792745b7b8d30060d04f2a3f",
+          "ClientRectangle": "1212,656.6,0.254,1635",
+          "Interaction": {
+            "Ident": "StiInteraction"
+          },
+          "Size": 0.8,
+          "StartCap": ";;;",
+          "EndCap": ";;;"
+        },
+        "8": {
+          "Ident": "StiVerticalLinePrimitive",
+          "Name": "VerticalLinePrimitive5",
+          "Guid": "f3b552c4291d440b80cb8fe62fe0037a",
+          "ClientRectangle": "1662,653.6,0.254,1638",
+          "Interaction": {
+            "Ident": "StiInteraction"
+          },
+          "Size": 0.8,
+          "StartCap": ";;;",
+          "EndCap": ";;;"
+        },
+        "9": {
+          "Ident": "StiStartPointPrimitive",
+          "Name": "StartPointPrimitive1",
+          "ClientRectangle": "1212,656.6,0,0",
+          "Interaction": {
+            "Ident": "StiInteraction"
+          },
+          "ReferenceToGuid": "5ca93ccf792745b7b8d30060d04f2a3f"
+        },
+        "10": {
+          "Ident": "StiEndPointPrimitive",
+          "Name": "EndPointPrimitive1",
+          "ClientRectangle": "1212,2291.6,0,0",
+          "Interaction": {
+            "Ident": "StiInteraction"
+          },
+          "ReferenceToGuid": "5ca93ccf792745b7b8d30060d04f2a3f"
+        },
+        "11": {
+          "Ident": "StiStartPointPrimitive",
+          "Name": "StartPointPrimitive5",
+          "ClientRectangle": "1662,653.6,0,0",
+          "Interaction": {
+            "Ident": "StiInteraction"
+          },
+          "ReferenceToGuid": "f3b552c4291d440b80cb8fe62fe0037a"
+        },
+        "12": {
+          "Ident": "StiEndPointPrimitive",
+          "Name": "EndPointPrimitive5",
+          "ClientRectangle": "1662,2291.6,0,0",
+          "Interaction": {
+            "Ident": "StiInteraction"
+          },
+          "ReferenceToGuid": "f3b552c4291d440b80cb8fe62fe0037a"
+        },
+        "13": {
+          "Ident": "StiVerticalLinePrimitive",
+          "Name": "VerticalLinePrimitive7",
+          "Guid": "715124b957634fdfac6058221b531fe5",
+          "ClientRectangle": "571.2,160,0.254,1638",
+          "Interaction": {
+            "Ident": "StiInteraction"
+          },
+          "Size": 0.8,
+          "StartCap": ";;;",
+          "EndCap": ";;;"
+        },
+        "14": {
+          "Ident": "StiStartPointPrimitive",
+          "Name": "StartPointPrimitive8",
+          "ClientRectangle": "571.2,160,0,0",
+          "Interaction": {
+            "Ident": "StiInteraction"
+          },
+          "ReferenceToGuid": "715124b957634fdfac6058221b531fe5"
+        },
+        "15": {
+          "Ident": "StiEndPointPrimitive",
+          "Name": "EndPointPrimitive8",
+          "ClientRectangle": "571.2,1798,0,0",
+          "Interaction": {
+            "Ident": "StiInteraction"
+          },
+          "ReferenceToGuid": "715124b957634fdfac6058221b531fe5"
+        },
+        "16": {
+          "Ident": "StiRectanglePrimitive",
+          "Name": "RectanglePrimitive1",
+          "Guid": "8b8665fa32b9480e8e9bd5ca8998ba60",
+          "ClientRectangle": "3.1,56.7,196.9,175.1",
+          "Interaction": {
+            "Ident": "StiInteraction"
+          }
+        },
+        "17": {
+          "Ident": "StiVerticalLinePrimitive",
+          "Name": "VerticalLinePrimitive6",
+          "Guid": "ab94333e2e0b4eb582f20dea99361d14",
+          "ClientRectangle": "121.2,56.7,0.254,174.8",
+          "Interaction": {
+            "Ident": "StiInteraction"
+          },
+          "Size": 0.8,
+          "StartCap": ";;;",
+          "EndCap": ";;;"
+        },
+        "18": {
+          "Ident": "StiVerticalLinePrimitive",
+          "Name": "VerticalLinePrimitive8",
+          "Guid": "ce523a63c8704d9fa07e586768841ba3",
+          "ClientRectangle": "166.4,56.7,0.254,174.9",
+          "Interaction": {
+            "Ident": "StiInteraction"
+          },
+          "Size": 0.8,
+          "StartCap": ";;;",
+          "EndCap": ";;;"
+        },
+        "19": {
+          "Ident": "StiRectanglePrimitive",
+          "Name": "RectanglePrimitive2",
+          "Guid": "eee31ab2a22143649ea0be2609d2b3d0",
+          "ClientRectangle": "105.9,14.1,94.1,22.8",
+          "Interaction": {
+            "Ident": "StiInteraction"
+          }
+        }
+      },
+      "PaperSize": "A4",
+      "PageWidth": 210.0,
+      "PageHeight": 297.0,
+      "Watermark": {
+        "TextBrush": "solid:50,0,0,0"
+      },
+      "Margins": {
+        "Left": 2.0,
+        "Right": 3.0,
+        "Top": 3.0,
+        "Bottom": 2.0
+      },
+      "ReportUnit": {
+        "Ident": "StiMillimetersUnit"
+      }
+    }
+  }
+}

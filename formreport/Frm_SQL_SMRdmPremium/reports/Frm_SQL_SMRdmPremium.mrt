@@ -1,0 +1,3837 @@
+{
+  "ReportVersion": "2022.1.4.0",
+  "ReportGuid": "dbda150e00924c91a0c1e2abb1126c0d",
+  "ReportName": "Frm_SQL_SMRdmPremium",
+  "ReportAlias": "Frm_SQL_SMRdmPremium",
+  "ReportCreated": "/Date(1240901133000+0700)/",
+  "ReportChanged": "/Date(1646231079000+0700)/",
+  "EngineVersion": "EngineV2",
+  "NumberOfPass": "DoublePass",
+  "CalculationMode": "Interpretation",
+  "Script": "using System;\r\nusing System.Drawing;\r\nusing System.Windows.Forms;\r\nusing System.Data;\r\nusing Stimulsoft.Controls;\r\nusing Stimulsoft.Base.Drawing;\r\nusing Stimulsoft.Report;\r\nusing Stimulsoft.Report.Dialogs;\r\nusing Stimulsoft.Report.Components;\r\n\r\nnamespace Reports\r\n{\r\n    \r\n    public class Frm_SQL_SMRdmPremium : Stimulsoft.Report.StiReport\r\n    {\r\n        \r\n        public Frm_SQL_SMRdmPremium()\r\n        {\r\n            this.InitializeComponent();\r\n        }\r\n        #region StiReport Designer generated code - do not modify\r\n\t\t#endregion StiReport Designer generated code - do not modify\r\n    }\r\n}",
+  "ReferencedAssemblies": {
+    "0": "System.Dll",
+    "1": "System.Drawing.Dll",
+    "2": "System.Windows.Forms.Dll",
+    "3": "System.Data.Dll",
+    "4": "System.Xml.Dll",
+    "5": "Stimulsoft.Controls.Dll",
+    "6": "Stimulsoft.Base.Dll",
+    "7": "Stimulsoft.Report.Dll"
+  },
+  "Dictionary": {
+    "Variables": {
+      "0": {
+        "Value": "1",
+        "Name": "SP_nLang",
+        "Alias": "SP_nLang",
+        "Type": "System.String",
+        "Key": "0cffa5ccdc0f469286fba06eaa71bb64"
+      },
+      "1": {
+        "Value": "1",
+        "Name": "nLanguage",
+        "Alias": "nLanguage",
+        "Type": "System.Int32",
+        "Key": "3adbdff3984545c584b36ac34380149b",
+        "AllowUseAsSqlParameter": true
+      },
+      "2": {
+        "Value": "00001",
+        "Name": "SP_tCompCode",
+        "Alias": "SP_tCompCode",
+        "Type": "System.String",
+        "Key": "ca7426d243364207a635a838d128f367",
+        "AllowUseAsSqlParameter": true
+      },
+      "3": {
+        "Value": "00001",
+        "Name": "SP_tCmpBch",
+        "Alias": "SP_tCmpBch",
+        "Type": "System.String",
+        "Key": "fc84fe3c529d4dddab6c7e450e119e68",
+        "AllowUseAsSqlParameter": true
+      },
+      "4": {
+        "Value": "PWO21100040000100001",
+        "Name": "SP_tDocNo",
+        "Alias": "SP_tDocNo",
+        "Type": "System.String",
+        "Key": "a49fba1f1ba146c79f51a9493f859363",
+        "AllowUseAsSqlParameter": true
+      },
+      "5": {
+        "Value": "10149",
+        "Name": "SP_nAddSeq",
+        "Alias": "SP_nAddSeq",
+        "Type": "System.Int32",
+        "Key": "b1dde06200564681b0d7dd1b5bf7b78f",
+        "AllowUseAsSqlParameter": true
+      },
+      "6": {
+        "Value": "10004",
+        "Name": "SP_tDocBch",
+        "Alias": "SP_tDocBch",
+        "Type": "System.String",
+        "Key": "2dc1bef4503b48bc96275ad8a838f4f4",
+        "AllowUseAsSqlParameter": true
+      },
+      "7": {
+        "Name": "SP_tGrdStr",
+        "Alias": "SP_tGrdStr",
+        "Type": "System.String"
+      }
+    },
+    "DataSources": {
+      "0": {
+        "Ident": "StiSqlSource",
+        "Name": "Company",
+        "Alias": "Company",
+        "Key": "a5dc827047c14e47822e195841963e6e",
+        "Columns": {
+          "0": {
+            "Name": "FTCompName",
+            "Index": -1,
+            "NameInSource": "FTCompName",
+            "Alias": "FTCompName",
+            "Type": "System.String",
+            "Key": "b2ad418d1d424f3aa39a8bc21515caf0"
+          },
+          "1": {
+            "Name": "FTBchCode",
+            "Index": -1,
+            "NameInSource": "FTBchCode",
+            "Alias": "FTBchCode",
+            "Type": "System.String",
+            "Key": "19dbe5283b424c26924aef937c7c4442"
+          },
+          "2": {
+            "Name": "FTAddrType",
+            "Index": -1,
+            "NameInSource": "FTAddrType",
+            "Alias": "FTAddrType",
+            "Type": "System.String",
+            "Key": "f9190376954a43cb8b3007f96fdb5500"
+          },
+          "3": {
+            "Name": "FTAddName",
+            "Index": -1,
+            "NameInSource": "FTAddName",
+            "Alias": "FTAddName",
+            "Type": "System.String",
+            "Key": "1e708c3ff0fa48c6a81e44ec8dba295e"
+          },
+          "4": {
+            "Name": "FTBchName",
+            "Index": -1,
+            "NameInSource": "FTBchName",
+            "Alias": "FTBchName",
+            "Type": "System.String",
+            "Key": "38e3bd2308324d4882f4d00573017c25"
+          },
+          "5": {
+            "Name": "FTAddV1No",
+            "Index": -1,
+            "NameInSource": "FTAddV1No",
+            "Alias": "FTAddV1No",
+            "Type": "System.String",
+            "Key": "45ae40548c7e48daa28d5f74eec3f1d9"
+          },
+          "6": {
+            "Name": "FTAddV1Soi",
+            "Index": -1,
+            "NameInSource": "FTAddV1Soi",
+            "Alias": "FTAddV1Soi",
+            "Type": "System.String",
+            "Key": "2775409e9e4c42bdafb7eed298e397e6"
+          },
+          "7": {
+            "Name": "FTAddV1Village",
+            "Index": -1,
+            "NameInSource": "FTAddV1Village",
+            "Alias": "FTAddV1Village",
+            "Type": "System.String",
+            "Key": "0816c8abd1574f42b4bd0b604d36ad64"
+          },
+          "8": {
+            "Name": "FTAddV1Road",
+            "Index": -1,
+            "NameInSource": "FTAddV1Road",
+            "Alias": "FTAddV1Road",
+            "Type": "System.String",
+            "Key": "fa422ad00a0c4fb6b587a850202afbb9"
+          },
+          "9": {
+            "Name": "FTAddV1SubDist",
+            "Index": -1,
+            "NameInSource": "FTAddV1SubDist",
+            "Alias": "FTAddV1SubDist",
+            "Type": "System.String",
+            "Key": "2607b452ee9442f49aa096721fca4938"
+          },
+          "10": {
+            "Name": "FTSudName",
+            "Index": -1,
+            "NameInSource": "FTSudName",
+            "Alias": "FTSudName",
+            "Type": "System.String",
+            "Key": "951a365c71bc4f7aa6bd466c45a4b733"
+          },
+          "11": {
+            "Name": "FTAddV1DstCode",
+            "Index": -1,
+            "NameInSource": "FTAddV1DstCode",
+            "Alias": "FTAddV1DstCode",
+            "Type": "System.String",
+            "Key": "558687e547cd4523bbc1d7434ad46da9"
+          },
+          "12": {
+            "Name": "FTDstName",
+            "Index": -1,
+            "NameInSource": "FTDstName",
+            "Alias": "FTDstName",
+            "Type": "System.String",
+            "Key": "eea01c59e3184878ad4848b088020d3a"
+          },
+          "13": {
+            "Name": "FTAddV1PvnCode",
+            "Index": -1,
+            "NameInSource": "FTAddV1PvnCode",
+            "Alias": "FTAddV1PvnCode",
+            "Type": "System.String",
+            "Key": "fc2e813c84ca42da95120d425bd9fdd5"
+          },
+          "14": {
+            "Name": "FTPvnName",
+            "Index": -1,
+            "NameInSource": "FTPvnName",
+            "Alias": "FTPvnName",
+            "Type": "System.String",
+            "Key": "9c3deb14ca9a4e6694e5921fc479e318"
+          },
+          "15": {
+            "Name": "FTAddV1PostCode",
+            "Index": -1,
+            "NameInSource": "FTAddV1PostCode",
+            "Alias": "FTAddV1PostCode",
+            "Type": "System.String",
+            "Key": "a9f45981758c4455975e7b6b43448ecc"
+          },
+          "16": {
+            "Name": "FTAddV2Desc1",
+            "Index": -1,
+            "NameInSource": "FTAddV2Desc1",
+            "Alias": "FTAddV2Desc1",
+            "Type": "System.String",
+            "Key": "e79eba0f73574d77bbb920a1efcc2050"
+          },
+          "17": {
+            "Name": "FTAddV2Desc2",
+            "Index": -1,
+            "NameInSource": "FTAddV2Desc2",
+            "Alias": "FTAddV2Desc2",
+            "Type": "System.String",
+            "Key": "1f10c84b26ce4bf58eae8777d238b70e"
+          },
+          "18": {
+            "Name": "FTAddTel",
+            "Index": -1,
+            "NameInSource": "FTAddTel",
+            "Alias": "FTAddTel",
+            "Type": "System.String",
+            "Key": "2704722b59ea44ff85fd158ff3753114"
+          },
+          "19": {
+            "Name": "FTAddFax",
+            "Index": -1,
+            "NameInSource": "FTAddFax",
+            "Alias": "FTAddFax",
+            "Type": "System.String",
+            "Key": "8caf475545b94428a46f840cdb2392de"
+          },
+          "20": {
+            "Name": "FTAddWebsite",
+            "Index": -1,
+            "NameInSource": "FTAddWebsite",
+            "Alias": "FTAddWebsite",
+            "Type": "System.String",
+            "Key": "c8375f01ed3542c39998d795731c7223"
+          },
+          "21": {
+            "Name": "FTAddTaxNo",
+            "Index": -1,
+            "NameInSource": "FTAddTaxNo",
+            "Alias": "FTAddTaxNo",
+            "Type": "System.String",
+            "Key": "7a0d12e4c8f04685806b515595d9d522"
+          }
+        },
+        "NameInSource": "Service",
+        "CommandTimeout": 5000,
+        "SqlCommand": "SELECT \r\n\tCASE WHEN FTAddRefCode = ISNULL(FTAddRefCodeMer,'') THEN FTMerName ELSE \r\n\tCASE WHEN FTAddRefCode = ISNULL(FTAddRefCodeAgn,'') THEN FTAgnName ELSE  \r\n\t\tCASE WHEN FTAddRefCode = ISNULL(FTAddRefCodeBch,'') THEN FTCmpName ELSE \r\n\t\t\tCASE WHEN FTAddRefCode = ISNULL(FTAddRefCodeCmp,'') THEN FTCmpName ELSE \r\n(SELECT CmpL.FTCmpName \r\n\tFROM TCNMComp Cmp  WITH (NOLOCK) LEFT JOIN\r\n\t\t\t\t TCNMComp_L CmpL  WITH (NOLOCK) ON Cmp.FTCmpCode = CmpL.FTCmpCode AND FNLngID = @pnLanguage\r\n\t\t\t\t WHERE FTBchCode = @ptCompCode)   \r\n\t\t\tEND\r\n\t\tEND\r\n\tEND\r\nEND\r\nAS \tFTCompName,FTBchCode,\r\nFTAddrType,FTAddName,(SELECT FTBchName FROM TCNMBranch_L  WITH (NOLOCK) WHERE  FTBchCode = @ptDocBch AND FNLngID = @pnLanguage ) AS FTBchName,\r\nFTAddV1No,FTAddV1Soi,FTAddV1Village,FTAddV1Road,FTAddV1SubDist,FTSudName,FTAddV1DstCode,FTDstName,FTAddV1PvnCode,FTPvnName,FTAddV1PostCode,FTAddV2Desc1,FTAddV2Desc2,\r\nFTAddTel,FTAddFax,FTAddWebsite  ,FTAddTaxNo\r\nFROM\r\n(SELECT BchMst.FTBchCode, AddrL.FTAddRefCode,FTAddRefCodeMer,Mer.FTMerName,Agn.FTAddRefCodeAgn,Agn.FTAgnName,Bch.FTAddRefCodeBch,\r\n\tBch.FTCmpName AS FTCmpNameBch,FTAddRefCodeCmp,\r\n\t(SELECT FTCmpName FROM TCNMComp_L WHERE FTCmpCode = @ptCompCode AND FNLngID = @pnLanguage) AS FTCmpName,\r\n\tFTAddVersion AS FTAddrType,AddrL.FTAddName,\r\n\tFTAddV1No,FTAddV1Soi,FTAddV1Village,FTAddV1Road,FTAddV1SubDist,SDstL.FTSudName,FTAddV1DstCode,DstL.FTDstName,FTAddV1PvnCode,PvnL.FTPvnName,FTAddV1PostCode,FTAddV2Desc1,FTAddV2Desc2,\r\n\tAddrL.FTAddTel,AddrL.FTAddFax,AddrL.FTAddWebsite  ,FTAddTaxNo\r\n\tFROM TCNMBranch BchMst  WITH (NOLOCK) LEFT JOIN \r\n\tTCNMAddress_L AddrL  WITH (NOLOCK) ON BchMst.FTBchCode = AddrL.FTAddRefCode\r\n\t LEFT JOIN\r\n\t\t\t (\r\nSELECT FTBchCode,Bch.FTMerCode,FTMerName,FTAddRefCode AS FTAddRefCodeMer\r\n\tFROM  TCNMBranch Bch WITH (NOLOCK) \r\n\t\t\t\tINNER JOIN TCNMAddress_L AddrL WITH (NOLOCK) ON Bch.FTMerCode = AddrL.FTAddRefCode AND AddrL.FTAddGrpType = '7' AND AddrL.FTAddRefNo = '1'\r\n\t\t\t\tLEFT JOIN TCNMMerChant_L MerL WITH (NOLOCK) ON Bch.FTMerCode = MerL.FTMerCode AND MerL.FNLngID = @pnLanguage\r\n\t\t\t\tWHERE FTBchCode = @ptCmpBch  \r\n\t\t\t ) Mer ON AddrL.FTAddRefCode  = Mer.FTAddRefCodeMer \r\n\r\n\t LEFT JOIN\r\n\t\t\t\r\n(SELECT FTBchCode,Agn.FTAgnCode,AgnL.FTAgnName,FTAddRefCode AS FTAddRefCodeAgn\r\n\tFROM  TCNMAgency Agn WITH (NOLOCK) \r\n\t\t\t INNER JOIN TCNMAddress_L AddrL WITH (NOLOCK) ON Agn.FTAgnCode = AddrL.FTAddRefCode  AND  AddrL.FTAddGrpType = '5' \r\n\t\t\t LEFT JOIN TCNMAgency_L AgnL WITH (NOLOCK) ON Agn.FTAgnCode = AgnL.FTAgnCode AND AgnL.FNLngID = @pnLanguage\r\n\t\t\t WHERE AddrL.FTAddRefNo = '1'\r\n\t\t\t) Agn  ON AddrL.FTAddRefCode  = Agn.FTAddRefCodeAgn\r\n\r\n\t LEFT JOIN\r\n\t\t\r\n(SELECT Bch.FTBchCode,CmpL.FTCmpName,FTAddRefCode AS FTAddRefCodeBch\r\n\tFROM  TCNMBranch Bch WITH (NOLOCK) \r\n\t\t\t LEFT JOIN TCNMComp Cmp WITH (NOLOCK) ON Cmp.FTBchCode = Bch.FTBchCode \r\n\t\t\t INNER JOIN TCNMAddress_L AddrL WITH (NOLOCK) ON Bch.FTBchCode = AddrL.FTAddRefCode  AND AddrL.FTAddRefNo = '1'\r\n\t\t\t LEFT JOIN TCNMComp_L CmpL WITH (NOLOCK) ON Cmp.FTCmpCode = CmpL.FTCmpCode AND CmpL.FNLngID = @pnLanguage\r\n\t\t\t WHERE Bch.FTBchCode = @ptCmpBch \r\n\t\t\t) Bch ON  AddrL.FTAddRefCode  = Bch.FTAddRefCodeBch\r\n\t LEFT JOIN\r\n\t\t\r\n(SELECT Cmp.FTBchCode,CmpL.FTCmpName,FTAddRefCode AS FTAddRefCodeCmp\r\n\tFROM  TCNMComp Cmp WITH (NOLOCK) \r\n\t\t\t INNER JOIN TCNMAddress_L AddrL WITH (NOLOCK) ON Cmp.FTBchCode = AddrL.FTAddRefCode  AND AddrL.FTAddRefNo = '1'\r\n\t\t\t LEFT JOIN TCNMComp_L CmpL WITH (NOLOCK) ON Cmp.FTCmpCode = CmpL.FTCmpCode AND CmpL.FNLngID = @pnLanguage\r\n\t\t\t WHERE Cmp.FTBchCode = @ptCmpBch \r\n\t\t\t) Cmp ON  AddrL.FTAddRefCode  = Cmp.FTAddRefCodeCmp\r\n\t LEFT JOIN TCNMProvince_L PvnL WITH (NoLock) ON  AddrL.FTAddV1PvnCode = PvnL.FTPvnCode AND PvnL.FNLngID = @pnLanguage\r\n\t LEFT JOIN TCNMDistrict_L DstL WITH (NoLock) ON  AddrL.FTAddV1DstCode = DstL.FTDstCode AND DstL.FNLngID = @pnLanguage\t\t\r\n\t LEFT JOIN TCNMSubDistrict_L SDstL WITH (NoLock) ON  AddrL.FTAddV1SubDist = SDstL.FTSudCode AND SDstL.FNLngID = @pnLanguage\t\t\r\n\t WHERE BchMst.FTBchCode = @ptCmpBch OR\r\n\t    (AddrL.FTAddRefCode = Mer.FTMerCode OR AddrL.FTAddRefCode = Agn.FTAgnCode OR AddrL.FTAddRefCode = Bch.FTBchcode OR AddrL.FTAddRefCode = Cmp.FTBchcode )\r\n) AddrSum",
+        "Parameters": {
+          "0": {
+            "Name": "ptCompCode",
+            "Expression": "SP_tCompCode",
+            "Type": 22,
+            "Size": 5
+          },
+          "1": {
+            "Name": "pnLanguage",
+            "Expression": "nLanguage",
+            "Type": 16,
+            "Size": 3
+          },
+          "2": {
+            "Name": "pnAddSeq",
+            "Expression": "SP_nAddSeq",
+            "Type": 8,
+            "Size": 3
+          },
+          "3": {
+            "Name": "ptCmpBch",
+            "Expression": "SP_tCmpBch",
+            "Type": 22,
+            "Size": 5
+          },
+          "4": {
+            "Name": "ptDocBch",
+            "Expression": "SP_tDocBch",
+            "Type": 22,
+            "Size": 5
+          }
+        }
+      },
+      "1": {
+        "Ident": "StiSqlSource",
+        "Name": "TSVTJob5ScoreHD",
+        "Alias": "TSVTJob5ScoreHD",
+        "Key": "6557a47e574e40bdadf2b72a45f78488",
+        "Columns": {
+          "0": {
+            "Name": "FTBchCode",
+            "Index": -1,
+            "NameInSource": "FTBchCode",
+            "Alias": "FTBchCode",
+            "Type": "System.String",
+            "Key": "3e5932ff7c394e4293382a4ac10d5399"
+          },
+          "1": {
+            "Name": "FTBchName",
+            "Index": -1,
+            "NameInSource": "FTBchName",
+            "Alias": "FTBchName",
+            "Type": "System.String",
+            "Key": "afc09acc86064ae3b75b6a4288cbfcdf"
+          },
+          "2": {
+            "Name": "FTCstCode",
+            "Index": -1,
+            "NameInSource": "FTCstCode",
+            "Alias": "FTCstCode",
+            "Type": "System.String",
+            "Key": "e05d2bfa3ee04159b9d58d0d5a709685"
+          },
+          "3": {
+            "Name": "FTCstName",
+            "Index": -1,
+            "NameInSource": "FTCstName",
+            "Alias": "FTCstName",
+            "Type": "System.String",
+            "Key": "36d88dbb3bc64cf5bc64ae291adb2312"
+          },
+          "4": {
+            "Name": "FTXshRmk",
+            "Index": -1,
+            "NameInSource": "FTXshRmk",
+            "Alias": "FTXshRmk",
+            "Type": "System.String",
+            "Key": "bdbd1244a0304554aa29b52c4a32491c"
+          },
+          "5": {
+            "Name": "FTXshCardID",
+            "Index": -1,
+            "NameInSource": "FTXshCardID",
+            "Alias": "FTXshCardID",
+            "Type": "System.String",
+            "Key": "cc497ff51c35440d873783cff0bea5a1"
+          },
+          "6": {
+            "Name": "FTCstTel",
+            "Index": -1,
+            "NameInSource": "FTCstTel",
+            "Alias": "FTCstTel",
+            "Type": "System.String",
+            "Key": "497b5858660a486985fefa2cc1ad06b3"
+          },
+          "7": {
+            "Name": "FTCstFax",
+            "Index": -1,
+            "NameInSource": "FTCstFax",
+            "Alias": "FTCstFax",
+            "Type": "System.String",
+            "Key": "9f2840095b0e4b1fbdb7e9d43c005f85"
+          },
+          "8": {
+            "Name": "FTCstEmail",
+            "Index": -1,
+            "NameInSource": "FTCstEmail",
+            "Alias": "FTCstEmail",
+            "Type": "System.String",
+            "Key": "178e96709cbd4b83bf7bb8efc696c2ff"
+          },
+          "9": {
+            "Name": "FTXshRefDocNo",
+            "Index": -1,
+            "NameInSource": "FTXshRefDocNo",
+            "Alias": "FTXshRefDocNo",
+            "Type": "System.String",
+            "Key": "2c866ec5502f4e6e9b948faba956e4d7"
+          },
+          "10": {
+            "Name": "FTXshRefDocDate",
+            "Index": -1,
+            "NameInSource": "FTXshRefDocDate",
+            "Alias": "FTXshRefDocDate",
+            "Type": "System.String",
+            "Key": "5e0c63e5cc1f4b8fb14e2f004af8eb0e"
+          },
+          "11": {
+            "Name": "FTXshRefDocTime",
+            "Index": -1,
+            "NameInSource": "FTXshRefDocTime",
+            "Alias": "FTXshRefDocTime",
+            "Type": "System.String",
+            "Key": "70a72d8c88ac469282ef1e9f7f731c0e"
+          },
+          "12": {
+            "Name": "FTCarRegNo",
+            "Index": -1,
+            "NameInSource": "FTCarRegNo",
+            "Alias": "FTCarRegNo",
+            "Type": "System.String",
+            "Key": "50ce543f7de64ff4bd02dce7fe147c6f"
+          },
+          "13": {
+            "Name": "FTCarType",
+            "Index": -1,
+            "NameInSource": "FTCarType",
+            "Alias": "FTCarType",
+            "Type": "System.String",
+            "Key": "a069e53f603f49329928458bcb43a068"
+          },
+          "14": {
+            "Name": "FTCarBrand",
+            "Index": -1,
+            "NameInSource": "FTCarBrand",
+            "Alias": "FTCarBrand",
+            "Type": "System.String",
+            "Key": "19b037c999874fafba2390b64c79c920"
+          },
+          "15": {
+            "Name": "FTCarModel",
+            "Index": -1,
+            "NameInSource": "FTCarModel",
+            "Alias": "FTCarModel",
+            "Type": "System.String",
+            "Key": "2198810cdd744c2dba0752aa2ddce029"
+          },
+          "16": {
+            "Name": "FTUsrCode",
+            "Index": -1,
+            "NameInSource": "FTUsrCode",
+            "Alias": "FTUsrCode",
+            "Type": "System.String",
+            "Key": "c09f299531794f58b11f7d613d5a5fb7"
+          },
+          "17": {
+            "Name": "FTEvlName",
+            "Index": -1,
+            "NameInSource": "FTEvlName",
+            "Alias": "FTEvlName",
+            "Type": "System.String",
+            "Key": "14aebd1f5ad748468ef83c6bb617e02a"
+          },
+          "18": {
+            "Name": "FTEvlDate",
+            "Index": -1,
+            "NameInSource": "FTEvlDate",
+            "Alias": "FTEvlDate",
+            "Type": "System.String",
+            "Key": "d0a622f58bf1443f9c2d3d409c430fec"
+          },
+          "19": {
+            "Name": "FTXshDocNo",
+            "Index": -1,
+            "NameInSource": "FTXshDocNo",
+            "Alias": "FTXshDocNo",
+            "Type": "System.String",
+            "Key": "6fcc0675dae5489ba1a0bf54d706eb7c"
+          },
+          "20": {
+            "Name": "FDXshDocDate",
+            "Index": -1,
+            "NameInSource": "FDXshDocDate",
+            "Alias": "FDXshDocDate",
+            "Type": "System.DateTime",
+            "Key": "be0ccbb7d9124e6fb38d5d6330db30ec"
+          },
+          "21": {
+            "Name": "FTChgDate",
+            "Index": -1,
+            "NameInSource": "FTChgDate",
+            "Alias": "FTChgDate",
+            "Type": "System.String",
+            "Key": "7badd965f91547dabceabec83cb55b2e"
+          },
+          "22": {
+            "Name": "FTXshDocTime",
+            "Index": -1,
+            "NameInSource": "FTXshDocTime",
+            "Alias": "FTXshDocTime",
+            "Type": "System.String",
+            "Key": "889e5b8f33bc493395e72c20a1eb0dbb"
+          },
+          "23": {
+            "Name": "FTCreateBy",
+            "Index": -1,
+            "NameInSource": "FTCreateBy",
+            "Alias": "FTCreateBy",
+            "Type": "System.String",
+            "Key": "4e0b46cc7df24ded92624d0cc906b48e"
+          },
+          "24": {
+            "Name": "FTXshStaDoc",
+            "Index": -1,
+            "NameInSource": "FTXshStaDoc",
+            "Alias": "FTXshStaDoc",
+            "Type": "System.String",
+            "Key": "eacd4a135f314582b2b1589d2950289d"
+          },
+          "25": {
+            "Name": "FTXshStaApv",
+            "Index": -1,
+            "NameInSource": "FTXshStaApv",
+            "Alias": "FTXshStaApv",
+            "Type": "System.String",
+            "Key": "217aea64268841d288d84b75af018087"
+          },
+          "26": {
+            "Name": "FTXshApvCode",
+            "Index": -1,
+            "NameInSource": "FTXshApvCode",
+            "Alias": "FTXshApvCode",
+            "Type": "System.String",
+            "Key": "e4f38fd9f81d4f7baa87007e8019f875"
+          },
+          "27": {
+            "Name": "FTUsrNameApv",
+            "Index": -1,
+            "NameInSource": "FTUsrNameApv",
+            "Alias": "FTUsrNameApv",
+            "Type": "System.String",
+            "Key": "758c7e07763e41a69b08a7ab78d3ab81"
+          },
+          "28": {
+            "Name": "FTAgnCode",
+            "Index": -1,
+            "NameInSource": "FTAgnCode",
+            "Alias": "FTAgnCode",
+            "Type": "System.String",
+            "Key": "ee0d4d79399d4b3b8addaf5a5d5f9b8b"
+          },
+          "29": {
+            "Name": "FTAgnName",
+            "Index": -1,
+            "NameInSource": "FTAgnName",
+            "Alias": "FTAgnName",
+            "Type": "System.String",
+            "Key": "d94602a5827f4efc985209b7384955da"
+          },
+          "30": {
+            "Name": "FTXshAdditional",
+            "Index": -1,
+            "NameInSource": "FTXshAdditional",
+            "Alias": "FTXshAdditional",
+            "Type": "System.String",
+            "Key": "71812bb7e2f346469811aaea6aee505d"
+          },
+          "31": {
+            "Name": "FTCarRegProvince",
+            "Index": -1,
+            "NameInSource": "FTCarRegProvince",
+            "Alias": "FTCarRegProvince",
+            "Type": "System.String",
+            "Key": "6c1f8d76fdc245b58eb78509bd4db4d2"
+          },
+          "32": {
+            "Name": "FTXshToPos",
+            "Index": -1,
+            "NameInSource": "FTXshToPos",
+            "Alias": "FTXshToPos",
+            "Type": "System.String",
+            "Key": "c0072d419ab54812a28982e61eaaa224"
+          },
+          "33": {
+            "Name": "FTSpsName",
+            "Index": -1,
+            "NameInSource": "FTSpsName",
+            "Alias": "FTSpsName",
+            "Type": "System.String",
+            "Key": "3ac02ea15023404fb7be9bd8881c9211"
+          },
+          "34": {
+            "Name": "FTXshDateStartChk",
+            "Index": -1,
+            "NameInSource": "FTXshDateStartChk",
+            "Alias": "FTXshDateStartChk",
+            "Type": "System.String",
+            "Key": "24f6099e9c1b44008a3ae14724b7deb6"
+          },
+          "35": {
+            "Name": "FTXshTimeStartChk",
+            "Index": -1,
+            "NameInSource": "FTXshTimeStartChk",
+            "Alias": "FTXshTimeStartChk",
+            "Type": "System.String",
+            "Key": "4a1497df07384fef8cdbdf5b824be26e"
+          },
+          "36": {
+            "Name": "FTXshDateFinishChk",
+            "Index": -1,
+            "NameInSource": "FTXshDateFinishChk",
+            "Alias": "FTXshDateFinishChk",
+            "Type": "System.String",
+            "Key": "9c764473a159492a819f4f31ec9edd10"
+          },
+          "37": {
+            "Name": "FTXshTimeFinishChk",
+            "Index": -1,
+            "NameInSource": "FTXshTimeFinishChk",
+            "Alias": "FTXshTimeFinishChk",
+            "Type": "System.String",
+            "Key": "1bbfed98156e48828ccc108c8bda6f9a"
+          },
+          "38": {
+            "Name": "FTCarEngineNo",
+            "Index": -1,
+            "NameInSource": "FTCarEngineNo",
+            "Alias": "FTCarEngineNo",
+            "Type": "System.String",
+            "Key": "fff660029cec4cedb9bef3fe232939bd"
+          },
+          "39": {
+            "Name": "FTCarVIDRef",
+            "Index": -1,
+            "NameInSource": "FTCarVIDRef",
+            "Alias": "FTCarVIDRef",
+            "Type": "System.String",
+            "Key": "b48b318589304f3da9927909e8bc6bb1"
+          },
+          "40": {
+            "Name": "FTCarCategory",
+            "Index": -1,
+            "NameInSource": "FTCarCategory",
+            "Alias": "FTCarCategory",
+            "Type": "System.String",
+            "Key": "4ebb92dabcbe4534b645e0f6e58b16f0"
+          },
+          "41": {
+            "Name": "FTCaiCatName",
+            "Index": -1,
+            "NameInSource": "FTCaiCatName",
+            "Alias": "FTCaiCatName",
+            "Type": "System.String",
+            "Key": "fd020f2c21b8446683d63f8f2f4a97f8"
+          },
+          "42": {
+            "Name": "FTCarColor",
+            "Index": -1,
+            "NameInSource": "FTCarColor",
+            "Alias": "FTCarColor",
+            "Type": "System.String",
+            "Key": "cd09c823147f4dc6bbbd23acca1da89e"
+          },
+          "43": {
+            "Name": "FTCarGear",
+            "Index": -1,
+            "NameInSource": "FTCarGear",
+            "Alias": "FTCarGear",
+            "Type": "System.String",
+            "Key": "de7adb34db184832b1bc2623bbc9cdc4"
+          },
+          "44": {
+            "Name": "FTCarEnginType",
+            "Index": -1,
+            "NameInSource": "FTCarEnginType",
+            "Alias": "FTCarEnginType",
+            "Type": "System.String",
+            "Key": "06c4d1498c3c4b1da4bcc8c98bf88d4a"
+          },
+          "45": {
+            "Name": "FTCarEnginSize",
+            "Index": -1,
+            "NameInSource": "FTCarEnginSize",
+            "Alias": "FTCarEnginSize",
+            "Type": "System.String",
+            "Key": "aa4ae232cbed4a03befe9a267378d85c"
+          },
+          "46": {
+            "Name": "FCXshCarMileage",
+            "Index": -1,
+            "NameInSource": "FCXshCarMileage",
+            "Alias": "FCXshCarMileage",
+            "Type": "System.Decimal",
+            "Key": "23ea618651e44f759ef9f4e95c79e695"
+          },
+          "47": {
+            "Name": "FTCarStaRedLabel",
+            "Index": -1,
+            "NameInSource": "FTCarStaRedLabel",
+            "Alias": "FTCarStaRedLabel",
+            "Type": "System.String",
+            "Key": "a7f8212ab13f4d509698ab453d8c5fc4"
+          },
+          "48": {
+            "Name": "FTXshCarFuel",
+            "Index": -1,
+            "NameInSource": "FTXshCarFuel",
+            "Alias": "FTXshCarFuel",
+            "Type": "System.String",
+            "Key": "c3b01a04f4a740af8fdefc811af2a24a"
+          },
+          "49": {
+            "Name": "FTXshStaBook",
+            "Index": -1,
+            "NameInSource": "FTXshStaBook",
+            "Alias": "FTXshStaBook",
+            "Type": "System.String",
+            "Key": "90fbc5714be6482fb1d8a03f41ad8d60"
+          },
+          "50": {
+            "Name": "FCXshTotal",
+            "Index": -1,
+            "NameInSource": "FCXshTotal",
+            "Alias": "FCXshTotal",
+            "Type": "System.Decimal",
+            "Key": "77d249b12d9044e18d983c36cb4635e1"
+          },
+          "51": {
+            "Name": "FCXshVat",
+            "Index": -1,
+            "NameInSource": "FCXshVat",
+            "Alias": "FCXshVat",
+            "Type": "System.Decimal",
+            "Key": "4e896d05fb7148d3abe728107873e10e"
+          },
+          "52": {
+            "Name": "FCXshDiscount",
+            "Index": -1,
+            "NameInSource": "FCXshDiscount",
+            "Alias": "FCXshDiscount",
+            "Type": "System.Decimal",
+            "Key": "187e7884cb984bee84dbfd3f4ea17a94"
+          },
+          "53": {
+            "Name": "FCXshVatAmt",
+            "Index": -1,
+            "NameInSource": "FCXshVatAmt",
+            "Alias": "FCXshVatAmt",
+            "Type": "System.Decimal",
+            "Key": "29516d30c70b4bcfa6c50efa1b03e7d8"
+          },
+          "54": {
+            "Name": "FCXshVatable",
+            "Index": -1,
+            "NameInSource": "FCXshVatable",
+            "Alias": "FCXshVatable",
+            "Type": "System.Decimal",
+            "Key": "60969ce867a74bf6b77af335bcc8e506"
+          },
+          "55": {
+            "Name": "FCXshTotalAFDis",
+            "Index": -1,
+            "NameInSource": "FCXshTotalAFDis",
+            "Alias": "FCXshTotalAFDis",
+            "Type": "System.Decimal",
+            "Key": "0a1c6c263f1c42bf991c94f9b35f33ef"
+          },
+          "56": {
+            "Name": "FCXshGrandAmt",
+            "Index": -1,
+            "NameInSource": "FCXshGrandAmt",
+            "Alias": "FCXshGrandAmt",
+            "Type": "System.Decimal",
+            "Key": "83105b5029bc49bca452bc0050f573c7"
+          },
+          "57": {
+            "Name": "FCXshAmtV",
+            "Index": -1,
+            "NameInSource": "FCXshAmtV",
+            "Alias": "FCXshAmtV",
+            "Type": "System.Decimal",
+            "Key": "02cfd902b20344c68ec0aae81e959463"
+          },
+          "58": {
+            "Name": "FCXshGrand",
+            "Index": -1,
+            "NameInSource": "FCXshGrand",
+            "Alias": "FCXshGrand",
+            "Type": "System.Decimal",
+            "Key": "fc83cea6d76b456b8cf5131024b78624"
+          },
+          "59": {
+            "Name": "FTXshCarChkRmk1",
+            "Index": -1,
+            "NameInSource": "FTXshCarChkRmk1",
+            "Alias": "FTXshCarChkRmk1",
+            "Type": "System.String",
+            "Key": "385c6deb34b84841a1cbd44428f1c52e"
+          },
+          "60": {
+            "Name": "FTXshCarChkRmk2",
+            "Index": -1,
+            "NameInSource": "FTXshCarChkRmk2",
+            "Alias": "FTXshCarChkRmk2",
+            "Type": "System.String",
+            "Key": "f51a411117fd42aab8c4825f1d468651"
+          },
+          "61": {
+            "Name": "FTAddVersion",
+            "Index": -1,
+            "NameInSource": "FTAddVersion",
+            "Alias": "FTAddVersion",
+            "Type": "System.String",
+            "Key": "6823e1e5f64f48d481e13513b77ffefc"
+          },
+          "62": {
+            "Name": "FTAddV2Desc1",
+            "Index": -1,
+            "NameInSource": "FTAddV2Desc1",
+            "Alias": "FTAddV2Desc1",
+            "Type": "System.String",
+            "Key": "88838315c64d497b9f448890ba261184"
+          },
+          "63": {
+            "Name": "FTAddV2Desc2",
+            "Index": -1,
+            "NameInSource": "FTAddV2Desc2",
+            "Alias": "FTAddV2Desc2",
+            "Type": "System.String",
+            "Key": "62cc1a66c0254397b99c9d6db41d72f4"
+          },
+          "64": {
+            "Name": "FTAddRefNo",
+            "Index": -1,
+            "NameInSource": "FTAddRefNo",
+            "Alias": "FTAddRefNo",
+            "Type": "System.String",
+            "Key": "3e67d269720c46a5ac241e8b46d06a84"
+          },
+          "65": {
+            "Name": "FTAddV1PvnCode",
+            "Index": -1,
+            "NameInSource": "FTAddV1PvnCode",
+            "Alias": "FTAddV1PvnCode",
+            "Type": "System.String",
+            "Key": "0b7add6e69cc4f48887b4223103b2595"
+          },
+          "66": {
+            "Name": "FTAddV1DstCode",
+            "Index": -1,
+            "NameInSource": "FTAddV1DstCode",
+            "Alias": "FTAddV1DstCode",
+            "Type": "System.String",
+            "Key": "95fdf13f256e45259ad8064267f745a5"
+          },
+          "67": {
+            "Name": "FTAddV1SubDist",
+            "Index": -1,
+            "NameInSource": "FTAddV1SubDist",
+            "Alias": "FTAddV1SubDist",
+            "Type": "System.String",
+            "Key": "ebd5febf6aa24135aa6e1047e34ce987"
+          },
+          "68": {
+            "Name": "FTDstName",
+            "Index": -1,
+            "NameInSource": "FTDstName",
+            "Alias": "FTDstName",
+            "Type": "System.String",
+            "Key": "3eb3f67c809648cfadc35387472bf436"
+          },
+          "69": {
+            "Name": "FTSudName",
+            "Index": -1,
+            "NameInSource": "FTSudName",
+            "Alias": "FTSudName",
+            "Type": "System.String",
+            "Key": "61760907f91645fcbe6a04924196be47"
+          },
+          "70": {
+            "Name": "FTAddName",
+            "Index": -1,
+            "NameInSource": "FTAddName",
+            "Alias": "FTAddName",
+            "Type": "System.String",
+            "Key": "2bcdda5d9b054b8796ed9383950d0df5"
+          },
+          "71": {
+            "Name": "FTAddV1No",
+            "Index": -1,
+            "NameInSource": "FTAddV1No",
+            "Alias": "FTAddV1No",
+            "Type": "System.String",
+            "Key": "53acce25703b49d1a325ae24d58e5d31"
+          },
+          "72": {
+            "Name": "FTAddV1Village",
+            "Index": -1,
+            "NameInSource": "FTAddV1Village",
+            "Alias": "FTAddV1Village",
+            "Type": "System.String",
+            "Key": "9c62ec519b3d41cea9bfcde723d5dc62"
+          },
+          "73": {
+            "Name": "FTAddV1Soi",
+            "Index": -1,
+            "NameInSource": "FTAddV1Soi",
+            "Alias": "FTAddV1Soi",
+            "Type": "System.String",
+            "Key": "de4996d72a8d48eb97ad010480621a74"
+          },
+          "74": {
+            "Name": "FTAddV1Road",
+            "Index": -1,
+            "NameInSource": "FTAddV1Road",
+            "Alias": "FTAddV1Road",
+            "Type": "System.String",
+            "Key": "f89c274010574d3188406cedc5f74050"
+          },
+          "75": {
+            "Name": "FTAddV1PostCode",
+            "Index": -1,
+            "NameInSource": "FTAddV1PostCode",
+            "Alias": "FTAddV1PostCode",
+            "Type": "System.String",
+            "Key": "8193c28e73f9464e84b3f2f2180043c4"
+          },
+          "76": {
+            "Name": "FTXshRefInt",
+            "Index": -1,
+            "NameInSource": "FTXshRefInt",
+            "Alias": "FTXshRefInt",
+            "Type": "System.String",
+            "Key": "4acd23dfec1848248ddec6c7be4e0a57"
+          },
+          "77": {
+            "Name": "FTXshRefDateInt",
+            "Index": -1,
+            "NameInSource": "FTXshRefDateInt",
+            "Alias": "FTXshRefDateInt",
+            "Type": "System.String",
+            "Key": "0fbea26953ff49bc8d4bc90752ff4880"
+          },
+          "78": {
+            "Name": "FTXshRefTimeInt",
+            "Index": -1,
+            "NameInSource": "FTXshRefTimeInt",
+            "Alias": "FTXshRefTimeInt",
+            "Type": "System.String",
+            "Key": "b32cd33cfa9d4db1828f325c83b78a35"
+          },
+          "79": {
+            "Name": "FTPvnNameVar",
+            "Index": -1,
+            "NameInSource": "FTPvnNameVar",
+            "Alias": "FTPvnNameVar",
+            "Type": "System.String",
+            "Key": "5ab790a6dd944894a71ff0713f2db3b8"
+          },
+          "80": {
+            "Name": "FTPvnName",
+            "Index": -1,
+            "NameInSource": "FTPvnName",
+            "Alias": "FTPvnName",
+            "Type": "System.String",
+            "Key": "a7bf595a86514277b055a22e9ca24a06"
+          },
+          "81": {
+            "Name": "FTCreBName",
+            "Index": -1,
+            "NameInSource": "FTCreBName",
+            "Alias": "FTCreBName",
+            "Type": "System.String",
+            "Key": "6c8ac7ef5b3c4ffe86be53fc1d73ce85"
+          }
+        },
+        "NameInSource": "Service",
+        "CommandTimeout": 5000,
+        "SqlCommand": "SELECT HD.FTBchCode,BchL.FTBchName,ISNULL(HD.FTCstCode,'') AS FTCstCode,ISNULL(Cst_L.FTCstName,'') AS FTCstName,ISNULL(HD.FTXshRmk,'') AS FTXshRmk,\r\n\tISNULL(Cst.FTCstCardID,'') AS FTXshCardID,ISNULL(Cst.FTCstTel,'') AS FTCstTel,ISNULL(Cst.FTCstFax,'') AS FTCstFax,\r\n\tISNULL(Cst.FTCstEmail,'') AS FTCstEmail,\r\n\tRefInt.FTXshRefDocNo AS FTXshRefInt,FTXshRefDateInt,FTXshRefTimeInt,\r\n\tHD.FTXshToPos,ChnSrvL.FTSpsName,\r\n\tCar.FTCarRegNo,Car.FTCarRegProvince,REPLACE(CarPvnL.FTPvnName,'จ.','') AS FTPvnNameVar ,Car.FTCarEngineNo,Car.FTCarVIDRef,Car.FTCarCategory,CctrL.FTCaiName AS FTCaiCatName,\r\n\tCorL.FTCaiName AS FTCarColor ,CGer.FTCaiName AS FTCarGear,CPowtyL.FTCaiName AS FTCarEnginType,CEngL.FTCaiName AS FTCarEnginSize,ISNULL(J2HD.FCXshCarMileage,0) AS FCXshCarMileage,\r\n\tCtyL.FTCaiName AS FTCarType,\r\n\tCbnL.FTCaiName AS FTCarBrand,CmoL.FTCaiName AS FTCarModel,\r\n\tISNULL(HD.FTUsrCode,'') AS FTUsrCode,Usr_L.FTUsrName AS FTEvlName,CONVERT(VARCHAR(10),HD.FDXshDocDate,103) AS FTEvlDate,\r\n\tCONVERT(varchar(10),J2HD.FDXshTimeStart,103) AS FTXshDateStartChk,CONVERT(varchar(8),J2HD.FDXshTimeStart,108) AS FTXshTimeStartChk,\r\n\tCONVERT(varchar(10),J2HD.FDXshTimeFinish,103) AS FTXshDateFinishChk,CONVERT(varchar(8),J2HD.FDXshTimeFinish,108) AS FTXshTimeFinishChk,\r\n\tHD.FTXshDocNo,HD.FDXshDocDate,CONVERT(VARCHAR(10),HD.FDXshDocDate,103) AS FTChgDate,CONVERT(VARCHAR(10),HD.FDXshDocDate,8) AS FTXshDocTime,\r\n\tCreBL.FTUsrName AS FTCreBName, HD.FTCreateBy,\r\n\tISNULL(HD.FTXshStaDoc,'') AS FTXshStaDoc,\r\n\tISNULL(HD.FTXshStaApv,'') AS FTXshStaApv,ISNULL(HD.FTXshApvCode,'') AS FTXshApvCode,\tISNULL(UsrApv.FTUsrName,'') AS FTUsrNameApv,\r\n\tISNULL(HD.FTAgnCode,'') AS FTAgnCode,ISNULL(AgnL.FTAgnName,'') AS FTAgnName,\r\n\tCar.FTCarStaRedLabel\r\n\t,J2HD.FTXshStaBook\r\n\t,ISNULL(CstAddr_L.FTAddVersion,'') AS FTAddVersion,\r\n\tISNULL(CstAddr_L.FTAddV2Desc1,'') AS FTAddV2Desc1,\r\n\tISNULL(CstAddr_L.FTAddV2Desc2,'') AS FTAddV2Desc2,\r\n\tISNULL(CstAddr_L.FTAddRefNo,'') AS FTAddRefNo,\r\n\tISNULL(CstAddr_L.FTAddV1PvnCode,'') AS FTAddV1PvnCode, ISNULL(CstAddr_L.FTAddV1DstCode,'') AS FTAddV1DstCode,\r\n\tISNULL(CstAddr_L.FTAddV1SubDist,'') AS FTAddV1SubDist, \r\n\tISNULL(Pro_L.FTPvnName,'') AS FTPvnName,\r\n\tISNULL(Dis_L.FTDstName,'') AS FTDstName,\r\n\tISNULL(SDis_L.FTSudName,'') AS FTSudName,\r\n\r\n\tISNULL(CstAddr_L.FTAddName,'') AS FTAddName, ISNULL(CstAddr_L.FTAddV1No, '') AS FTAddV1No,\r\n\tISNULL(CstAddr_L.FTAddV1Village, '') AS FTAddV1Village,\r\n\tISNULL(CstAddr_L.FTAddV1Soi, '') AS FTAddV1Soi,\r\n\tISNULL(CstAddr_L.FTAddV1Road, '') AS FTAddV1Road,\r\n\tISNULL(CstAddr_L.FTAddV1PostCode, '') AS FTAddV1PostCode,\r\n\tISNULL(HD.FCXshTotal,0) AS FCXshTotal,ISNULL(HD.FCXshVat,0) AS FCXshVat,ISNULL(HD.FCXshChg,0) - ISNULL(HD.FCXshDis,0) AS FCXshDiscount,\r\n\tISNULL(HD.FCXshVatable,0) + ISNULL(HD.FCXshVat,0) AS FCXshVatAmt,\r\n\tISNULL(HD.FCXshVatable,0) AS FCXshVatable,\r\n\tISNULL(HD.FCXshTotalAfDisChgV,0)+ISNULL(HD.FCXshTotalAfDisChgNV,0) AS FCXshTotalAFDis,\r\n\tISNULL(HD.FCXshGrand,0) AS FCXshGrandAmt,\r\n\tISNULL(HD.FCXshAmtV,0) AS FCXshAmtV,\r\n\tCASE WHEN HD.FTXshVATInOrEx='1' THEN ISNULL(HD.FCXshTotal,0)+(ISNULL(HD.FCXshChg,0) - ISNULL(HD.FCXshDis,0)) ELSE (ISNULL(HD.FCXshTotal,0)+(ISNULL(HD.FCXshChg,0) - ISNULL(HD.FCXshDis,0)))+HD.FCXshVat END AS FCXshGrand\r\n\t,J2HD.FTXshCarChkRmk1,J2HD.FTXshCarChkRmk2\r\n\tFROM TSVTSalTwoHD HD WITH (NOLOCK)  \r\n\tLEFT JOIN \r\n\t (\t\r\nSELECT FTBchCode,FTXshDocNo,FTXshRefDocNo,FTXshRefType,CONVERT(VARCHAR,FDXshRefDocDate,103) AS FTXshRefDateInt,CONVERT(VARCHAR,FDXshRefDocDate,108) AS FTXshRefTimeInt\r\n\tFROM TSVTSalTwoHDDocRef WITH (NOLOCK) WHERE FTXshRefType = '1'\r\n\t ) RefInt  ON HD.FTBchCode = RefInt.FTBchCode AND HD.FTXshDocNo = RefInt.FTXshDocNo \r\n\t LEFT JOIN TSVTJob2OrdHD J2HD  WITH (NOLOCK) ON RefInt.FTBchCode = J2HD.FTBchCode AND RefInt.FTXshRefDocNo = J2HD.FTXshDocNo\r\n\t LEFT JOIN TSVTSalTwoHDCst HDCst WITH (NOLOCK) ON HD.FTBchCode = HDCst.FTBchCode AND HD.FTXshDocNo = HDCst.FTXshDocNo LEFT JOIN \r\n\t TSVMCar Car WITH (NOLOCK) ON HDCst.FTCarCode = Car.FTCarCode LEFT JOIN \r\n\t TSVMCarInfo_L CtyL WITH (NOLOCK) ON Car.FTCarType = CtyL.FTCaiCode AND CtyL.FNLngID =  @pnLanguage LEFT JOIN   \r\n\t TSVMCarInfo_L CbnL WITH (NOLOCK) ON Car.FTCarBrand = CbnL.FTCaiCode AND CbnL.FNLngID =  @pnLanguage LEFT JOIN   \r\n\t TSVMCarInfo_L CmoL WITH (NOLOCK) ON Car.FTCarModel = CmoL.FTCaiCode AND CmoL.FNLngID =  @pnLanguage LEFT JOIN   \r\n\t TSVMCarInfo_L CctrL WITH (NOLOCK) ON Car.FTCarCategory = CctrL.FTCaiCode AND CctrL.FNLngID =  @pnLanguage LEFT JOIN \r\n\t TSVMCarInfo_L CorL WITH (NOLOCK) ON Car.FTCarColor = CorL.FTCaiCode AND CorL.FNLngID =  @pnLanguage LEFT JOIN \r\n\t TSVMCarInfo_L CGer\tWITH (NOLOCK) ON Car.FTCarGear = CGer.FTCaiCode AND CGer.FNLngID =  @pnLanguage LEFT JOIN  \r\n\t TSVMCarInfo_L CPowtyL WITH (NOLOCK) ON Car.FTCarPowerType = CPowtyL.FTCaiCode AND CPowtyL.FNLngID =  @pnLanguage LEFT JOIN  \r\n\t TSVMCarInfo_L CEngL WITH (NOLOCK) ON Car.FTCarEngineSize = CEngL.FTCaiCode AND CEngL.FNLngID =  @pnLanguage LEFT JOIN  \r\n\t TCNMBranch_L BchL WITH (NOLOCK) ON HD.FTBchCode = BchL.FTBchCode AND BchL.FNLngID =  @pnLanguage LEFT JOIN   \r\n\t TCNMCst Cst WITH (NOLOCK) ON HD.FTCstCode = Cst.FTCstCode LEFT JOIN\r\n\t TCNMCst_L Cst_L WITH (NOLOCK) ON HD.FTCstCode = Cst_L.FTCstCode AND Cst_L.FNLngID =  @pnLanguage LEFT JOIN   \r\n\t TCNMUser_L Usr_L  WITH (NOLOCK) ON HD.FTUsrCode = Usr_L.FTUsrCode AND Usr_L.FNLngID =  @pnLanguage LEFT JOIN\r\n\t TCNMUser_L CreBL  WITH (NOLOCK) ON HD.FTCreateBy = CreBL.FTUsrCode AND CreBL.FNLngID =  @pnLanguage LEFT JOIN\r\n\t TCNMUser_L UsrApv  WITH (NOLOCK) ON HD.FTXshApvCode = UsrApv.FTUsrCode AND UsrApv.FNLngID =  @pnLanguage LEFT JOIN\r\n\t TCNMAgency_L AgnL  WITH (NOLOCK) ON HD.FTAgnCode = AgnL.FTAgnCode AND AgnL.FNLngID =  @pnLanguage LEFT JOIN\r\n\t TCNMProvince_L CarPvnL WITH (NOLOCK) ON Car.FTCarRegProvince = CarPvnL.FTPvnCode AND CarPvnL.FNLngID =  @pnLanguage  LEFT JOIN\r\n\t TSVMPos_L ChnSrvL WITH (NOLOCK) ON HD.FTXshToPos = ChnSrvL.FTSpsCode AND HD.FTBchCode= ChnSrvL.FTBchCode AND ChnSrvL.FNLngID  =  @pnLanguage  LEFT JOIN\r\n\t TCNMCstAddress_L CstAddr_L WITH (NoLock) ON HD.FTCstCode = CstAddr_L.FTCstCode AND FTAddGrpType = '1' AND FTAddRefNo = '1' AND  CstAddr_L.FNLngID = @pnLanguage\r\n\t LEFT JOIN TCNMProvince_L Pro_L WITH (NoLock) ON CstAddr_L.FTAddV1PvnCode = Pro_L.FTPvnCode AND Pro_L.FNLngID = @pnLanguage\r\n\t LEFT JOIN TCNMDistrict_L Dis_L WITH (NoLock) ON CstAddr_L.FTAddV1DstCode = Dis_L.FTDstCode AND Dis_L.FNLngID = @pnLanguage\r\n\t LEFT JOIN TCNMSubDistrict_L SDis_L WITH (NoLock) ON CstAddr_L.FTAddV1SubDist = SDis_L.FTSudCode AND SDis_L.FNLngID = @pnLanguage\r\nWHERE HD.FTXshDocNo = @ptDocNo AND HD.FTBchCode = @ptDocBch",
+        "Parameters": {
+          "0": {
+            "Name": "ptDocNo",
+            "Expression": "SP_tDocNo",
+            "Type": 22,
+            "Size": 20
+          },
+          "1": {
+            "Name": "pnLanguage",
+            "Expression": "nLanguage",
+            "Type": 16,
+            "Size": 3
+          },
+          "2": {
+            "Name": "ptDocBch",
+            "Expression": "SP_tDocBch",
+            "Type": 22,
+            "Size": 5
+          }
+        }
+      },
+      "2": {
+        "Ident": "StiSqlSource",
+        "Name": "TSVTJob5ScoreDT",
+        "Alias": "TSVTJob5ScoreDT",
+        "Key": "e196035517ea43d99b68847895a2dc57",
+        "Columns": {
+          "0": {
+            "Name": "FTBchCode",
+            "Index": -1,
+            "NameInSource": "FTBchCode",
+            "Alias": "FTBchCode",
+            "Type": "System.String"
+          },
+          "1": {
+            "Name": "FTXshDocNo",
+            "Index": -1,
+            "NameInSource": "FTXshDocNo",
+            "Alias": "FTXshDocNo",
+            "Type": "System.String"
+          },
+          "2": {
+            "Name": "FTPdtCode",
+            "Index": -1,
+            "NameInSource": "FTPdtCode",
+            "Alias": "FTPdtCode",
+            "Type": "System.String"
+          },
+          "3": {
+            "Name": "FTPdtName",
+            "Index": -1,
+            "NameInSource": "FTPdtName",
+            "Alias": "FTPdtName",
+            "Type": "System.String"
+          },
+          "4": {
+            "Name": "FCXsdQty",
+            "Index": -1,
+            "NameInSource": "FCXsdQty",
+            "Alias": "FCXsdQty",
+            "Type": "System.Decimal"
+          },
+          "5": {
+            "Name": "FTPunCode",
+            "Index": -1,
+            "NameInSource": "FTPunCode",
+            "Alias": "FTPunCode",
+            "Type": "System.String"
+          },
+          "6": {
+            "Name": "FTPunName",
+            "Index": -1,
+            "NameInSource": "FTPunName",
+            "Alias": "FTPunName",
+            "Type": "System.String"
+          },
+          "7": {
+            "Name": "FCXsdSetPrice",
+            "Index": -1,
+            "NameInSource": "FCXsdSetPrice",
+            "Alias": "FCXsdSetPrice",
+            "Type": "System.Decimal"
+          },
+          "8": {
+            "Name": "FCXsdDiscount",
+            "Index": -1,
+            "NameInSource": "FCXsdDiscount",
+            "Alias": "FCXsdDiscount",
+            "Type": "System.Decimal"
+          },
+          "9": {
+            "Name": "FCXsdNet",
+            "Index": -1,
+            "NameInSource": "FCXsdNet",
+            "Alias": "FCXsdNet",
+            "Type": "System.Decimal"
+          },
+          "10": {
+            "Name": "FNXsdSeqNo",
+            "Index": -1,
+            "NameInSource": "FNXsdSeqNo",
+            "Alias": "FNXsdSeqNo",
+            "Type": "System.Int32"
+          }
+        },
+        "NameInSource": "Service",
+        "CommandTimeout": 10000,
+        "SqlCommand": "SELECT  DT.FTBchCode,DT.FTXshDocNo,DT.FNXsdSeqNo,DT.FTPdtCode,Pdt_L.FTPdtName,\r\n\tISNULL(DT.FCXsdQty,0) AS FCXsdQty,DT.FTPunCode,Pun_L.FTPunName,DT.FCXsdSetPrice,ISNULL(DTDis.FCXsdDiscount,0)+ISNULL(PmtDis.FCXsdDiscount,0)  AS FCXsdDiscount,DT.FCXsdNet\r\n\tFROM TSVTSalTwoDT DT WITH (NoLock)\r\n\tLEFT JOIN\r\n\t\t\t(\r\nSELECT FTBchCode,FTXshDocNo,FNXsdSeqNo,\r\n\tSUM(\r\n\tCASE WHEN FTXddDisChgType IN ('1','2') THEN FCXddValue*-1  ELSE FCXddValue END) AS FCXsdDiscount\r\n\t\t\t FROM TSVTSalTwoDis WITH (NOLOCK)  \r\n\t\t\t WHERE FNXddStaDis = '1'\r\n\t\t\t GROUP BY FTBchCode,FTXshDocNo,FNXsdSeqNo\r\n\t\t\t) DTDis ON DT.FTBchCode = DTDis.FTBchCode AND DT.FTXshDocNo = DTDis.FTXshDocNo AND DT.FNXsdSeqNo = DTDis.FNXsdSeqNo\r\n\tLEFT JOIN\r\n\t\t\t(\r\nSELECT FTBchCode,FTXshDocNo,FNXsdSeqNo,\r\n\tSUM(\r\n\tCASE WHEN FTXddDisChgType IN ('1','2') THEN FCXddValue*-1  ELSE FCXddValue END) AS FCXsdDiscount\r\n\t\t\t FROM TSVTSalTwoDis WITH (NOLOCK)  \r\n\t\t\t WHERE FNXddStaDis = '0'\r\n\t\t\t GROUP BY FTBchCode,FTXshDocNo,FNXsdSeqNo\r\n\t\t\t) PmtDis ON DT.FTBchCode = PmtDis.FTBchCode AND DT.FTXshDocNo = PmtDis.FTXshDocNo AND DT.FNXsdSeqNo = PmtDis.FNXsdSeqNo\r\n\tLEFT JOIN TCNMPdt_L Pdt_L WITH (NoLock) ON DT.FTPdtCode = Pdt_L.FTPdtCode AND Pdt_L.FNLngID = @pnLanguage\r\n\tLEFT JOIN TCNMPdtUnit_L Pun_L WITH (NoLock) ON DT.FTPunCode = Pun_L.FTPunCode AND Pun_L.FNLngID =@pnLanguage\r\n\tWHERE  DT.FTXshDocNo = @ptDocNo AND DT.FTBchCode = @ptDocBch",
+        "Parameters": {
+          "0": {
+            "Name": "ptDocNo",
+            "Expression": "SP_tDocNo",
+            "Type": 22,
+            "Size": 20
+          },
+          "1": {
+            "Name": "pnLanguage",
+            "Expression": "nLanguage",
+            "Type": 16,
+            "Size": 3
+          },
+          "2": {
+            "Name": "ptDocBch",
+            "Expression": "SP_tDocBch",
+            "Type": 22,
+            "Size": 5
+          }
+        }
+      },
+      "3": {
+        "Ident": "StiSqlSource",
+        "Name": "TSVTJob1ReqDTVat",
+        "Alias": "TSVTJob1ReqDTVat",
+        "Key": "c0ffca7fc72d4fd79b9f4bc4b09ca784",
+        "Columns": {
+          "0": {
+            "Name": "FTBchCode",
+            "Index": -1,
+            "NameInSource": "FTBchCode",
+            "Alias": "FTBchCode",
+            "Type": "System.String"
+          },
+          "1": {
+            "Name": "FTXshDocNo",
+            "Index": -1,
+            "NameInSource": "FTXshDocNo",
+            "Alias": "FTXshDocNo",
+            "Type": "System.String"
+          },
+          "2": {
+            "Name": "FCXsdVat",
+            "Index": -1,
+            "NameInSource": "FCXsdVat",
+            "Alias": "FCXsdVat",
+            "Type": "System.Decimal"
+          }
+        },
+        "NameInSource": "Service",
+        "SqlCommand": "SELECT FTBchCode,FTXshDocNo,CAST(FCXsdVat AS DECIMAL(18,2)) AS FCXsdVat \r\nFROM\r\n(SELECT HD.FTBchCode,HD.FTXshDocNo,\r\n\t SUM(ISNULL(FCXsdVat,0)) AS FCXsdVat \r\n\t FROM TSVTSalTwoDT DT INNER JOIN TSVTSalTwoHD HD ON DT.FTBchCode = HD.FTBchCode AND DT.FTXshDocNo = HD.FTXshDocNo\r\n\t WHERE HD.FTXshDocNo = \t@ptDocNo  AND HD.FTBchCode = @ptDocBch\r\n\t GROUP BY HD.FTBchCode,HD.FTXshDocNo\r\n    ) Vat",
+        "Parameters": {
+          "0": {
+            "Name": "ptDocNo",
+            "Expression": "SP_tDocNo",
+            "Type": 22,
+            "Size": 20
+          },
+          "1": {
+            "Name": "ptDocBch",
+            "Expression": "SP_tDocBch",
+            "Type": 22,
+            "Size": 5
+          }
+        }
+      },
+      "4": {
+        "Ident": "StiSqlSource",
+        "Name": "TSVTJob1ReqDTVat2",
+        "Alias": "TSVTJob1ReqDTVat2",
+        "Key": "5a5e43c14ecd496c8252d0787d7f54e9",
+        "Columns": {
+          "0": {
+            "Name": "FTBchCode",
+            "Index": -1,
+            "NameInSource": "FTBchCode",
+            "Alias": "FTBchCode",
+            "Type": "System.String"
+          },
+          "1": {
+            "Name": "FTXshDocNo",
+            "Index": -1,
+            "NameInSource": "FTXshDocNo",
+            "Alias": "FTXshDocNo",
+            "Type": "System.String"
+          },
+          "2": {
+            "Name": "FCXsdVatRate",
+            "Index": -1,
+            "NameInSource": "FCXsdVatRate",
+            "Alias": "FCXsdVatRate",
+            "Type": "System.Decimal"
+          },
+          "3": {
+            "Name": "FCXsdVat",
+            "Index": -1,
+            "NameInSource": "FCXsdVat",
+            "Alias": "FCXsdVat",
+            "Type": "System.Decimal"
+          }
+        },
+        "NameInSource": "Service",
+        "SqlCommand": "SELECT FTBchCode,FTXshDocNo,FCXsdVatRate,CAST(FCXsdVat AS DECIMAL(18,2)) AS FCXsdVat \r\nFROM\r\n(SELECT HD.FTBchCode,HD.FTXshDocNo,CAST(FCXsdVatRate AS DECIMAL(18,2))  AS FCXsdVatRate,\r\n\t SUM(ISNULL(FCXsdVat,0)) AS FCXsdVat \r\n\t FROM TSVTSalTwoDT DT INNER JOIN TSVTSalTwoHD HD ON DT.FTBchCode = HD.FTBchCode AND DT.FTXshDocNo = HD.FTXshDocNo\r\n\t WHERE HD.FTXshDocNo = \t@ptDocNo  AND HD.FTBchCode = @ptDocBch\r\n\t GROUP BY HD.FTBchCode,HD.FTXshDocNo,CAST(FCXsdVatRate AS DECIMAL(18,2))\r\n    ) Vat",
+        "Parameters": {
+          "0": {
+            "Name": "ptDocNo",
+            "Expression": "SP_tDocNo",
+            "Type": 22,
+            "Size": 20
+          },
+          "1": {
+            "Name": "ptDocBch",
+            "Expression": "SP_tDocBch",
+            "Type": 22,
+            "Size": 5
+          }
+        }
+      },
+      "5": {
+        "Ident": "StiSqlSource",
+        "Name": "TSVTJob1ReqDTSet",
+        "Alias": "TSVTJob1ReqDTSet",
+        "Key": "fe2d78f0f59940b19ab5d7446a37a2cd",
+        "Columns": {
+          "0": {
+            "Name": "FTBchCode",
+            "Index": -1,
+            "NameInSource": "FTBchCode",
+            "Alias": "FTBchCode",
+            "Type": "System.String"
+          },
+          "1": {
+            "Name": "FTXshDocNo",
+            "Index": -1,
+            "NameInSource": "FTXshDocNo",
+            "Alias": "FTXshDocNo",
+            "Type": "System.String"
+          },
+          "2": {
+            "Name": "FNXsdSeqNo",
+            "Index": -1,
+            "NameInSource": "FNXsdSeqNo",
+            "Alias": "FNXsdSeqNo",
+            "Type": "System.Int32"
+          },
+          "3": {
+            "Name": "FNPstSeqNo",
+            "Index": -1,
+            "NameInSource": "FNPstSeqNo",
+            "Alias": "FNPstSeqNo",
+            "Type": "System.Int32"
+          },
+          "4": {
+            "Name": "FTPdtCode",
+            "Index": -1,
+            "NameInSource": "FTPdtCode",
+            "Alias": "FTPdtCode",
+            "Type": "System.String"
+          },
+          "5": {
+            "Name": "FTPsvType",
+            "Index": -1,
+            "NameInSource": "FTPsvType",
+            "Alias": "FTPsvType",
+            "Type": "System.String"
+          },
+          "6": {
+            "Name": "FTPdtName",
+            "Index": -1,
+            "NameInSource": "FTPdtName",
+            "Alias": "FTPdtName",
+            "Type": "System.String"
+          },
+          "7": {
+            "Name": "FTPunCode",
+            "Index": -1,
+            "NameInSource": "FTPunCode",
+            "Alias": "FTPunCode",
+            "Type": "System.String"
+          },
+          "8": {
+            "Name": "FTPunName",
+            "Index": -1,
+            "NameInSource": "FTPunName",
+            "Alias": "FTPunName",
+            "Type": "System.String"
+          },
+          "9": {
+            "Name": "FCXsdQtySet",
+            "Index": -1,
+            "NameInSource": "FCXsdQtySet",
+            "Alias": "FCXsdQtySet",
+            "Type": "System.Decimal"
+          },
+          "10": {
+            "Name": "FCXsdSalePrice",
+            "Index": -1,
+            "NameInSource": "FCXsdSalePrice",
+            "Alias": "FCXsdSalePrice",
+            "Type": "System.Decimal"
+          }
+        },
+        "NameInSource": "Service",
+        "SqlCommand": "SELECT  FTBchCode, FTXshDocNo, FNXsdSeqNo, FNPstSeqNo, DT.FTPdtCode, FTPsvType, Pdt_L.FTPdtName, DT.FTPunCode,Pun_L.FTPunName, FCXsdQtySet, FCXsdSalePrice\r\n\tFROM    TSVTSalTwoDTSet DT\r\n\t\tINNER JOIN TCNMPdt_L Pdt_L WITH (NoLock) ON DT.FTPdtCode = Pdt_L.FTPdtCode AND Pdt_L.FNLngID = @pnLanguage\r\n\t\tLEFT JOIN TCNMPdtUnit_L Pun_L WITH (NoLock) ON DT.FTPunCode = Pun_L.FTPunCode AND Pun_L.FNLngID =@pnLanguage\r\nWHERE  DT.FTXshDocNo = @ptDocNo AND DT.FTBchCode = @ptDocBch ",
+        "Parameters": {
+          "0": {
+            "Name": "ptDocNo",
+            "Expression": "SP_tDocNo",
+            "Type": 22,
+            "Size": 20
+          },
+          "1": {
+            "Name": "ptDocBch",
+            "Expression": "SP_tDocBch",
+            "Type": 22,
+            "Size": 5
+          },
+          "2": {
+            "Name": "pnLanguage",
+            "Expression": "nLanguage",
+            "Type": 8,
+            "Size": 3
+          }
+        }
+      },
+      "6": {
+        "Ident": "StiSqlSource",
+        "Name": "TSVTJob2OrdHDDocRef",
+        "Alias": "TSVTJob2OrdHDDocRef",
+        "Key": "b96daa8af739475da5c51ad7ae5a7a4e",
+        "Columns": {
+          "0": {
+            "Name": "FTBchCode",
+            "Index": -1,
+            "NameInSource": "FTBchCode",
+            "Alias": "FTBchCode",
+            "Type": "System.String"
+          },
+          "1": {
+            "Name": "FTXshDocNo",
+            "Index": -1,
+            "NameInSource": "FTXshDocNo",
+            "Alias": "FTXshDocNo",
+            "Type": "System.String"
+          },
+          "2": {
+            "Name": "FTXshRefDocNo",
+            "Index": -1,
+            "NameInSource": "FTXshRefDocNo",
+            "Alias": "FTXshRefDocNo",
+            "Type": "System.String"
+          },
+          "3": {
+            "Name": "FTXshRefType",
+            "Index": -1,
+            "NameInSource": "FTXshRefType",
+            "Alias": "FTXshRefType",
+            "Type": "System.String"
+          },
+          "4": {
+            "Name": "FTXshRefDocDate",
+            "Index": -1,
+            "NameInSource": "FTXshRefDocDate",
+            "Alias": "FTXshRefDocDate",
+            "Type": "System.String"
+          },
+          "5": {
+            "Name": "FTXshRefDocTime",
+            "Index": -1,
+            "NameInSource": "FTXshRefDocTime",
+            "Alias": "FTXshRefDocTime",
+            "Type": "System.String"
+          },
+          "6": {
+            "Name": "FTXshRefKey",
+            "Index": -1,
+            "NameInSource": "FTXshRefKey",
+            "Alias": "FTXshRefKey",
+            "Type": "System.String"
+          }
+        },
+        "NameInSource": "Service",
+        "SqlCommand": "SELECT FTBchCode,FTXshDocNo,FTXshRefDocNo,FTXshRefType,CONVERT(VARCHAR,FDXshRefDocDate,103) AS FTXshRefDocDate,\r\nCONVERT(VARCHAR,FDXshRefDocDate,108) AS FTXshRefDocTime,FTXshRefKey\t\r\nFROM TSVTSalTwoHDDocRef WITH (NOLOCK) \r\nWHERE FTXshDocNo = @ptDocNo AND FTBchCode = @ptDocBch",
+        "Parameters": {
+          "0": {
+            "Name": "ptDocNo",
+            "Expression": "SP_tDocNo",
+            "Type": 22,
+            "Size": 20
+          },
+          "1": {
+            "Name": "ptDocBch",
+            "Expression": "SP_tDocBch",
+            "Type": 22,
+            "Size": 5
+          }
+        }
+      }
+    },
+    "Databases": {
+      "0": {
+        "Ident": "StiSqlDatabase",
+        "Name": "Service",
+        "Alias": "Service",
+        "Key": "19a2a6829c084de1879bcd2498399a80"
+      }
+    }
+  },
+  "Pages": {
+    "0": {
+      "Ident": "StiPage",
+      "Name": "Page1",
+      "Guid": "9fddaf268bad40b58ffb7f5f54a17970",
+      "Interaction": {
+        "Ident": "StiInteraction"
+      },
+      "Border": ";0,0,0,0;;;;;;solid:0,0,0,0",
+      "Brush": "solid:",
+      "Components": {
+        "0": {
+          "Ident": "StiPageHeaderBand",
+          "Name": "PageHeader1",
+          "ClientRectangle": "0,0.4,20.4,8.6",
+          "Interaction": {
+            "Ident": "StiInteraction"
+          },
+          "Border": ";;;;;;;solid:Black",
+          "Brush": "solid:",
+          "Components": {
+            "0": {
+              "Ident": "StiPanel",
+              "Name": "Container1",
+              "CanGrow": true,
+              "ClientRectangle": "0,2.15,20.4,3.3",
+              "Interaction": {
+                "Ident": "StiInteraction"
+              },
+              "CanBreak": true,
+              "Border": ";;;None;;;;solid:Black",
+              "Brush": "solid:",
+              "Components": {
+                "0": {
+                  "Ident": "StiText",
+                  "Name": "tSplName",
+                  "Guid": "e5c77f1595e94017a8b2995a94c12603",
+                  "ClientRectangle": "0.3,0.25,11.45,0.5",
+                  "Interaction": {
+                    "Ident": "StiInteraction"
+                  },
+                  "Text": {
+                    "Value": "{IIF(SP_nLang==\"1\",\"ตัวแทนขาย :\",\"Agancy :\")}  {IIF(TSVTJob5ScoreHD.FTAgnCode==\"\",\"  -  \",\"(\" + TSVTJob5ScoreHD.FTAgnCode + \") \" +TSVTJob5ScoreHD.FTAgnName)}    {IIF(SP_nLang==\"1\",\"สาขา :\",\"Branch :\")} {IIF(TSVTJob5ScoreHD.FTBchName==\"\",\" - \",\"(\" + TSVTJob5ScoreHD.FTBchCode + \") \" + TSVTJob5ScoreHD.FTBchName)}"
+                  },
+                  "VertAlignment": "Center",
+                  "Font": "Tahoma;9;;",
+                  "Border": ";;;;;;;solid:Black",
+                  "Brush": "solid:",
+                  "TextBrush": "solid:Black",
+                  "Type": "Expression"
+                },
+                "1": {
+                  "Ident": "StiText",
+                  "Name": "tTel",
+                  "Guid": "5ee918350d484b60b9aa58fe6229de03",
+                  "ClientRectangle": "0.3,2.75,11.35,0.5",
+                  "Interaction": {
+                    "Ident": "StiInteraction"
+                  },
+                  "Text": {
+                    "Value": "{IIF(SP_nLang==\"1\",\"โทรศัพท์ :\",\"Tel. :\")} {TSVTJob5ScoreHD.FTCstTel}   {IIF(SP_nLang==\"1\",\"อีเมล :\",\"EMal :\")}  {TSVTJob5ScoreHD.FTCstEmail}"
+                  },
+                  "Font": "Tahoma;9;;",
+                  "Border": ";;;;;;;solid:Black",
+                  "Brush": "solid:",
+                  "TextBrush": "solid:Black",
+                  "Type": "Expression"
+                },
+                "2": {
+                  "Ident": "StiText",
+                  "Name": "Text4",
+                  "Guid": "4eb82ea8804b42f2bb81dcb68491946f",
+                  "ClientRectangle": "0.3,0.75,11.45,0.5",
+                  "Interaction": {
+                    "Ident": "StiInteraction"
+                  },
+                  "Text": {
+                    "Value": "{IIF(SP_nLang==\"1\",\"ลูกค้า :\",\"Customer :\")} {IIF(TSVTJob5ScoreHD.FTCstCode==\"\",\" - \",\"(\"+ TSVTJob5ScoreHD.FTCstCode + \") \" +TSVTJob5ScoreHD.FTCstName)}"
+                  },
+                  "Font": "Tahoma;9;;",
+                  "Border": ";;;;;;;solid:Black",
+                  "Brush": "solid:",
+                  "TextBrush": "solid:Black",
+                  "Type": "Expression"
+                },
+                "3": {
+                  "Ident": "StiText",
+                  "Name": "tDocNo",
+                  "Guid": "01745a34ca5e49e7b574c13ef845d783",
+                  "ClientRectangle": "12.2,0.3,7.65,0.5",
+                  "Interaction": {
+                    "Ident": "StiInteraction"
+                  },
+                  "Text": {
+                    "Value": "{IIF(SP_nLang==\"1\",\"เลขที่เอกสาร :\",\"Document No. :\")}  {TSVTJob5ScoreHD.FTXshDocNo}"
+                  },
+                  "VertAlignment": "Center",
+                  "Font": "Tahoma;9;;",
+                  "Border": ";;;;;;;solid:Black",
+                  "Brush": "solid:",
+                  "TextBrush": "solid:Black",
+                  "Type": "Expression"
+                },
+                "4": {
+                  "Ident": "StiText",
+                  "Name": "tDocDate",
+                  "Guid": "36f4189949b047a88d0f8da3b6bb46d3",
+                  "ClientRectangle": "12.2,0.8,7.65,0.5",
+                  "Interaction": {
+                    "Ident": "StiInteraction"
+                  },
+                  "Text": {
+                    "Value": "{IIF(SP_nLang==\"1\",\"วันที่เอกสาร :\",\"Document Date :\")} {TSVTJob5ScoreHD.FTChgDate}  {TSVTJob5ScoreHD.FTXshDocTime}"
+                  },
+                  "VertAlignment": "Center",
+                  "Font": "Tahoma;9;;",
+                  "Border": ";;;;;;;solid:Black",
+                  "Brush": "solid:",
+                  "TextBrush": "solid:Black",
+                  "Type": "Expression"
+                },
+                "5": {
+                  "Ident": "StiText",
+                  "Name": "tDpt",
+                  "Guid": "fb09d644992244f79771231f44355947",
+                  "ClientRectangle": "12.2,1.25,7.65,0.5",
+                  "Interaction": {
+                    "Ident": "StiInteraction"
+                  },
+                  "Text": {
+                    "Value": "{IIF(SP_nLang==\"1\",\"ผู้สร้างเอกสาร :\",\"Creator :\")}  {IIF(TSVTJob5ScoreHD.FTCreateBy==\"\",\" - \",\"(\" + TSVTJob5ScoreHD.FTCreateBy + \") \" + TSVTJob5ScoreHD.FTCreBName)}"
+                  },
+                  "VertAlignment": "Center",
+                  "Font": "Tahoma;9;;",
+                  "Border": ";;;;;;;solid:Black",
+                  "Brush": "solid:",
+                  "TextBrush": "solid:Black",
+                  "Type": "Expression"
+                },
+                "6": {
+                  "Ident": "StiText",
+                  "Name": "tOperator",
+                  "Guid": "13f06254b1bd43b499148e109ff7bfcb",
+                  "ClientRectangle": "12.2,1.75,7.65,0.5",
+                  "Interaction": {
+                    "Ident": "StiInteraction"
+                  },
+                  "Text": {
+                    "Value": "{IIF(SP_nLang==\"1\",\"ผู้บันทึก :\",\"Recorder :\")}  {IIF(TSVTJob5ScoreHD.FTUsrCode==\"\",\" - \",\"(\" + TSVTJob5ScoreHD.FTUsrCode + \") \" +TSVTJob5ScoreHD.FTEvlName)}"
+                  },
+                  "VertAlignment": "Center",
+                  "Font": "Tahoma;9;;",
+                  "Border": ";;;;;;;solid:Black",
+                  "Brush": "solid:",
+                  "TextBrush": "solid:Black",
+                  "Type": "Expression"
+                },
+                "7": {
+                  "Ident": "StiText",
+                  "Name": "tContacter",
+                  "Guid": "d8cca44f27f945e2ba6c6fa01d004469",
+                  "ClientRectangle": "12.2,2.25,7.65,0.5",
+                  "Interaction": {
+                    "Ident": "StiInteraction"
+                  },
+                  "Text": {
+                    "Value": "{IIF(SP_nLang==\"1\",\"ผู้อนุมัติ :\",\"Approver :\")} {IIF(TSVTJob5ScoreHD.FTXshApvCode==\"\",\"  -  \",\"(\" + TSVTJob5ScoreHD.FTXshApvCode + \") \" + TSVTJob5ScoreHD.FTUsrNameApv)}"
+                  },
+                  "VertAlignment": "Center",
+                  "Font": "Tahoma;9;;",
+                  "Border": ";;;;;;;solid:Black",
+                  "Brush": "solid:",
+                  "TextBrush": "solid:Black",
+                  "Type": "Expression"
+                },
+                "8": {
+                  "Ident": "StiText",
+                  "Name": "tRef.PO",
+                  "Guid": "e00ec33346324641b3f618fddcf1dede",
+                  "ClientRectangle": "12.2,2.75,7.65,0.5",
+                  "Interaction": {
+                    "Ident": "StiInteraction"
+                  },
+                  "Text": {
+                    "Value": "{IIF(SP_nLang==\"1\",\"สถานะเอกสาร :\",\"Document Sta. :\")}  {IIF(TSVTJob5ScoreHD.FTXshStaDoc==\"3\",IIF(SP_nLang==\"1\",\"ยกเลิก\",\"Cancel\"),IIF(TSVTJob5ScoreHD.FTXshStaApv ==\"1\",IIF(SP_nLang==\"1\",\"อนุมัติ\",\"Approve\") ,IIF(SP_nLang==\"1\",\"รออนุมัติ\",\"Waiting for apprive\")))}"
+                  },
+                  "VertAlignment": "Center",
+                  "Font": "Tahoma;9;;",
+                  "Border": ";;;;;;;solid:Black",
+                  "Brush": "solid:",
+                  "TextBrush": "solid:Black",
+                  "Type": "Expression"
+                },
+                "9": {
+                  "Ident": "StiText",
+                  "Name": "tSplAddress",
+                  "Guid": "a921aafe686f42af94377edf2c41625e",
+                  "CanShrink": true,
+                  "CanGrow": true,
+                  "ClientRectangle": "0.3,1.25,1.4,0.65",
+                  "Interaction": {
+                    "Ident": "StiInteraction"
+                  },
+                  "Editable": true,
+                  "Text": {
+                    "Value": "{IIF(SP_nLang==\"1\",\"ที่อยู่ :\",\"Address :\")}"
+                  },
+                  "CanBreak": true,
+                  "Font": "Tahoma;9;;",
+                  "Border": ";;;;;;;solid:Black",
+                  "Brush": "solid:",
+                  "TextBrush": "solid:Black",
+                  "TextOptions": {
+                    "WordWrap": true
+                  },
+                  "Type": "Expression"
+                },
+                "10": {
+                  "Ident": "StiText",
+                  "Name": "SplAddr",
+                  "Guid": "3039f6e6f3c2493f9df0d08b8b6b0a3c",
+                  "CanShrink": true,
+                  "CanGrow": true,
+                  "ClientRectangle": "1.7,1.25,10.05,1.45",
+                  "Interaction": {
+                    "Ident": "StiInteraction"
+                  },
+                  "MaxNumberOfLines": 3,
+                  "Editable": true,
+                  "Text": {
+                    "Value": "{IIF(TSVTJob5ScoreHD.FTAddVersion == \"1\",\r\nIIF(TSVTJob5ScoreHD.FTAddV1No ==\"\",\"\",IIF(SP_nLang==\"1\",\"เลขที่ \",\"No. \") + TSVTJob5ScoreHD.FTAddV1No + \" \") +\r\nIIF(TSVTJob5ScoreHD.FTAddV1Village ==\"\",\"\", TSVTJob5ScoreHD.FTAddV1Village + \" \") +\r\nIIF(TSVTJob5ScoreHD.FTAddV1Soi==\"\",\"\",IIF(SP_nLang==\"1\",\"ซอย\",\"Soi \") + TSVTJob5ScoreHD.FTAddV1Soi + \" \") +\r\nIIF(TSVTJob5ScoreHD.FTAddV1Road==\"\",\"\",IIF(SP_nLang==\"1\",\"ถนน\",\"\") + TSVTJob5ScoreHD.FTAddV1Road + IIF(SP_nLang==\"1\",\"\",\" Rd.\")+ \" \")+ \r\nIIF(TSVTJob5ScoreHD.FTAddV1SubDist==\"\",\"\",IIF(SP_nLang==\"1\",\"\",\"Sub District \") + TSVTJob5ScoreHD.FTSudName + \" \") +\r\nIIF(TSVTJob5ScoreHD.FTAddV1DstCode==\"\",\"\",IIF(SP_nLang==\"1\",\"\",\"District \") + TSVTJob5ScoreHD.FTDstName + \" \") +\r\nIIF(TSVTJob5ScoreHD.FTAddV1PvnCode==\"\",\"\",IIF(SP_nLang==\"1\",\"\",\"Province \") + TSVTJob5ScoreHD.FTPvnName + \" \") +\r\nIIF(TSVTJob5ScoreHD.FTAddV1PostCode==\"\",\"\",TSVTJob5ScoreHD.FTAddV1PostCode),\r\nTSVTJob5ScoreHD.FTAddV2Desc1 + \" \" +\r\nTSVTJob5ScoreHD.FTAddV2Desc2\r\n)}\r\n"
+                  },
+                  "CanBreak": true,
+                  "Font": "Tahoma;9;;",
+                  "Border": ";;;;;;;solid:Black",
+                  "Brush": "solid:",
+                  "TextBrush": "solid:Black",
+                  "TextOptions": {
+                    "WordWrap": true
+                  },
+                  "TextQuality": "Wysiwyg",
+                  "Type": "Expression"
+                },
+                "11": {
+                  "Ident": "StiStartPointPrimitive",
+                  "Name": "StartPointPrimitive3",
+                  "ClientRectangle": "0.15,0.15,0,0",
+                  "Interaction": {
+                    "Ident": "StiInteraction"
+                  },
+                  "ReferenceToGuid": "8faf532b730e4b038cdf2fcbc5a44c7d"
+                },
+                "12": {
+                  "Ident": "StiStartPointPrimitive",
+                  "Name": "StartPointPrimitive4",
+                  "ClientRectangle": "12.1,0.15,0,0",
+                  "Interaction": {
+                    "Ident": "StiInteraction"
+                  },
+                  "ReferenceToGuid": "0317d4eb3006410a8b3ad7c8e0966f2b"
+                }
+              }
+            },
+            "1": {
+              "Ident": "StiPanel",
+              "Name": "Container2",
+              "ClientRectangle": "11.95,0.1,8.45,2.05",
+              "Interaction": {
+                "Ident": "StiInteraction"
+              },
+              "Border": ";;;None;;;;solid:Black",
+              "Brush": "solid:",
+              "Components": {
+                "0": {
+                  "Ident": "StiText",
+                  "Name": "TotalPage",
+                  "Guid": "6b766ab665854a7d812ff3be4fd283f0",
+                  "ClientRectangle": "6.55,1.05,1.5,0.4",
+                  "Interaction": {
+                    "Ident": "StiInteraction"
+                  },
+                  "Text": {
+                    "Value": "{PageNumber} / {TotalPageCount}"
+                  },
+                  "Font": "Tahoma;9;;",
+                  "Border": ";;;;;;;solid:Black",
+                  "Brush": "solid:",
+                  "TextBrush": "solid:Black"
+                },
+                "1": {
+                  "Ident": "StiBarCode",
+                  "Name": "tdBarcodeDoc",
+                  "Guid": "7a5a08bf2caf492fb8a257b5a97327f5",
+                  "ClientRectangle": "0.3,1.45,7.75,0.5",
+                  "Alias": "[Barcode]",
+                  "Interaction": {
+                    "Ident": "StiInteraction"
+                  },
+                  "Border": ";;;;;;;solid:Black",
+                  "BackColor": "Transparent",
+                  "HorAlignment": "Center",
+                  "BarCodeType": {
+                    "Ident": "StiCode93BarCodeType"
+                  },
+                  "Code": {
+                    "Value": "{TSVTJob5ScoreHD.FTXshDocNo}"
+                  }
+                },
+                "2": {
+                  "Ident": "StiText",
+                  "Name": "tDatePrint",
+                  "Guid": "c5dd203116b84080adc0b35797117645",
+                  "ClientRectangle": "0.2,1.05,6.3,0.4",
+                  "Interaction": {
+                    "Ident": "StiInteraction"
+                  },
+                  "Text": {
+                    "Value": "{IIF(SP_nLang==\"1\",\"วันที่พิมพ์ :\",\"Print Date : \")} {Format(\"{0:dd/MM/yyyy}\", Today)} {IIF(SP_nLang==\"1\",\"เวลา : \",\"Time : \")} {Format(\"{0:HH:mm:ss}\", Time)}"
+                  },
+                  "Font": "Tahoma;9;;",
+                  "Border": ";;;;;;;solid:Black",
+                  "Brush": "solid:",
+                  "TextBrush": "solid:Black",
+                  "Type": "Expression"
+                },
+                "3": {
+                  "Ident": "StiText",
+                  "Name": "Header",
+                  "Guid": "5c81922f520240a78c277743ff227329",
+                  "ClientRectangle": "0.2,0.1,7.75,0.8",
+                  "Alias": "Header",
+                  "Interaction": {
+                    "Ident": "StiInteraction"
+                  },
+                  "Text": {
+                    "Value": "{IIF(SP_nLang==\"1\",\"ใบแลกของพรีเมี่ยม\",\"Redeem Premium\")}"
+                  },
+                  "HorAlignment": "Center",
+                  "VertAlignment": "Center",
+                  "Font": "Tahoma;12;Bold;",
+                  "Border": ";;;;;;;solid:Black",
+                  "Brush": "solid:",
+                  "TextBrush": "solid:Black",
+                  "Type": "Expression"
+                },
+                "4": {
+                  "Ident": "StiStartPointPrimitive",
+                  "Name": "StartPointPrimitive1",
+                  "ClientRectangle": "0.1,0.05,0,0",
+                  "Interaction": {
+                    "Ident": "StiInteraction"
+                  },
+                  "ReferenceToGuid": "c913278d51594eab99e4669d1544ea84"
+                },
+                "5": {
+                  "Ident": "StiEndPointPrimitive",
+                  "Name": "EndPointPrimitive1",
+                  "ClientRectangle": "8.05,0.95,0,0",
+                  "Interaction": {
+                    "Ident": "StiInteraction"
+                  },
+                  "ReferenceToGuid": "c913278d51594eab99e4669d1544ea84"
+                }
+              }
+            },
+            "2": {
+              "Ident": "StiPanel",
+              "Name": "Container3",
+              "CanGrow": true,
+              "ClientRectangle": "0,0.1,11.8,2.05",
+              "Interaction": {
+                "Ident": "StiInteraction"
+              },
+              "CanBreak": true,
+              "Border": ";;;;;;;solid:Black",
+              "Brush": "solid:",
+              "Components": {
+                "0": {
+                  "Ident": "StiText",
+                  "Name": "CmpName",
+                  "Guid": "b542f57c609b4485a31e1e2c866b6820",
+                  "ClientRectangle": "0.25,0.2,10.4,0.5",
+                  "Interaction": {
+                    "Ident": "StiInteraction"
+                  },
+                  "Text": {
+                    "Value": "{Company.FTCompName}"
+                  },
+                  "VertAlignment": "Center",
+                  "Font": "Tahoma;10;Bold;",
+                  "Border": ";;;;;;;solid:Black",
+                  "Brush": "solid:",
+                  "TextBrush": "solid:Black",
+                  "Type": "Expression"
+                },
+                "1": {
+                  "Ident": "StiText",
+                  "Name": "CmpAddr",
+                  "Guid": "2538538c36b0498f90976109fdee3c2a",
+                  "CanGrow": true,
+                  "ClientRectangle": "0.25,0.7,10.4,0.4",
+                  "Interaction": {
+                    "Ident": "StiInteraction"
+                  },
+                  "Editable": true,
+                  "Text": {
+                    "Value": "{IIF(Company.FTAddrType == \"1\",\r\nIIF(SP_nLang==\"1\",\"เลขที่ \",\"No. \") + Company.FTAddV1No +\r\nIIF(Company.FTAddV1Village ==\"\",\"\",\" \" + Company.FTAddV1Village + \" \") +\r\nIIF(Company.FTAddV1Soi==\"\",\"\",IIF(SP_nLang==\"1\",\"ซอย\",\"Soi \") + Company.FTAddV1Soi + \" \") +\r\nIIF(Company.FTAddV1Road==\"\",\"\",IIF(SP_nLang==\"1\",\"ถนน\",\"\") + Company.FTAddV1Road + IIF(SP_nLang==\"1\",\"\",\" Rd.\")+ \" \")+ \r\nIIF(Company.FTAddV1SubDist==\"\",\"\",IIF(SP_nLang==\"1\",\"  \" + Company.FTSudName,\" \" + Company.FTSudName +\"  SubDistrict \")  + \" \") +\r\nIIF(Company.FTAddV1DstCode==\"\",\"\",IIF(SP_nLang==\"1\",\"  \" + Company.FTDstName,\" \" + Company.FTDstName +\"  District \")  + \" \") +\r\nIIF(Company.FTAddV1PvnCode==\"\",\"\",IIF(SP_nLang==\"1\",\"  \" + Company.FTPvnName,\" \" + Company.FTPvnName+ \"  Provin\") + \" \") +\r\nIIF(Company.FTAddV1PostCode==\"\",\"\",Company.FTAddV1PostCode) + \"  \" + (char)13 +\r\nIIF(SP_nLang==\"1\",\"โทร\",\"Tel\") + \" : \"  + Company.FTAddTel + \"  \" + IIF(SP_nLang==\"1\",\"แฟกซ์\",\"Fax\") + \" : \" +  Company.FTAddFax \r\n,IIF(Company.FTAddV2Desc1==\"\",\"\",Company.FTAddV2Desc1) + IIF(Company.FTAddV2Desc1==\"\",IIF(Company.FTAddV2Desc2==\"\",\"\",Company.FTAddV2Desc2),IIF(Company.FTAddV2Desc2==\"\",\"\",(Char)13 + Company.FTAddV2Desc2)))}\r\n{IIF(SP_nLang==\"1\",\"สาขา\",\"Branch\")} :  {Company.FTBchName}\r\n{IIF(SP_nLang==\"1\",\"เลขประจำตัวผู้เสียภาษี : \",\"TAX ID : \")}{Company.FTAddTaxNo}"
+                  },
+                  "Font": "Tahoma;9;;",
+                  "Border": ";;;;;;;solid:Black",
+                  "Brush": "solid:",
+                  "TextBrush": "solid:Black",
+                  "TextOptions": {
+                    "WordWrap": true
+                  },
+                  "Type": "Expression"
+                }
+              }
+            },
+            "3": {
+              "Ident": "StiPanel",
+              "Name": "Panel1",
+              "CanGrow": true,
+              "ClientRectangle": "0,7.7,20.4,0.8",
+              "Interaction": {
+                "Ident": "StiInteraction"
+              },
+              "CanBreak": true,
+              "Border": ";;;None;;;;solid:Black",
+              "Brush": "solid:",
+              "Components": {
+                "0": {
+                  "Ident": "StiText",
+                  "Name": "tPdtName",
+                  "Guid": "119f0732f619436cbd8ac67fce9e8995",
+                  "ClientRectangle": "3.8,0.15,6.15,0.5",
+                  "Interaction": {
+                    "Ident": "StiInteraction"
+                  },
+                  "Text": {
+                    "Value": "{IIF(SP_nLang == \"1\",\"ชื่อสินค้า\",\"Product Name\")}"
+                  },
+                  "VertAlignment": "Center",
+                  "Font": "Tahoma;9;Bold;",
+                  "Border": ";;;;;;;solid:Black",
+                  "Brush": "solid:",
+                  "TextBrush": "solid:Black",
+                  "Type": "Expression"
+                },
+                "1": {
+                  "Ident": "StiText",
+                  "Name": "tPdtCode",
+                  "Guid": "37447d5109514ea0a8a0b52e7286e713",
+                  "ClientRectangle": "0.3,0.15,3.35,0.5",
+                  "Interaction": {
+                    "Ident": "StiInteraction"
+                  },
+                  "Text": {
+                    "Value": "{IIF(SP_nLang == \"1\",\"รหัสสินค้า\",\"Product Code\")}"
+                  },
+                  "VertAlignment": "Center",
+                  "Font": "Tahoma;9;Bold;",
+                  "Border": ";;;;;;;solid:Black",
+                  "Brush": "solid:",
+                  "TextBrush": "solid:Black",
+                  "Type": "Expression"
+                },
+                "2": {
+                  "Ident": "StiText",
+                  "Name": "tAmount",
+                  "Guid": "5d3f1d7ec5c4418fae66c7d2e1965a3e",
+                  "ClientRectangle": "10.05,0.15,1.3,0.5",
+                  "Alias": "Amount",
+                  "Interaction": {
+                    "Ident": "StiInteraction"
+                  },
+                  "Text": {
+                    "Value": "{IIF(SP_nLang == \"1\",\"จำนวน\",\"Qty.\")}"
+                  },
+                  "HorAlignment": "Right",
+                  "VertAlignment": "Center",
+                  "Font": "Tahoma;9;Bold;",
+                  "Border": ";;;;;;;solid:Black",
+                  "Brush": "solid:",
+                  "TextBrush": "solid:Black",
+                  "Type": "Expression"
+                },
+                "3": {
+                  "Ident": "StiText",
+                  "Name": "Text9",
+                  "Guid": "072a489f80b846969026a72cd427e814",
+                  "ClientRectangle": "11.45,0.15,1.5,0.5",
+                  "Alias": "Amount",
+                  "Interaction": {
+                    "Ident": "StiInteraction"
+                  },
+                  "Text": {
+                    "Value": "{IIF(SP_nLang == \"1\",\"หน่วย\",\"Unit\")}"
+                  },
+                  "VertAlignment": "Center",
+                  "Font": "Tahoma;9;Bold;",
+                  "Border": ";;;;;;;solid:Black",
+                  "Brush": "solid:",
+                  "TextBrush": "solid:Black",
+                  "Type": "Expression"
+                },
+                "4": {
+                  "Ident": "StiText",
+                  "Name": "Text11",
+                  "Guid": "7605b457d01345888c792c56bd12b8b8",
+                  "ClientRectangle": "13.05,0.15,2,0.5",
+                  "Alias": "Amount",
+                  "Interaction": {
+                    "Ident": "StiInteraction"
+                  },
+                  "Text": {
+                    "Value": "{IIF(SP_nLang == \"1\",\"ราคา/หน่วย\",\"Unit/Price\")}"
+                  },
+                  "HorAlignment": "Right",
+                  "VertAlignment": "Center",
+                  "Font": "Tahoma;9;Bold;",
+                  "Border": ";;;;;;;solid:Black",
+                  "Brush": "solid:",
+                  "TextBrush": "solid:Black",
+                  "Type": "Expression"
+                },
+                "5": {
+                  "Ident": "StiText",
+                  "Name": "Text48",
+                  "Guid": "aee402129cb048a0b7957f10ca5a47e3",
+                  "ClientRectangle": "15.25,0.15,1.95,0.5",
+                  "Alias": "Amount",
+                  "Interaction": {
+                    "Ident": "StiInteraction"
+                  },
+                  "Text": {
+                    "Value": "{IIF(SP_nLang == \"1\",\"ลด/ชาร์จ\",\"Dis/Chg\")}"
+                  },
+                  "HorAlignment": "Right",
+                  "VertAlignment": "Center",
+                  "Font": "Tahoma;9;Bold;",
+                  "Border": ";;;;;;;solid:Black",
+                  "Brush": "solid:",
+                  "TextBrush": "solid:Black",
+                  "Type": "Expression"
+                },
+                "6": {
+                  "Ident": "StiText",
+                  "Name": "Text50",
+                  "Guid": "af5682783cbf438ea01d1238c7554a04",
+                  "ClientRectangle": "17.4,0.15,2.4,0.5",
+                  "Alias": "Amount",
+                  "Interaction": {
+                    "Ident": "StiInteraction"
+                  },
+                  "Text": {
+                    "Value": "{IIF(SP_nLang == \"1\",\"จำนวนเงิน\",\"Amount\")}"
+                  },
+                  "HorAlignment": "Right",
+                  "VertAlignment": "Center",
+                  "Font": "Tahoma;9;Bold;",
+                  "Border": ";;;;;;;solid:Black",
+                  "Brush": "solid:",
+                  "TextBrush": "solid:Black",
+                  "Type": "Expression"
+                },
+                "7": {
+                  "Ident": "StiStartPointPrimitive",
+                  "Name": "StartPointPrimitive8",
+                  "ClientRectangle": "3.7,0,0,0",
+                  "Interaction": {
+                    "Ident": "StiInteraction"
+                  },
+                  "ReferenceToGuid": "c6155d413a3e4b06a32c6f6544bedd15"
+                },
+                "8": {
+                  "Ident": "StiStartPointPrimitive",
+                  "Name": "StartPointPrimitive9",
+                  "ClientRectangle": "10,0,0,0",
+                  "Interaction": {
+                    "Ident": "StiInteraction"
+                  },
+                  "ReferenceToGuid": "2a6235e975644ca49ce82999bf95c40f"
+                },
+                "9": {
+                  "Ident": "StiHorizontalLinePrimitive",
+                  "Name": "HorizontalLine2",
+                  "Guid": "8bba0d9da24b413bbc3e8a91d9daf870",
+                  "ClientRectangle": "0.15,0.75,19.85,0.0254",
+                  "Interaction": {
+                    "Ident": "StiInteraction"
+                  },
+                  "StartCap": ";;;",
+                  "EndCap": ";;;"
+                },
+                "10": {
+                  "Ident": "StiStartPointPrimitive",
+                  "Name": "StartPointPrimitive2",
+                  "ClientRectangle": "0.15,0,0,0",
+                  "Interaction": {
+                    "Ident": "StiInteraction"
+                  },
+                  "ReferenceToGuid": "fd88149d5f414b7eb12b35f216bdc14f"
+                },
+                "11": {
+                  "Ident": "StiStartPointPrimitive",
+                  "Name": "StartPointPrimitive12",
+                  "ClientRectangle": "11.45,0,0,0",
+                  "Interaction": {
+                    "Ident": "StiInteraction"
+                  },
+                  "ReferenceToGuid": "affb677d2e9547298069474186d324c2"
+                },
+                "12": {
+                  "Ident": "StiStartPointPrimitive",
+                  "Name": "StartPointPrimitive13",
+                  "ClientRectangle": "13.05,0,0,0",
+                  "Interaction": {
+                    "Ident": "StiInteraction"
+                  },
+                  "ReferenceToGuid": "8bba2a6c1bd7470c908f29a2b0817fdc"
+                },
+                "13": {
+                  "Ident": "StiStartPointPrimitive",
+                  "Name": "StartPointPrimitive14",
+                  "ClientRectangle": "15.25,0,0,0",
+                  "Interaction": {
+                    "Ident": "StiInteraction"
+                  },
+                  "ReferenceToGuid": "6cddf154bb804b2f81069c040f6aa7be"
+                },
+                "14": {
+                  "Ident": "StiStartPointPrimitive",
+                  "Name": "StartPointPrimitive15",
+                  "ClientRectangle": "17.3,0,0,0",
+                  "Interaction": {
+                    "Ident": "StiInteraction"
+                  },
+                  "ReferenceToGuid": "934bed23923842c3be0f38e91a4c840a"
+                },
+                "15": {
+                  "Ident": "StiEndPointPrimitive",
+                  "Name": "EndPointPrimitive10",
+                  "ClientRectangle": "20,0,0,0",
+                  "Interaction": {
+                    "Ident": "StiInteraction"
+                  },
+                  "ReferenceToGuid": "9af1d8658c2e4d26b201986c01271396"
+                }
+              }
+            },
+            "4": {
+              "Ident": "StiPanel",
+              "Name": "Panel2",
+              "CanGrow": true,
+              "ClientRectangle": "0,5.65,20.4,1.95",
+              "Interaction": {
+                "Ident": "StiInteraction"
+              },
+              "CanBreak": true,
+              "Border": ";;;None;;;;solid:Black",
+              "Brush": "solid:",
+              "Components": {
+                "0": {
+                  "Ident": "StiText",
+                  "Name": "Text23",
+                  "Guid": "415e061d55d643049f7443204424d11a",
+                  "ClientRectangle": "0.3,0.1,6.1,0.45",
+                  "Interaction": {
+                    "Ident": "StiInteraction"
+                  },
+                  "Text": {
+                    "Value": "{IIF(SP_nLang==\"1\",\"ทะเบียนรถ :\",\"car registration :\")} {TSVTJob5ScoreHD.FTCarRegNo} {TSVTJob5ScoreHD.FTPvnNameVar}\r\n"
+                  },
+                  "VertAlignment": "Center",
+                  "Font": "Tahoma;9;;",
+                  "Border": "Right;;;None;;;;solid:Black",
+                  "Brush": "solid:",
+                  "TextBrush": "solid:Black",
+                  "Type": "Expression"
+                },
+                "1": {
+                  "Ident": "StiText",
+                  "Name": "Text24",
+                  "Guid": "58c1d15161ff4830a04476b516fb246c",
+                  "ClientRectangle": "6.45,0.1,6.2,0.45",
+                  "Interaction": {
+                    "Ident": "StiInteraction"
+                  },
+                  "Text": {
+                    "Value": "{IIF(SP_nLang==\"1\",\"เลขเครื่องยนต์ :\",\"engine number :\")}  {IIF(TSVTJob5ScoreHD.FTCarEngineNo==\"\",\"  -  \",TSVTJob5ScoreHD.FTCarEngineNo)}"
+                  },
+                  "VertAlignment": "Center",
+                  "Font": "Tahoma;9;;",
+                  "Border": "Right;;;None;;;;solid:Black",
+                  "Brush": "solid:",
+                  "TextBrush": "solid:Black",
+                  "Type": "Expression"
+                },
+                "2": {
+                  "Ident": "StiText",
+                  "Name": "Text25",
+                  "Guid": "3c6616dc57aa4189a080d721b6020d83",
+                  "ClientRectangle": "12.7,0.1,7.2,0.45",
+                  "Interaction": {
+                    "Ident": "StiInteraction"
+                  },
+                  "Text": {
+                    "Value": "{IIF(SP_nLang==\"1\",\"เลขตัวถัง :\",\"chassis number :\")}  {IIF(TSVTJob5ScoreHD.FTCarVIDRef ==\"\",\"  - \",TSVTJob5ScoreHD.FTCarVIDRef)}"
+                  },
+                  "VertAlignment": "Center",
+                  "Font": "Tahoma;9;;",
+                  "Border": "Right;;;None;;;;solid:Black",
+                  "Brush": "solid:",
+                  "TextBrush": "solid:Black",
+                  "Type": "Expression"
+                },
+                "3": {
+                  "Ident": "StiText",
+                  "Name": "Text7",
+                  "Guid": "ed5b47ae2bd846bf90b2bd993779c70c",
+                  "ClientRectangle": "0.3,0.55,6.1,0.45",
+                  "Interaction": {
+                    "Ident": "StiInteraction"
+                  },
+                  "Text": {
+                    "Value": "{IIF(SP_nLang==\"1\",\"ประเภท/ลักษณะ :\",\"Type/Category :\")}  {IIF(TSVTJob5ScoreHD.FTCarCategory ==\"\",\"  - \",TSVTJob5ScoreHD.FTCaiCatName)}"
+                  },
+                  "VertAlignment": "Center",
+                  "Font": "Tahoma;9;;",
+                  "Border": "Right;;;None;;;;solid:Black",
+                  "Brush": "solid:",
+                  "TextBrush": "solid:Black",
+                  "Type": "Expression"
+                },
+                "4": {
+                  "Ident": "StiText",
+                  "Name": "Text26",
+                  "Guid": "3a09f1cbc51b405984758dd16c64b344",
+                  "ClientRectangle": "6.45,0.55,6.2,0.45",
+                  "Interaction": {
+                    "Ident": "StiInteraction"
+                  },
+                  "Text": {
+                    "Value": "{IIF(SP_nLang==\"1\",\"ประเภท/เจ้าของ :\",\"Type/Owner :\")}  {IIF(TSVTJob5ScoreHD.FTCarType ==\"\",\"  - \",TSVTJob5ScoreHD.FTCarType)}"
+                  },
+                  "VertAlignment": "Center",
+                  "Font": "Tahoma;9;;",
+                  "Border": "Right;;;None;;;;solid:Black",
+                  "Brush": "solid:",
+                  "TextBrush": "solid:Black",
+                  "Type": "Expression"
+                },
+                "5": {
+                  "Ident": "StiText",
+                  "Name": "Text27",
+                  "Guid": "69f591bb9a664b7a979c5c5f05afb581",
+                  "ClientRectangle": "12.7,0.55,7.2,0.45",
+                  "Interaction": {
+                    "Ident": "StiInteraction"
+                  },
+                  "Text": {
+                    "Value": "{IIF(SP_nLang==\"1\",\"ยี่ห้อ :\",\"Brand :\")}  {IIF(TSVTJob5ScoreHD.FTCarBrand ==\"\",\"  - \",TSVTJob5ScoreHD.FTCarBrand)}"
+                  },
+                  "Font": "Tahoma;9;;",
+                  "Border": "Right;;;None;;;;solid:Black",
+                  "Brush": "solid:",
+                  "TextBrush": "solid:Black",
+                  "Type": "Expression"
+                },
+                "6": {
+                  "Ident": "StiText",
+                  "Name": "Text28",
+                  "Guid": "2cf879dafd1b41ccbeab59ca72e5a137",
+                  "ClientRectangle": "0.3,1,6.1,0.45",
+                  "Interaction": {
+                    "Ident": "StiInteraction"
+                  },
+                  "Text": {
+                    "Value": "{IIF(SP_nLang==\"1\",\"รุ่น :\",\"Model :\")}  {IIF(TSVTJob5ScoreHD.FTCarModel ==\"\",\"  - \",TSVTJob5ScoreHD.FTCarModel)}"
+                  },
+                  "Font": "Tahoma;9;;",
+                  "Border": "Right;;;None;;;;solid:Black",
+                  "Brush": "solid:",
+                  "TextBrush": "solid:Black",
+                  "Type": "Expression"
+                },
+                "7": {
+                  "Ident": "StiText",
+                  "Name": "Text29",
+                  "Guid": "da6647716d214165bf2a73a021b5cfa5",
+                  "ClientRectangle": "6.45,1,6.2,0.45",
+                  "Interaction": {
+                    "Ident": "StiInteraction"
+                  },
+                  "Text": {
+                    "Value": "{IIF(SP_nLang==\"1\",\"สี :\",\"Color :\")}  {IIF(TSVTJob5ScoreHD.FTCarColor ==\"\",\"  - \",TSVTJob5ScoreHD.FTCarColor)}"
+                  },
+                  "VertAlignment": "Center",
+                  "Font": "Tahoma;9;;",
+                  "Border": "Right;;;None;;;;solid:Black",
+                  "Brush": "solid:",
+                  "TextBrush": "solid:Black",
+                  "Type": "Expression"
+                },
+                "8": {
+                  "Ident": "StiText",
+                  "Name": "Text30",
+                  "Guid": "49b7b2a553a3442993ab840de268758d",
+                  "ClientRectangle": "12.7,1,7.2,0.45",
+                  "Interaction": {
+                    "Ident": "StiInteraction"
+                  },
+                  "Text": {
+                    "Value": "{IIF(SP_nLang==\"1\",\"เกียร์ :\",\"Gear :\")}  {IIF(TSVTJob5ScoreHD.FTCarGear ==\"\",\"  - \",TSVTJob5ScoreHD.FTCarGear)}"
+                  },
+                  "VertAlignment": "Center",
+                  "Font": "Tahoma;9;;",
+                  "Border": "Right;;;None;;;;solid:Black",
+                  "Brush": "solid:",
+                  "TextBrush": "solid:Black",
+                  "Type": "Expression"
+                },
+                "9": {
+                  "Ident": "StiText",
+                  "Name": "Text31",
+                  "Guid": "9a1255713eab441691508ff387fc5978",
+                  "ClientRectangle": "0.3,1.45,6.1,0.45",
+                  "Interaction": {
+                    "Ident": "StiInteraction"
+                  },
+                  "Text": {
+                    "Value": "{IIF(SP_nLang==\"1\",\"เครื่องยนต์ :\",\"Engin type :\")}  {IIF(TSVTJob5ScoreHD.FTCarEnginType ==\"\",\"  - \",TSVTJob5ScoreHD.FTCarEnginType)}"
+                  },
+                  "VertAlignment": "Center",
+                  "Font": "Tahoma;9;;",
+                  "Border": "Right;;;None;;;;solid:Black",
+                  "Brush": "solid:",
+                  "TextBrush": "solid:Black",
+                  "Type": "Expression"
+                },
+                "10": {
+                  "Ident": "StiText",
+                  "Name": "Text32",
+                  "Guid": "6b5de6f84346403c87fe9e2bb3dd51c5",
+                  "ClientRectangle": "6.45,1.45,6.2,0.45",
+                  "Interaction": {
+                    "Ident": "StiInteraction"
+                  },
+                  "Text": {
+                    "Value": "{IIF(SP_nLang==\"1\",\"ขนาดเครื่องยนต์ :\",\"Engint Size :\")}  {IIF(TSVTJob5ScoreHD.FTCarEnginSize ==\"\",\"  - \",TSVTJob5ScoreHD.FTCarEnginSize)}"
+                  },
+                  "VertAlignment": "Center",
+                  "Font": "Tahoma;9;;",
+                  "Border": "Right;;;None;;;;solid:Black",
+                  "Brush": "solid:",
+                  "TextBrush": "solid:Black",
+                  "Type": "Expression"
+                },
+                "11": {
+                  "Ident": "StiText",
+                  "Name": "Text33",
+                  "Guid": "74e088a6806e45698507ef11bdca0500",
+                  "ClientRectangle": "12.7,1.45,7.2,0.45",
+                  "Interaction": {
+                    "Ident": "StiInteraction"
+                  },
+                  "Text": {
+                    "Value": "{IIF(SP_nLang==\"1\",\"เลขไมล์ :\",\"Mileage :\")}  {TSVTJob5ScoreHD.FCXshCarMileage.ToString(\"#,##0.#0\")}"
+                  },
+                  "VertAlignment": "Center",
+                  "Font": "Tahoma;9;;",
+                  "Border": "Right;;;None;;;;solid:Black",
+                  "Brush": "solid:",
+                  "TextBrush": "solid:Black",
+                  "Type": "Expression"
+                },
+                "12": {
+                  "Ident": "StiStartPointPrimitive",
+                  "Name": "StartPointPrimitive10",
+                  "ClientRectangle": "0.15,0,0,0",
+                  "Interaction": {
+                    "Ident": "StiInteraction"
+                  },
+                  "ReferenceToGuid": "9af1d8658c2e4d26b201986c01271396"
+                }
+              }
+            },
+            "5": {
+              "Ident": "StiPanel",
+              "Name": "Panel4",
+              "CanGrow": true,
+              "ClientRectangle": "0,5.45,20.4,0.15",
+              "Interaction": {
+                "Ident": "StiInteraction"
+              },
+              "CanBreak": true,
+              "Border": ";;;;;;;solid:Black",
+              "Brush": "solid:",
+              "Components": {
+                "0": {
+                  "Ident": "StiSubReport",
+                  "Name": "SubDocRef",
+                  "ClientRectangle": "0.05,0.05,20.3,0.05",
+                  "Interaction": {
+                    "Ident": "StiInteraction"
+                  },
+                  "Border": ";;;;;;;solid:Black",
+                  "Brush": "solid:",
+                  "SubReportPageGuid": "2391c65a3c7b44d0a6ede619a05d3bfc"
+                },
+                "1": {
+                  "Ident": "StiEndPointPrimitive",
+                  "Name": "EndPointPrimitive3",
+                  "ClientRectangle": "11.95,0,0,0",
+                  "Interaction": {
+                    "Ident": "StiInteraction"
+                  },
+                  "ReferenceToGuid": "8faf532b730e4b038cdf2fcbc5a44c7d"
+                },
+                "2": {
+                  "Ident": "StiEndPointPrimitive",
+                  "Name": "EndPointPrimitive4",
+                  "ClientRectangle": "20,0,0,0",
+                  "Interaction": {
+                    "Ident": "StiInteraction"
+                  },
+                  "ReferenceToGuid": "0317d4eb3006410a8b3ad7c8e0966f2b"
+                }
+              }
+            }
+          }
+        },
+        "1": {
+          "Ident": "StiPageFooterBand",
+          "Name": "PageFooter1",
+          "ClientRectangle": "0,22.25,20.4,6.75",
+          "Interaction": {
+            "Ident": "StiInteraction"
+          },
+          "Border": ";;;None;;;;solid:Black",
+          "Brush": "solid:",
+          "Components": {
+            "0": {
+              "Ident": "StiText",
+              "Name": "tRemark",
+              "CanGrow": true,
+              "ClientRectangle": "0.3,2.9,13.65,2.45",
+              "Interaction": {
+                "Ident": "StiInteraction"
+              },
+              "Text": {
+                "Value": "{IIF(SP_nLang == \"1\",\"หมายเหตุ :\",\"Note\")}  {TSVTJob5ScoreHD.FTXshRmk}"
+              },
+              "Font": "Tahoma;9;;",
+              "Border": ";;;;;;;solid:Black",
+              "Brush": "solid:",
+              "TextBrush": "solid:Black",
+              "TextOptions": {
+                "WordWrap": true
+              },
+              "Type": "Expression"
+            },
+            "1": {
+              "Ident": "StiText",
+              "Name": "Text14",
+              "Guid": "cbb703b1991346559cf706ac0f26bd4e",
+              "ClientRectangle": "14.5,4.75,5.05,0.6",
+              "Interaction": {
+                "Ident": "StiInteraction"
+              },
+              "Text": {
+                "Value": "{IIF(SP_nLang==\"1\",\"ตัวบรรจง\",\" \")}"
+              },
+              "HorAlignment": "Center",
+              "Font": "Tahoma;9;;",
+              "Border": ";;;;;;;solid:Black",
+              "Brush": "solid:",
+              "TextBrush": "solid:Black",
+              "Type": "Expression"
+            },
+            "2": {
+              "Ident": "StiText",
+              "Name": "Text15",
+              "Guid": "a4eeec4495864c548fbbc3314b1b163d",
+              "ClientRectangle": "14.55,4.02,0.2,0.6",
+              "Interaction": {
+                "Ident": "StiInteraction"
+              },
+              "Text": {
+                "Value": "("
+              },
+              "HorAlignment": "Center",
+              "Font": "Tahoma;10;;",
+              "Border": ";;;;;;;solid:Black",
+              "Brush": "solid:",
+              "TextBrush": "solid:Black"
+            },
+            "3": {
+              "Ident": "StiText",
+              "Name": "Text16",
+              "Guid": "96ebf0162cdd482db1ac1c5ae6935895",
+              "ClientRectangle": "14.6,2.9,4.7,0.6",
+              "Interaction": {
+                "Ident": "StiInteraction"
+              },
+              "Text": {
+                "Value": "{IIF(SP_nLang==\"1\",\"ผู้แลกของ \",\"Redeem By\")}"
+              },
+              "HorAlignment": "Center",
+              "VertAlignment": "Center",
+              "Font": "Tahoma;9;;",
+              "Border": ";;;;;;;solid:Black",
+              "Brush": "solid:",
+              "TextBrush": "solid:Black",
+              "Type": "Expression"
+            },
+            "4": {
+              "Ident": "StiText",
+              "Name": "Text17",
+              "Guid": "55bc5515c0d74e38a5926c7117db5c8a",
+              "ClientRectangle": "14.5,5.42,5.04,0.47",
+              "Interaction": {
+                "Ident": "StiInteraction"
+              },
+              "Text": {
+                "Value": "{IIF(SP_nLang==\"1\",\"วันที่............/.........../............\",\"Date.........../............./..............\")}"
+              },
+              "Font": "Tahoma;9;;",
+              "Border": ";;;;;;;solid:Black",
+              "Brush": "solid:",
+              "TextBrush": "solid:Black",
+              "Type": "Expression"
+            },
+            "5": {
+              "Ident": "StiText",
+              "Name": "Text18",
+              "Guid": "5b76033a35644f4ca33d67ff3fb51e66",
+              "ClientRectangle": "14.5,3.74,5.05,0.35",
+              "Interaction": {
+                "Ident": "StiInteraction"
+              },
+              "Text": {
+                "Value": ".........................................."
+              },
+              "HorAlignment": "Center",
+              "Font": "Tahoma;9;;",
+              "Border": ";;;;;;;solid:Black",
+              "Brush": "solid:",
+              "TextBrush": "solid:Black",
+              "Type": "Expression"
+            },
+            "6": {
+              "Ident": "StiText",
+              "Name": "Text1",
+              "Guid": "752fb58f777e4ec79e84de376ee3a936",
+              "ClientRectangle": "19.35,4.02,0.2,0.6",
+              "Interaction": {
+                "Ident": "StiInteraction"
+              },
+              "Text": {
+                "Value": ")"
+              },
+              "HorAlignment": "Center",
+              "Font": "Tahoma;10;;",
+              "Border": ";;;;;;;solid:Black",
+              "Brush": "solid:",
+              "TextBrush": "solid:Black",
+              "Type": "Expression"
+            },
+            "7": {
+              "Ident": "StiPanel",
+              "Name": "Panel3",
+              "CanGrow": true,
+              "ClientRectangle": "0,0.1,20.4,2.55",
+              "Interaction": {
+                "Ident": "StiInteraction"
+              },
+              "CanBreak": true,
+              "Border": ";;;;;;;solid:Black",
+              "Brush": "solid:",
+              "Components": {
+                "0": {
+                  "Ident": "StiText",
+                  "Name": "GrossTotal",
+                  "Guid": "d27026abb7dd42149380f364e5a653b8",
+                  "PrintOn": "OnlyLastPage",
+                  "ClientRectangle": "17.1,0.1,2.75,0.5",
+                  "Interaction": {
+                    "Ident": "StiInteraction"
+                  },
+                  "Text": {
+                    "Value": "{TSVTJob5ScoreHD.FCXshTotal}"
+                  },
+                  "HorAlignment": "Right",
+                  "VertAlignment": "Center",
+                  "Font": "Tahoma;9;;",
+                  "Border": ";;;;;;;solid:Black",
+                  "Brush": "solid:",
+                  "TextBrush": "solid:Black",
+                  "TextFormat": {
+                    "Ident": "StiNumberFormatService",
+                    "NegativePattern": 1,
+                    "GroupSeparator": ",",
+                    "UseLocalSetting": false
+                  },
+                  "Type": "Expression"
+                },
+                "1": {
+                  "Ident": "StiText",
+                  "Name": "DiscountHD",
+                  "Guid": "18c0570a510a419a9a7440f1f92ab298",
+                  "PrintOn": "OnlyLastPage",
+                  "ClientRectangle": "17.1,0.6,2.75,0.45",
+                  "Interaction": {
+                    "Ident": "StiInteraction"
+                  },
+                  "Text": {
+                    "Value": "{TSVTJob5ScoreHD.FCXshDiscount}"
+                  },
+                  "HorAlignment": "Right",
+                  "VertAlignment": "Center",
+                  "Font": "Tahoma;9;;",
+                  "Border": ";;;;;;;solid:Black",
+                  "Brush": "solid:",
+                  "TextBrush": "solid:Black",
+                  "TextFormat": {
+                    "Ident": "StiNumberFormatService",
+                    "NegativePattern": 1,
+                    "GroupSeparator": ",",
+                    "UseLocalSetting": false
+                  },
+                  "Type": "DataColumn"
+                },
+                "2": {
+                  "Ident": "StiText",
+                  "Name": "tDiscountHD",
+                  "Guid": "62b4ef8c957c400f878ae33efb5ebb39",
+                  "PrintOn": "OnlyLastPage",
+                  "ClientRectangle": "13.2,0.6,3.95,0.45",
+                  "Interaction": {
+                    "Ident": "StiInteraction"
+                  },
+                  "Text": {
+                    "Value": "{IIF(SP_nLang==\"1\",\"ส่วนลด\",\"Discount\")}"
+                  },
+                  "VertAlignment": "Center",
+                  "Font": "Tahoma;9;;",
+                  "Border": ";;;;;;;solid:Black",
+                  "Brush": "solid:",
+                  "TextBrush": "solid:Black",
+                  "Type": "Expression"
+                },
+                "3": {
+                  "Ident": "StiText",
+                  "Name": "tGrossTotal",
+                  "Guid": "64a1b578ec3d46e7b72d3b0f4905162e",
+                  "PrintOn": "OnlyLastPage",
+                  "ClientRectangle": "13.2,0.1,3.95,0.5",
+                  "Interaction": {
+                    "Ident": "StiInteraction"
+                  },
+                  "Text": {
+                    "Value": "{IIF(SP_nLang==\"1\",\"รวมจำนวนเงิน\",\"Gross\")}"
+                  },
+                  "VertAlignment": "Center",
+                  "Font": "Tahoma;9;;",
+                  "Border": ";;;;;;;solid:Black",
+                  "Brush": "solid:",
+                  "TextBrush": "solid:Black",
+                  "Type": "Expression"
+                },
+                "4": {
+                  "Ident": "StiText",
+                  "Name": "Text13",
+                  "Guid": "1b24bcc6378f4c6d9e353ada7f9724fa",
+                  "PrintOn": "OnlyLastPage",
+                  "ClientRectangle": "13.2,1.05,3.95,0.45",
+                  "Interaction": {
+                    "Ident": "StiInteraction"
+                  },
+                  "Text": {
+                    "Value": "{IIF(SP_nLang==\"1\",\"ยอดรวมหลังลด/ชาร์จ\",\"Total After Dis/Chg\")}"
+                  },
+                  "VertAlignment": "Center",
+                  "Font": "Tahoma;9;;",
+                  "Border": ";;;;;;;solid:Black",
+                  "Brush": "solid:",
+                  "TextBrush": "solid:Black",
+                  "Type": "Expression"
+                },
+                "5": {
+                  "Ident": "StiText",
+                  "Name": "Text19",
+                  "Guid": "b48d227f43d64c61b7e48d6b3d34c1ed",
+                  "PrintOn": "OnlyLastPage",
+                  "ClientRectangle": "17.1,1.05,2.75,0.45",
+                  "Interaction": {
+                    "Ident": "StiInteraction"
+                  },
+                  "Text": {
+                    "Value": "{TSVTJob5ScoreHD.FCXshTotal-TSVTJob5ScoreHD.FCXshDiscount}"
+                  },
+                  "HorAlignment": "Right",
+                  "VertAlignment": "Center",
+                  "Font": "Tahoma;9;;",
+                  "Border": ";;;;;;;solid:Black",
+                  "Brush": "solid:",
+                  "TextBrush": "solid:Black",
+                  "TextFormat": {
+                    "Ident": "StiNumberFormatService",
+                    "NegativePattern": 1,
+                    "GroupSeparator": ",",
+                    "UseLocalSetting": false
+                  },
+                  "Type": "Expression"
+                },
+                "6": {
+                  "Ident": "StiSubReport",
+                  "Name": "SubVat",
+                  "Guid": "bbdda41bded44d0f9aafc662d6e4f894",
+                  "PrintOn": "OnlyLastPage",
+                  "ClientRectangle": "16.35,1.55,3.5,0.45",
+                  "Interaction": {
+                    "Ident": "StiInteraction"
+                  },
+                  "Border": ";;;;;;;solid:Black",
+                  "Brush": "solid:",
+                  "SubReportPageGuid": "d32aa863ba474146992587679bd9dd8d"
+                },
+                "7": {
+                  "Ident": "StiText",
+                  "Name": "tVat",
+                  "Guid": "e05ab3b6738541f6ad5f6310204344b4",
+                  "PrintOn": "OnlyLastPage",
+                  "CanGrow": true,
+                  "ClientRectangle": "13.2,1.5,3.2,0.5",
+                  "Interaction": {
+                    "Ident": "StiInteraction"
+                  },
+                  "Text": {
+                    "Value": "{IIF(SP_nLang==\"1\",\"ภาษีมูลค่าเพิ่ม\",\"Vat\")}   "
+                  },
+                  "VertAlignment": "Center",
+                  "Font": "Tahoma;9;;",
+                  "Border": ";;;;;;;solid:Black",
+                  "Brush": "solid:",
+                  "TextBrush": "solid:Black",
+                  "Type": "Expression"
+                },
+                "8": {
+                  "Ident": "StiText",
+                  "Name": "Text42",
+                  "Guid": "781e2a9442ff4d18968ca33615d39dcd",
+                  "PrintOn": "OnlyLastPage",
+                  "CanGrow": true,
+                  "ClientRectangle": "13.2,2,3.9,0.5",
+                  "Interaction": {
+                    "Ident": "StiInteraction"
+                  },
+                  "Text": {
+                    "Value": "{IIF(SP_nLang==\"1\",\"จำนวนเงินรวมทั้งสิ้น\",\"Grand Total\")}   "
+                  },
+                  "VertAlignment": "Center",
+                  "Font": "Tahoma;9;;",
+                  "Border": ";;;;;;;solid:Black",
+                  "Brush": "solid:",
+                  "TextBrush": "solid:Black",
+                  "Type": "Expression"
+                },
+                "9": {
+                  "Ident": "StiText",
+                  "Name": "Text43",
+                  "Guid": "c996e8def3a54224a6011e267df5d861",
+                  "PrintOn": "OnlyLastPage",
+                  "ClientRectangle": "17.1,2,2.75,0.45",
+                  "Interaction": {
+                    "Ident": "StiInteraction"
+                  },
+                  "Text": {
+                    "Value": "{TSVTJob5ScoreHD.FCXshTotal-TSVTJob5ScoreHD.FCXshDiscount}"
+                  },
+                  "HorAlignment": "Right",
+                  "VertAlignment": "Center",
+                  "Font": "Tahoma;9;;",
+                  "Border": ";;;;;;;solid:Black",
+                  "Brush": "solid:",
+                  "TextBrush": "solid:Black",
+                  "TextFormat": {
+                    "Ident": "StiNumberFormatService",
+                    "NegativePattern": 1,
+                    "GroupSeparator": ",",
+                    "UseLocalSetting": false
+                  },
+                  "Type": "Expression"
+                },
+                "10": {
+                  "Ident": "StiPanel",
+                  "Name": "Panel5",
+                  "Guid": "a11ad41ef14f4a5497d485756b1cea33",
+                  "ClientRectangle": "8.35,0.1,4.65,0.6",
+                  "Interaction": {
+                    "Ident": "StiInteraction"
+                  },
+                  "CanBreak": true,
+                  "Border": ";;;;;;;solid:Black",
+                  "Brush": "solid:",
+                  "Components": {
+                    "0": {
+                      "Ident": "StiSubReport",
+                      "Name": "SubReport5",
+                      "Guid": "6d6dcac445c844fc804c47b3ca60f7fc",
+                      "PrintOn": "OnlyLastPage",
+                      "ClientRectangle": "0.07,0.05,4.49,0.29",
+                      "UseParentStyles": true,
+                      "Interaction": {
+                        "Ident": "StiInteraction"
+                      },
+                      "Border": ";;;;;;;solid:Black",
+                      "Brush": "solid:",
+                      "KeepSubReportTogether": true,
+                      "SubReportPageGuid": "f7b940ca8de04459aa58b83287a084a7"
+                    }
+                  }
+                },
+                "11": {
+                  "Ident": "StiText",
+                  "Name": "tGrandTxt",
+                  "Guid": "5a127b713217439ea37990cb8d78d571",
+                  "PrintOn": "OnlyLastPage",
+                  "ClientRectangle": "0.5,2,12.32,0.5",
+                  "Interaction": {
+                    "Ident": "StiInteraction"
+                  },
+                  "Text": {
+                    "Value": "{SP_tGrdStr}"
+                  },
+                  "VertAlignment": "Center",
+                  "Font": "Tahoma;9;;",
+                  "Border": ";;;;;;;solid:Black",
+                  "Brush": "solid:",
+                  "TextBrush": "solid:Black",
+                  "Type": "Expression"
+                },
+                "12": {
+                  "Ident": "StiHorizontalLinePrimitive",
+                  "Name": "HorizontalLine3",
+                  "Guid": "9141c63f61c04eda8d2c42275830d854",
+                  "ClientRectangle": "0.15,0,19.85,0.0254",
+                  "Interaction": {
+                    "Ident": "StiInteraction"
+                  },
+                  "StartCap": ";;;",
+                  "EndCap": ";;;"
+                },
+                "13": {
+                  "Ident": "StiEndPointPrimitive",
+                  "Name": "EndPointPrimitive8",
+                  "ClientRectangle": "3.7,0.05,0,0",
+                  "Interaction": {
+                    "Ident": "StiInteraction"
+                  },
+                  "ReferenceToGuid": "c6155d413a3e4b06a32c6f6544bedd15"
+                },
+                "14": {
+                  "Ident": "StiEndPointPrimitive",
+                  "Name": "EndPointPrimitive9",
+                  "ClientRectangle": "10,0,0,0",
+                  "Interaction": {
+                    "Ident": "StiInteraction"
+                  },
+                  "ReferenceToGuid": "2a6235e975644ca49ce82999bf95c40f"
+                },
+                "15": {
+                  "Ident": "StiEndPointPrimitive",
+                  "Name": "EndPointPrimitive12",
+                  "ClientRectangle": "11.45,0,0,0",
+                  "Interaction": {
+                    "Ident": "StiInteraction"
+                  },
+                  "ReferenceToGuid": "affb677d2e9547298069474186d324c2"
+                },
+                "16": {
+                  "Ident": "StiEndPointPrimitive",
+                  "Name": "EndPointPrimitive14",
+                  "ClientRectangle": "15.25,0,0,0",
+                  "Interaction": {
+                    "Ident": "StiInteraction"
+                  },
+                  "ReferenceToGuid": "6cddf154bb804b2f81069c040f6aa7be"
+                }
+              }
+            },
+            "8": {
+              "Ident": "StiStartPointPrimitive",
+              "Name": "StartPointPrimitive5",
+              "ClientRectangle": "0.15,2.8,0,0",
+              "Interaction": {
+                "Ident": "StiInteraction"
+              },
+              "ReferenceToGuid": "dc58d6cf6c084b90ac4d9901869c22f3"
+            },
+            "9": {
+              "Ident": "StiEndPointPrimitive",
+              "Name": "EndPointPrimitive5",
+              "ClientRectangle": "20,6.1,0,0",
+              "Interaction": {
+                "Ident": "StiInteraction"
+              },
+              "ReferenceToGuid": "dc58d6cf6c084b90ac4d9901869c22f3"
+            },
+            "10": {
+              "Ident": "StiStartPointPrimitive",
+              "Name": "StartPointPrimitive6",
+              "ClientRectangle": "14.2,2.8,0,0",
+              "Interaction": {
+                "Ident": "StiInteraction"
+              },
+              "ReferenceToGuid": "1cacda25482241e8b7eee1ea49d9724b"
+            },
+            "11": {
+              "Ident": "StiEndPointPrimitive",
+              "Name": "EndPointPrimitive6",
+              "ClientRectangle": "14.2,6.1,0,0",
+              "Interaction": {
+                "Ident": "StiInteraction"
+              },
+              "ReferenceToGuid": "1cacda25482241e8b7eee1ea49d9724b"
+            },
+            "12": {
+              "Ident": "StiEndPointPrimitive",
+              "Name": "EndPointPrimitive2",
+              "ClientRectangle": "20,2.7,0,0",
+              "Interaction": {
+                "Ident": "StiInteraction"
+              },
+              "ReferenceToGuid": "fd88149d5f414b7eb12b35f216bdc14f"
+            },
+            "13": {
+              "Ident": "StiEndPointPrimitive",
+              "Name": "EndPointPrimitive13",
+              "ClientRectangle": "13.05,2.7,0,0",
+              "Interaction": {
+                "Ident": "StiInteraction"
+              },
+              "ReferenceToGuid": "8bba2a6c1bd7470c908f29a2b0817fdc"
+            },
+            "14": {
+              "Ident": "StiEndPointPrimitive",
+              "Name": "EndPointPrimitive15",
+              "ClientRectangle": "17.3,2.7,0,0",
+              "Interaction": {
+                "Ident": "StiInteraction"
+              },
+              "ReferenceToGuid": "934bed23923842c3be0f38e91a4c840a"
+            }
+          }
+        },
+        "2": {
+          "Ident": "StiGroupHeaderBand",
+          "Name": "GroupHeaderBand1",
+          "ClientRectangle": "0,9.8,20.4,0.05",
+          "Enabled": false,
+          "Interaction": {
+            "Ident": "StiBandInteraction"
+          },
+          "Border": ";;;;;;;solid:Black",
+          "Brush": "solid:",
+          "ResetPageNumber": true,
+          "Condition": {
+            "Value": "{TSVTJob5ScoreHD.FTXshDocNo}"
+          }
+        },
+        "3": {
+          "Ident": "StiDataBand",
+          "Name": "DataBand1",
+          "ClientRectangle": "0,10.65,20.4,0.4",
+          "Interaction": {
+            "Ident": "StiBandInteraction"
+          },
+          "CanBreak": true,
+          "Border": ";;;;;;;solid:Black",
+          "Brush": "solid:",
+          "Components": {
+            "0": {
+              "Ident": "StiText",
+              "Name": "Text2",
+              "CanGrow": true,
+              "ClientRectangle": "0.3,0,3.35,0.4",
+              "Interaction": {
+                "Ident": "StiInteraction"
+              },
+              "Text": {
+                "Value": "{TSVTJob5ScoreDT.FTPdtCode}"
+              },
+              "Font": "Tahoma;9;;",
+              "Border": ";;;;;;;solid:Black",
+              "Brush": "solid:",
+              "TextBrush": "solid:Black",
+              "TextOptions": {
+                "WordWrap": true
+              },
+              "Type": "Expression"
+            },
+            "1": {
+              "Ident": "StiText",
+              "Name": "Text3",
+              "CanShrink": true,
+              "CanGrow": true,
+              "ClientRectangle": "3.8,0,6.15,0.4",
+              "Interaction": {
+                "Ident": "StiInteraction"
+              },
+              "Editable": true,
+              "Text": {
+                "Value": "{TSVTJob5ScoreDT.FTPdtName}"
+              },
+              "CanBreak": true,
+              "Font": "Tahoma;9;;",
+              "Border": ";;;;;;;solid:Black",
+              "Brush": "solid:",
+              "TextBrush": "solid:Black",
+              "TextOptions": {
+                "WordWrap": true
+              }
+            },
+            "2": {
+              "Ident": "StiText",
+              "Name": "Text8",
+              "ClientRectangle": "9.95,0,1.4,0.4",
+              "Interaction": {
+                "Ident": "StiInteraction"
+              },
+              "Text": {
+                "Value": "{TSVTJob5ScoreDT.FCXsdQty}"
+              },
+              "HorAlignment": "Right",
+              "Font": "Tahoma;9;;",
+              "Border": ";;;;;;;solid:Black",
+              "Brush": "solid:",
+              "TextBrush": "solid:Black",
+              "TextFormat": {
+                "Ident": "StiNumberFormatService",
+                "NegativePattern": 1,
+                "GroupSeparator": ",",
+                "UseLocalSetting": false,
+                "State": "DecimalDigits"
+              },
+              "Type": "DataColumn"
+            },
+            "3": {
+              "Ident": "StiText",
+              "Name": "Text10",
+              "ClientRectangle": "11.65,0,1.3,0.4",
+              "Interaction": {
+                "Ident": "StiInteraction"
+              },
+              "Text": {
+                "Value": "{TSVTJob5ScoreDT.FTPunName}"
+              },
+              "Font": "Tahoma;9;;",
+              "Border": ";;;;;;;solid:Black",
+              "Brush": "solid:",
+              "TextBrush": "solid:Black",
+              "Type": "DataColumn"
+            },
+            "4": {
+              "Ident": "StiText",
+              "Name": "Text12",
+              "Guid": "8c84c84ce22844d180c564323d651987",
+              "ClientRectangle": "13.1,0,2,0.4",
+              "Interaction": {
+                "Ident": "StiInteraction"
+              },
+              "Text": {
+                "Value": "{TSVTJob5ScoreDT.FCXsdSetPrice}"
+              },
+              "HorAlignment": "Right",
+              "Font": "Tahoma;9;;",
+              "Border": ";;;;;;;solid:Black",
+              "Brush": "solid:",
+              "TextBrush": "solid:Black",
+              "TextFormat": {
+                "Ident": "StiNumberFormatService",
+                "NegativePattern": 1,
+                "GroupSeparator": ",",
+                "UseLocalSetting": false,
+                "State": "DecimalDigits"
+              },
+              "Type": "DataColumn"
+            },
+            "5": {
+              "Ident": "StiText",
+              "Name": "Text49",
+              "Guid": "05be8fa729ca46759b8eb2bdd2a43f0d",
+              "ClientRectangle": "15.2,0,1.95,0.4",
+              "Interaction": {
+                "Ident": "StiInteraction"
+              },
+              "Text": {
+                "Value": "{TSVTJob5ScoreDT.FCXsdDiscount}"
+              },
+              "HorAlignment": "Right",
+              "Font": "Tahoma;9;;",
+              "Border": ";;;;;;;solid:Black",
+              "Brush": "solid:",
+              "TextBrush": "solid:Black",
+              "TextFormat": {
+                "Ident": "StiNumberFormatService",
+                "NegativePattern": 1,
+                "GroupSeparator": ",",
+                "UseLocalSetting": false,
+                "State": "DecimalDigits"
+              },
+              "Type": "DataColumn"
+            },
+            "6": {
+              "Ident": "StiText",
+              "Name": "Text51",
+              "Guid": "7616795946314e0cb1a1e1e35c37c2bc",
+              "ClientRectangle": "17.4,0,2.4,0.4",
+              "Interaction": {
+                "Ident": "StiInteraction"
+              },
+              "Text": {
+                "Value": "{TSVTJob5ScoreDT.FCXsdNet}"
+              },
+              "HorAlignment": "Right",
+              "Font": "Tahoma;9;;",
+              "Border": ";;;;;;;solid:Black",
+              "Brush": "solid:",
+              "TextBrush": "solid:Black",
+              "TextFormat": {
+                "Ident": "StiNumberFormatService",
+                "NegativePattern": 1,
+                "GroupSeparator": ",",
+                "UseLocalSetting": false,
+                "State": "DecimalDigits"
+              },
+              "Type": "DataColumn"
+            },
+            "7": {
+              "Ident": "StiSubReport",
+              "Name": "SubReport1",
+              "ClientRectangle": "0.4,0.4,14.7,0.35",
+              "Interaction": {
+                "Ident": "StiInteraction"
+              },
+              "Border": ";;;;;;;solid:Black",
+              "Brush": "solid:",
+              "SubReportPageGuid": "2993fddc892f4225a2505eb2829fedb1",
+              "Parameters": {
+                "0": {
+                  "Name": "PdtSet",
+                  "Expression": {
+                    "Value": "TSVTJob5ScoreDT.FNXsdSeqNo"
+                  }
+                }
+              }
+            }
+          },
+          "DataSourceName": "TSVTJob5ScoreDT"
+        },
+        "4": {
+          "Ident": "StiRoundedRectanglePrimitive",
+          "Name": "RoundedRectangle2",
+          "Guid": "8faf532b730e4b038cdf2fcbc5a44c7d",
+          "ClientRectangle": "0.15,2.7,11.8,3.15",
+          "Interaction": {
+            "Ident": "StiInteraction"
+          },
+          "Round": 0.01
+        },
+        "5": {
+          "Ident": "StiRoundedRectanglePrimitive",
+          "Name": "RoundedRectangle4",
+          "Guid": "dc58d6cf6c084b90ac4d9901869c22f3",
+          "ClientRectangle": "0.15,25.05,19.85,3.3",
+          "Interaction": {
+            "Ident": "StiInteraction"
+          },
+          "Round": 0.01
+        },
+        "6": {
+          "Ident": "StiVerticalLinePrimitive",
+          "Name": "VerticalLine1",
+          "Guid": "1cacda25482241e8b7eee1ea49d9724b",
+          "ClientRectangle": "14.2,25.05,0.0254,3.3",
+          "Interaction": {
+            "Ident": "StiInteraction"
+          },
+          "StartCap": ";;;",
+          "EndCap": ";;;"
+        },
+        "7": {
+          "Ident": "StiRoundedRectanglePrimitive",
+          "Name": "RoundedRectanglePrimitive2",
+          "Guid": "fd88149d5f414b7eb12b35f216bdc14f",
+          "ClientRectangle": "0.15,8.1,19.85,16.85",
+          "Interaction": {
+            "Ident": "StiInteraction"
+          },
+          "Round": 0.01
+        },
+        "8": {
+          "Ident": "StiVerticalLinePrimitive",
+          "Name": "VerticalLinePrimitive1",
+          "Guid": "c6155d413a3e4b06a32c6f6544bedd15",
+          "ClientRectangle": "3.7,8.1,0.0254,14.3",
+          "Enabled": false,
+          "Interaction": {
+            "Ident": "StiInteraction"
+          },
+          "Color": "DarkGray",
+          "StartCap": ";;;",
+          "EndCap": ";;;"
+        },
+        "9": {
+          "Ident": "StiVerticalLinePrimitive",
+          "Name": "VerticalLinePrimitive2",
+          "Guid": "2a6235e975644ca49ce82999bf95c40f",
+          "ClientRectangle": "10,8.1,0.0254,14.25",
+          "Enabled": false,
+          "Interaction": {
+            "Ident": "StiInteraction"
+          },
+          "Color": "DarkGray",
+          "StartCap": ";;;",
+          "EndCap": ";;;"
+        },
+        "10": {
+          "Ident": "StiRoundedRectanglePrimitive",
+          "Name": "RoundedRectanglePrimitive3",
+          "Guid": "9af1d8658c2e4d26b201986c01271396",
+          "ClientRectangle": "0.15,6.05,19.85,2.05",
+          "Interaction": {
+            "Ident": "StiInteraction"
+          },
+          "Round": 0.01
+        },
+        "11": {
+          "Ident": "StiRoundedRectanglePrimitive",
+          "Name": "RoundedRectangle3",
+          "Guid": "0317d4eb3006410a8b3ad7c8e0966f2b",
+          "ClientRectangle": "12.1,2.7,7.9,3.15",
+          "Interaction": {
+            "Ident": "StiInteraction"
+          },
+          "Round": 0.01
+        },
+        "12": {
+          "Ident": "StiRoundedRectanglePrimitive",
+          "Name": "RoundedRectanglePrimitive1",
+          "Guid": "c913278d51594eab99e4669d1544ea84",
+          "ClientRectangle": "12.05,0.55,7.95,0.9",
+          "Interaction": {
+            "Ident": "StiInteraction"
+          },
+          "Round": 0.01
+        },
+        "13": {
+          "Ident": "StiVerticalLinePrimitive",
+          "Name": "VerticalLinePrimitive3",
+          "Guid": "affb677d2e9547298069474186d324c2",
+          "ClientRectangle": "11.45,8.1,0.0254,14.25",
+          "Enabled": false,
+          "Interaction": {
+            "Ident": "StiInteraction"
+          },
+          "Color": "DarkGray",
+          "StartCap": ";;;",
+          "EndCap": ";;;"
+        },
+        "14": {
+          "Ident": "StiVerticalLinePrimitive",
+          "Name": "VerticalLinePrimitive4",
+          "Guid": "8bba2a6c1bd7470c908f29a2b0817fdc",
+          "ClientRectangle": "13.05,8.1,0.0254,16.85",
+          "Enabled": false,
+          "Interaction": {
+            "Ident": "StiInteraction"
+          },
+          "Color": "DarkGray",
+          "StartCap": ";;;",
+          "EndCap": ";;;"
+        },
+        "15": {
+          "Ident": "StiVerticalLinePrimitive",
+          "Name": "VerticalLinePrimitive5",
+          "Guid": "6cddf154bb804b2f81069c040f6aa7be",
+          "ClientRectangle": "15.25,8.1,0.0254,14.25",
+          "Enabled": false,
+          "Interaction": {
+            "Ident": "StiInteraction"
+          },
+          "Color": "DarkGray",
+          "StartCap": ";;;",
+          "EndCap": ";;;"
+        },
+        "16": {
+          "Ident": "StiVerticalLinePrimitive",
+          "Name": "VerticalLinePrimitive6",
+          "Guid": "934bed23923842c3be0f38e91a4c840a",
+          "ClientRectangle": "17.3,8.1,0.0254,16.85",
+          "Enabled": false,
+          "Interaction": {
+            "Ident": "StiInteraction"
+          },
+          "Color": "DarkGray",
+          "StartCap": ";;;",
+          "EndCap": ";;;"
+        }
+      },
+      "PaperSize": "A4",
+      "PaperSourceOfFirstPage": "Automatically Select",
+      "PaperSourceOfOtherPages": "Automatically Select",
+      "PageWidth": 21.0,
+      "PageHeight": 29.7,
+      "Watermark": {
+        "Font": ";150;;",
+        "TextBrush": "solid:50,0,0,0"
+      },
+      "Margins": {
+        "Left": 0.3,
+        "Right": 0.3,
+        "Top": 0.3,
+        "Bottom": 0.4
+      }
+    },
+    "1": {
+      "Ident": "StiPage",
+      "Name": "subVat",
+      "Guid": "d32aa863ba474146992587679bd9dd8d",
+      "Interaction": {
+        "Ident": "StiInteraction"
+      },
+      "Border": ";;2;;;;;solid:Black",
+      "Brush": "solid:",
+      "Components": {
+        "0": {
+          "Ident": "StiGroupHeaderBand",
+          "Name": "GroupHeaderBand2",
+          "Guid": "25ea05fb0eb14e30a9208c08cf03b87b",
+          "ClientRectangle": "0,0.4,3.5,0.5",
+          "Enabled": false,
+          "Interaction": {
+            "Ident": "StiBandInteraction"
+          },
+          "Border": ";;;;;;;solid:Black",
+          "Brush": "solid:",
+          "Condition": {
+            "Value": "{TSVTJob5ScoreHD.FTXshDocNo}"
+          }
+        },
+        "1": {
+          "Ident": "StiDataBand",
+          "Name": "DataBand2",
+          "ClientRectangle": "0,1.7,3.5,0.4",
+          "Interaction": {
+            "Ident": "StiBandInteraction"
+          },
+          "Border": ";;;;;;;solid:Black",
+          "Brush": "solid:",
+          "Components": {
+            "0": {
+              "Ident": "StiText",
+              "Name": "Text40",
+              "Guid": "82e7596599dd4173acc5ad896f303fce",
+              "ClientRectangle": "1.7,0,1.8,0.4",
+              "Interaction": {
+                "Ident": "StiInteraction"
+              },
+              "Text": {
+                "Value": "{TSVTJob1ReqDTVat.FCXsdVat}"
+              },
+              "HorAlignment": "Right",
+              "VertAlignment": "Center",
+              "Font": "Tahoma;9;;",
+              "Border": "Bottom;;;None;;;;solid:Black",
+              "Brush": "solid:",
+              "TextBrush": "solid:Black",
+              "TextFormat": {
+                "Ident": "StiNumberFormatService",
+                "NegativePattern": 1,
+                "GroupSeparator": ",",
+                "UseLocalSetting": false
+              },
+              "Type": "Expression"
+            }
+          },
+          "DataSourceName": "TSVTJob1ReqDTVat"
+        }
+      },
+      "PageWidth": 5.5,
+      "PageHeight": 29.7,
+      "Watermark": {
+        "TextBrush": "solid:50,0,0,0"
+      },
+      "Margins": {
+        "Left": 1.0,
+        "Right": 1.0,
+        "Top": 1.0,
+        "Bottom": 1.0
+      }
+    },
+    "2": {
+      "Ident": "StiPage",
+      "Name": "SubVat2",
+      "Guid": "f7b940ca8de04459aa58b83287a084a7",
+      "Interaction": {
+        "Ident": "StiInteraction"
+      },
+      "Border": ";;2;;;;;solid:Black",
+      "Brush": "solid:",
+      "Components": {
+        "0": {
+          "Ident": "StiGroupHeaderBand",
+          "Name": "GroupHeaderBand3",
+          "Guid": "47966b6017bc4fe683059baa8b10626d",
+          "ClientRectangle": "0,0.4,4.49,0.45",
+          "Interaction": {
+            "Ident": "StiBandInteraction"
+          },
+          "Border": ";;;;;;;solid:Black",
+          "Brush": "solid:",
+          "Components": {
+            "0": {
+              "Ident": "StiText",
+              "Name": "Text39",
+              "Guid": "b4e396c3ca7544ce86cd4fd718adec60",
+              "PrintOn": "OnlyLastPage",
+              "ClientRectangle": "2.15,0,2.3,0.35",
+              "Interaction": {
+                "Ident": "StiInteraction"
+              },
+              "Text": {
+                "Value": "{IIF(SP_nLang==\"1\",\"ภาษีมูลค่าเพิ่ม\",\"Vat\")}   "
+              },
+              "HorAlignment": "Right",
+              "VertAlignment": "Center",
+              "Font": "Tahoma;;;",
+              "Border": ";;;;;;;solid:Black",
+              "Brush": "solid:",
+              "TextBrush": "solid:Black",
+              "Type": "Expression"
+            },
+            "1": {
+              "Ident": "StiText",
+              "Name": "Text41",
+              "Guid": "d1304dbce41a4a248d26f64158c89d45",
+              "PrintOn": "OnlyLastPage",
+              "ClientRectangle": "0.15,0,1.9,0.35",
+              "Interaction": {
+                "Ident": "StiInteraction"
+              },
+              "Text": {
+                "Value": "{IIF(SP_nLang==\"1\",\"อัตราภาษี\",\"Vat Rate\")}   "
+              },
+              "HorAlignment": "Right",
+              "VertAlignment": "Center",
+              "Font": "Tahoma;;;",
+              "Border": ";;;;;;;solid:Black",
+              "Brush": "solid:",
+              "TextBrush": "solid:Black",
+              "Type": "Expression"
+            }
+          },
+          "Condition": {
+            "Value": "{TSVTJob5ScoreHD.FTXshDocNo}"
+          }
+        },
+        "1": {
+          "Ident": "StiDataBand",
+          "Name": "DataBand3",
+          "Guid": "e34a02fc3dae4d8c86b4b248d05e2ba5",
+          "ClientRectangle": "0,1.65,4.49,0.4",
+          "Interaction": {
+            "Ident": "StiBandInteraction"
+          },
+          "Border": ";;;;;;;solid:Black",
+          "Brush": "solid:",
+          "Components": {
+            "0": {
+              "Ident": "StiText",
+              "Name": "Text44",
+              "Guid": "013b63ffcc08443f89a5b06a5b952eca",
+              "ClientRectangle": "0.68,0,1.52,0.4",
+              "Interaction": {
+                "Ident": "StiInteraction"
+              },
+              "Text": {
+                "Value": "{TSVTJob1ReqDTVat2.FCXsdVatRate}%"
+              },
+              "HorAlignment": "Right",
+              "VertAlignment": "Center",
+              "Font": "Tahoma;;;",
+              "Border": "Bottom;;;None;;;;solid:Black",
+              "Brush": "solid:",
+              "TextBrush": "solid:Black",
+              "Type": "Expression"
+            },
+            "1": {
+              "Ident": "StiText",
+              "Name": "Text45",
+              "Guid": "5db7e7a516f6488f848eb146f70a6855",
+              "ClientRectangle": "2.15,0,2.3,0.4",
+              "Interaction": {
+                "Ident": "StiInteraction"
+              },
+              "Text": {
+                "Value": "{TSVTJob1ReqDTVat2.FCXsdVat}"
+              },
+              "HorAlignment": "Right",
+              "VertAlignment": "Center",
+              "Font": "Tahoma;;;",
+              "Border": "Bottom;;;None;;;;solid:Black",
+              "Brush": "solid:",
+              "TextBrush": "solid:Black",
+              "TextFormat": {
+                "Ident": "StiNumberFormatService",
+                "NegativePattern": 1,
+                "GroupSeparator": ",",
+                "UseLocalSetting": false
+              },
+              "Type": "Expression"
+            }
+          },
+          "DataSourceName": "TSVTJob1ReqDTVat2"
+        },
+        "2": {
+          "Ident": "StiGroupFooterBand",
+          "Name": "GroupFooterBand2",
+          "Guid": "c2aacdfcf950405da623daf5423d1fae",
+          "ClientRectangle": "0,2.85,4.49,0.45",
+          "Interaction": {
+            "Ident": "StiInteraction"
+          },
+          "Border": ";;;;;;;solid:Black",
+          "Brush": "solid:",
+          "Components": {
+            "0": {
+              "Ident": "StiText",
+              "Name": "Text46",
+              "Guid": "65456c8c44594c1eaec47425f1112096",
+              "ClientRectangle": "2.15,0.04,2.3,0.4",
+              "Interaction": {
+                "Ident": "StiInteraction"
+              },
+              "Text": {
+                "Value": "{Sum(DataBand3,TSVTJob1ReqDTVat2.FCXsdVat)}"
+              },
+              "HorAlignment": "Right",
+              "VertAlignment": "Center",
+              "Font": "Tahoma;;;",
+              "Border": "Bottom;;;None;;;;solid:Black",
+              "Brush": "solid:",
+              "TextBrush": "solid:Black",
+              "TextFormat": {
+                "Ident": "StiNumberFormatService",
+                "NegativePattern": 1,
+                "GroupSeparator": ",",
+                "UseLocalSetting": false
+              },
+              "Type": "Totals"
+            },
+            "1": {
+              "Ident": "StiText",
+              "Name": "Text47",
+              "Guid": "a9ae6f960b94435daf43a56681c4b4d3",
+              "PrintOn": "OnlyLastPage",
+              "ClientRectangle": "0.43,0.04,1.62,0.4",
+              "Interaction": {
+                "Ident": "StiInteraction"
+              },
+              "Text": {
+                "Value": "{IIF(SP_nLang==\"1\",\"รวม\",\"Vat Total\")}   "
+              },
+              "HorAlignment": "Right",
+              "VertAlignment": "Center",
+              "Font": "Tahoma;;;",
+              "Border": ";;;;;;;solid:Black",
+              "Brush": "solid:",
+              "TextBrush": "solid:Black",
+              "Type": "Expression"
+            }
+          }
+        }
+      },
+      "PageWidth": 6.49,
+      "PageHeight": 29.7,
+      "Watermark": {
+        "TextBrush": "solid:50,0,0,0"
+      },
+      "Margins": {
+        "Left": 1.0,
+        "Right": 1.0,
+        "Top": 1.0,
+        "Bottom": 1.0
+      }
+    },
+    "3": {
+      "Ident": "StiPage",
+      "Name": "SubSet",
+      "Guid": "2993fddc892f4225a2505eb2829fedb1",
+      "Interaction": {
+        "Ident": "StiInteraction"
+      },
+      "Border": ";;2;;;;;solid:Black",
+      "Brush": "solid:",
+      "Components": {
+        "0": {
+          "Ident": "StiDataBand",
+          "Name": "DataBand4",
+          "ClientRectangle": "0,0.4,14.7,0.35",
+          "Interaction": {
+            "Ident": "StiBandInteraction"
+          },
+          "CanBreak": true,
+          "Border": ";;;;;;;solid:Black",
+          "Brush": "solid:",
+          "Components": {
+            "0": {
+              "Ident": "StiText",
+              "Name": "Text52",
+              "CanGrow": true,
+              "ClientRectangle": "0.05,0,3.35,0.35",
+              "Interaction": {
+                "Ident": "StiInteraction"
+              },
+              "Text": {
+                "Value": "{TSVTJob1ReqDTSet.FTPdtCode}"
+              },
+              "Font": "Tahoma;;Italic;",
+              "Border": ";;;;;;;solid:Black",
+              "Brush": "solid:",
+              "TextBrush": "solid:Black",
+              "TextOptions": {
+                "WordWrap": true
+              },
+              "Type": "Expression"
+            },
+            "1": {
+              "Ident": "StiText",
+              "Name": "Text53",
+              "ClientRectangle": "3.65,0,6,0.35",
+              "Interaction": {
+                "Ident": "StiInteraction"
+              },
+              "Text": {
+                "Value": "{TSVTJob1ReqDTSet.FTPdtName} {IIF(TSVTJob1ReqDTSet.FTPsvType==\"1\",\"(\" + IIF(SP_nLang == \"1\",\"เปลี่ยน\",\"Change\") + \")\",\"(\" + IIF(SP_nLang == \"1\",\"ตรวจสอบ\",\"Check\") + \")\")}"
+              },
+              "Font": "Tahoma;;Italic;",
+              "Border": ";;;;;;;solid:Black",
+              "Brush": "solid:",
+              "TextBrush": "solid:Black",
+              "Type": "Expression"
+            }
+          },
+          "DataSourceName": "TSVTJob1ReqDTSet",
+          "Filters": {
+            "0": {
+              "Ident": "StiFilter",
+              "Item": "Expression",
+              "Expression": {
+                "Value": "{TSVTJob1ReqDTSet.FNXsdSeqNo == (int)this[\"PdtSet\"]}"
+              }
+            }
+          }
+        }
+      },
+      "PageWidth": 16.7,
+      "PageHeight": 29.7,
+      "Watermark": {
+        "TextBrush": "solid:50,0,0,0"
+      },
+      "Margins": {
+        "Left": 1.0,
+        "Right": 1.0,
+        "Top": 1.0,
+        "Bottom": 1.0
+      }
+    },
+    "4": {
+      "Ident": "StiPage",
+      "Name": "subDocRef",
+      "Guid": "2391c65a3c7b44d0a6ede619a05d3bfc",
+      "Interaction": {
+        "Ident": "StiInteraction"
+      },
+      "Border": ";;2;;;;;solid:Black",
+      "Brush": "solid:",
+      "Components": {
+        "0": {
+          "Ident": "StiGroupHeaderBand",
+          "Name": "GroupHeaderBand4",
+          "ClientRectangle": "0,0.4,20.3,0.75",
+          "Interaction": {
+            "Ident": "StiBandInteraction"
+          },
+          "Border": ";;;;;;;solid:Black",
+          "Brush": "solid:",
+          "Components": {
+            "0": {
+              "Ident": "StiText",
+              "Name": "Text5",
+              "Guid": "5bdd7f1b29a64faea74a52b48bbbcd94",
+              "ClientRectangle": "0.1,0.1,6.6,0.45",
+              "Interaction": {
+                "Ident": "StiInteraction"
+              },
+              "Text": {
+                "Value": "{IIF(SP_nLang==\"1\",\"ประเภทเอกสารอ้างอิง\",\"Reference type\")} "
+              },
+              "HorAlignment": "Center",
+              "VertAlignment": "Center",
+              "Font": "Tahoma;9;;",
+              "Border": ";;;;;;;solid:Black",
+              "Brush": "solid:",
+              "TextBrush": "solid:Black",
+              "Type": "Expression"
+            },
+            "1": {
+              "Ident": "StiText",
+              "Name": "Text22",
+              "Guid": "859ddaa7acec418c900c5418c52d99e7",
+              "ClientRectangle": "6.7,0.1,6.95,0.45",
+              "Interaction": {
+                "Ident": "StiInteraction"
+              },
+              "Text": {
+                "Value": "{IIF(SP_nLang==\"1\",\"เลขที่เอกสารอ้างอิง\",\"Doc. Reference\")} "
+              },
+              "HorAlignment": "Center",
+              "VertAlignment": "Center",
+              "Font": "Tahoma;9;;",
+              "Border": ";;;;;;;solid:Black",
+              "Brush": "solid:",
+              "TextBrush": "solid:Black",
+              "Type": "Expression"
+            },
+            "2": {
+              "Ident": "StiText",
+              "Name": "Text37",
+              "Guid": "961f5054eb254332a8c5c00fbc8e9b53",
+              "ClientRectangle": "13.8,0.1,6.05,0.45",
+              "Interaction": {
+                "Ident": "StiInteraction"
+              },
+              "Text": {
+                "Value": "{IIF(SP_nLang==\"1\",\"วันที่เอกสารอ้างอิง\",\"Date Reference\")} "
+              },
+              "HorAlignment": "Center",
+              "VertAlignment": "Center",
+              "Font": "Tahoma;9;;",
+              "Border": ";;;;;;;solid:Black",
+              "Brush": "solid:",
+              "TextBrush": "solid:Black",
+              "Type": "Expression"
+            },
+            "3": {
+              "Ident": "StiStartPointPrimitive",
+              "Name": "StartPointPrimitive16",
+              "ClientRectangle": "0.1,0,0,0",
+              "Interaction": {
+                "Ident": "StiInteraction"
+              },
+              "ReferenceToGuid": "48dfee2690c04b24b5234fcec22ee50a"
+            },
+            "4": {
+              "Ident": "StiHorizontalLinePrimitive",
+              "Name": "HorizontalLinePrimitive1",
+              "ClientRectangle": "0.1,0.65,19.85,0.0254",
+              "Interaction": {
+                "Ident": "StiInteraction"
+              },
+              "StartCap": ";;;",
+              "EndCap": ";;;"
+            },
+            "5": {
+              "Ident": "StiStartPointPrimitive",
+              "Name": "StartPointPrimitive11",
+              "ClientRectangle": "6.7,0,0,0",
+              "Interaction": {
+                "Ident": "StiInteraction"
+              },
+              "ReferenceToGuid": "87f37f61e5534803ab2aca69ec838a43"
+            },
+            "6": {
+              "Ident": "StiStartPointPrimitive",
+              "Name": "StartPointPrimitive18",
+              "ClientRectangle": "13.65,0,0,0",
+              "Interaction": {
+                "Ident": "StiInteraction"
+              },
+              "ReferenceToGuid": "c6a6059e77294cf5849d3a15ba45b577"
+            }
+          },
+          "Condition": {
+            "Value": "{TSVTJob5ScoreHD.FTXshDocNo}"
+          }
+        },
+        "1": {
+          "Ident": "StiDataBand",
+          "Name": "DataBand5",
+          "ClientRectangle": "0,1.95,20.3,0.55",
+          "Interaction": {
+            "Ident": "StiBandInteraction"
+          },
+          "Border": ";;;;;;;solid:Black",
+          "Brush": "solid:",
+          "Components": {
+            "0": {
+              "Ident": "StiText",
+              "Name": "Text21",
+              "Guid": "ce273d236b1f4a9a9f0fa519fbec9035",
+              "ClientRectangle": "0.3,0,6.35,0.55",
+              "Interaction": {
+                "Ident": "StiInteraction"
+              },
+              "Text": {
+                "Value": "{Switch(TSVTJob2OrdHDDocRef.FTXshRefType==\"1\",IIF(SP_nLang==\"1\",\"อ้างอิงเอกสารภายใน\",\"Reference Internal Document\"),TSVTJob2OrdHDDocRef.FTXshRefType==\"3\",IIF(SP_nLang==\"1\",\"อ้างอิงเอกสารภายนอก\",\"Reference External Document\"),TSVTJob2OrdHDDocRef.FTXshRefType==\"2\",IIF(SP_nLang==\"1\",\"ถูกอ้างอิงเอกสารภายใน\",\"Were referenced internal documents\"))} "
+              },
+              "VertAlignment": "Center",
+              "Font": "Tahoma;9;;",
+              "Border": ";;;;;;;solid:Black",
+              "Brush": "solid:",
+              "TextBrush": "solid:Black",
+              "Type": "Expression"
+            },
+            "1": {
+              "Ident": "StiText",
+              "Name": "Text36",
+              "ClientRectangle": "6.9,0,6.65,0.55",
+              "Interaction": {
+                "Ident": "StiInteraction"
+              },
+              "Text": {
+                "Value": "{TSVTJob2OrdHDDocRef.FTXshRefDocNo}"
+              },
+              "VertAlignment": "Center",
+              "Font": "Tahoma;9;;",
+              "Border": ";;;;;;;solid:Black",
+              "Brush": "solid:",
+              "TextBrush": "solid:Black"
+            },
+            "2": {
+              "Ident": "StiText",
+              "Name": "Text38",
+              "ClientRectangle": "13.8,0,6.05,0.55",
+              "Interaction": {
+                "Ident": "StiInteraction"
+              },
+              "Text": {
+                "Value": "{TSVTJob2OrdHDDocRef.FTXshRefDocDate}  {TSVTJob2OrdHDDocRef.FTXshRefDocTime}"
+              },
+              "HorAlignment": "Center",
+              "VertAlignment": "Center",
+              "Font": "Tahoma;9;;",
+              "Border": ";;;;;;;solid:Black",
+              "Brush": "solid:",
+              "TextBrush": "solid:Black",
+              "Type": "Expression"
+            }
+          },
+          "DataSourceName": "TSVTJob2OrdHDDocRef"
+        },
+        "2": {
+          "Ident": "StiGroupFooterBand",
+          "Name": "GroupFooterBand1",
+          "ClientRectangle": "0,3.3,20.3,0.2",
+          "Interaction": {
+            "Ident": "StiInteraction"
+          },
+          "Border": ";;;;;;;solid:Black",
+          "Brush": "solid:",
+          "Components": {
+            "0": {
+              "Ident": "StiEndPointPrimitive",
+              "Name": "EndPointPrimitive16",
+              "ClientRectangle": "19.95,0.1,0,0",
+              "Interaction": {
+                "Ident": "StiInteraction"
+              },
+              "ReferenceToGuid": "48dfee2690c04b24b5234fcec22ee50a"
+            },
+            "1": {
+              "Ident": "StiEndPointPrimitive",
+              "Name": "EndPointPrimitive11",
+              "ClientRectangle": "6.7,0.1,0,0",
+              "Interaction": {
+                "Ident": "StiInteraction"
+              },
+              "ReferenceToGuid": "87f37f61e5534803ab2aca69ec838a43"
+            },
+            "2": {
+              "Ident": "StiEndPointPrimitive",
+              "Name": "EndPointPrimitive18",
+              "ClientRectangle": "13.65,0.1,0,0",
+              "Interaction": {
+                "Ident": "StiInteraction"
+              },
+              "ReferenceToGuid": "c6a6059e77294cf5849d3a15ba45b577"
+            }
+          }
+        },
+        "3": {
+          "Ident": "StiRectanglePrimitive",
+          "Name": "RectanglePrimitive2",
+          "Guid": "48dfee2690c04b24b5234fcec22ee50a",
+          "ClientRectangle": "0.1,0.4,19.85,3",
+          "Interaction": {
+            "Ident": "StiInteraction"
+          }
+        },
+        "4": {
+          "Ident": "StiVerticalLinePrimitive",
+          "Name": "VerticalLinePrimitive7",
+          "Guid": "87f37f61e5534803ab2aca69ec838a43",
+          "ClientRectangle": "6.7,0.4,0.0254,3",
+          "Interaction": {
+            "Ident": "StiInteraction"
+          },
+          "StartCap": ";;;",
+          "EndCap": ";;;"
+        },
+        "5": {
+          "Ident": "StiVerticalLinePrimitive",
+          "Name": "VerticalLinePrimitive9",
+          "Guid": "c6a6059e77294cf5849d3a15ba45b577",
+          "ClientRectangle": "13.65,0.4,0.0254,3",
+          "Interaction": {
+            "Ident": "StiInteraction"
+          },
+          "StartCap": ";;;",
+          "EndCap": ";;;"
+        }
+      },
+      "PageWidth": 22.3,
+      "PageHeight": 29.7,
+      "Watermark": {
+        "TextBrush": "solid:50,0,0,0"
+      },
+      "Margins": {
+        "Left": 1.0,
+        "Right": 1.0,
+        "Top": 1.0,
+        "Bottom": 1.0
+      }
+    }
+  }
+}

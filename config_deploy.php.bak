@@ -1,0 +1,125 @@
+<?php
+/*===== SYSTEM ===============================================================*/
+define('BASE_TITLE', 'D-Network');
+define('BASE_URL', 'https://dev.ada-soft.com:44340/D-Network/');
+define('BASE_URL_LOG', 'https://dev.ada-soft.com:44340/AdaLog/');
+
+define('BASE_DATABASE', 'DNetwork');
+define('DATABASE_IP', '147.50.143.126,33433');
+define('DATABASE_USERNAME', 'sa');
+define('DATABASE_PASSWORD', 'GvFhk@61');
+define('SYS_BCH_CODE', '00001');
+
+/*===== RABBIT RABBIT MQ ============================================================*/
+define('HOST', '147.50.143.126'); 
+define('USER', 'Admin');
+define('PASS', 'Admin');
+define('VHOST', 'AdaPos5.0DNW_Doc');
+define('EXCHANGE', '');
+define('PORT', 5672);
+
+/*===== RABBIT RABBIT MQ Purge ============================================================*/
+define('MQ_PURGE_HOST', '147.50.143.126'); 
+define('MQ_PURGE_USER', 'Admin');
+define('MQ_PURGE_PASS', 'Admin');
+define('MQ_PURGE_VHOST', 'AdaPos5.0DNW_Master');
+define('MQ_PURGE_EXCHANGE', '');
+define('MQ_PURGE_PORT', 5672);
+
+//============== Member ============================================================*/
+define('MemberV5_HOST','147.50.143.126');
+define('MemberV5_USER','Admin');
+define('MemberV5_PASS','Admin');
+define('MemberV5_VHOST','AdaPos5.0DNW_Member');
+define('MemberV5_EXCHANGE', '');
+define('MemberV5_PORT', 5672);
+
+/*===== LOCKER RABBIT MQ ============================================================*/
+define('MQ_LOCKER_HOST','147.50.143.126');
+define('MQ_LOCKER_USER','Admin');
+define('MQ_LOCKER_PASS','Admin');
+define('MQ_LOCKER_VHOST','AdaPos5.0DNW_Master');
+define('MQ_LOCKER_EXCHANGE', '');
+define('MQ_LOCKER_PORT', 5672);
+
+/*===== LOCKER Booking RABBIT MQ ============================================================*/
+define('MQ_BOOKINGLK_HOST','147.50.143.126');
+define('MQ_BOOKINGLK_USER','Admin');
+define('MQ_BOOKINGLK_PASS','Admin');
+define('MQ_BOOKINGLK_VHOST','AdaPos5.0DNW_Master');
+define('MQ_BOOKINGLK_EXCHANGE', '');
+define('MQ_BOOKINGLK_PORT', 5672);
+
+//============== FC ============================================================*/
+define('MQ_Sale_HOST','147.50.143.126');
+define('MQ_Sale_USER','Admin');
+define('MQ_Sale_PASS','Admin');
+define('MQ_Sale_VHOST','AdaPos5.0DNW_Sale');
+define('MQ_Sale_QUEUES','UPLOADSALE,UPLOADSALEPAY,UPLOADSALERT,UPLOADSALEVD,UPLOADSHIFT,UPLOADTAX,UPLOADVOID');
+define('MQ_Sale_EXCHANGE', '');
+define('MQ_Sale_PORT', 5672);
+
+/*===== RABBIT CARD MQ ============================================================*/
+define('MQ_CRD_HOST', '147.50.143.126'); 
+define('MQ_CRD_USER', 'Admin');
+define('MQ_CRD_PASS', 'Admin');
+define('MQ_CRD_VHOST', 'AdaPos5.0DNW_Wallet');
+define('MQ_CRD_EXCHANGE', '');
+define('MQ_CRD_PORT', 5672);
+
+/*===== RABBIT MQ STATDOSE ============================================================*/
+define('STATDOSE_HOST', '147.50.143.126'); 
+define('STATDOSE_USER', 'Admin');
+define('STATDOSE_PASS', 'Admin');
+define('STATDOSE_VHOST', 'AdaPos5.0DNW_Sale');
+define('STATDOSE_NOTIFICATION_VHOST', 'AdaPos5.0STD_Sale');
+define('STATDOSE_EXCHANGE', '');
+define('STATDOSE_PORT', 5672);
+
+/*===== RABBIT MQ License Reg ============================================================*/
+define('LICENSE_HOST', '147.50.143.126');
+define('LICENSE_USER', 'Admin');
+define('LICENSE_PASS', 'Admin');
+define('LICENSE_VHOST', 'AdaPos5.0License');
+define('LICENSE_EXCHANGE', '');
+define('LICENSE_PORT', 5672);
+
+/*===== RABBIT Audit MQ ============================================================*/
+define('MQ_AUD_HOST', '147.50.143.126');
+define('MQ_AUD_USER', 'Admin');
+define('MQ_AUD_PASS', 'Admin');
+define('MQ_AUD_VHOST', 'AdaPos5.0Audit_PosDev');
+define('MQ_AUD_EXCHANGE', '');
+define('MQ_AUD_PORT', 5672);
+
+/*===== REDIS CONFIG ============================================================*/
+define('REDIS_DB', 1); // Default 0
+define('REDIS_HOST', '147.50.143.126'); // 27.254.239.243
+define('REDIS_PASS', 'adasoft');
+define('REDIS_PORT', '6379'); // 9339
+define('REDIS_INTERVAL', 10000);
+define('MAP_APIKEY', 'fd7eddf5deb105e270336bdcc927e973');
+
+/*===== Interface ============================================================*/
+define('INTERFACE_HOST', '147.50.143.126');
+define('INTERFACE_USER', 'Admin');
+define('INTERFACE_PASS', 'Admin');
+define('INTERFACE_VHOST', 'AdaPos5.0DNW_Interface');
+define('INTERFACE_EXCHANGE', '');
+define('INTERFACE_PORT', 5672);
+
+/*===== RABBIT NOTI MQ ============================================================*/
+define('MQ_NOT_HOST', '147.50.143.126'); 
+define('MQ_NOT_USER', 'Admin');
+define('MQ_NOT_PASS', 'Admin');
+define('MQ_NOT_VHOST', 'AdaPos5.0DNW_Noti');
+define('MQ_NOT_EXCHANGE', '');
+define('MQ_NOT_PORT', 5672);
+
+/*===== RABBIT RABBIT MQ LOG ============================================================*/
+define('MQ_LOG_HOST', '147.50.143.126'); 
+define('MQ_LOG_USER', 'Admin');
+define('MQ_LOG_PASS', 'Admin');
+define('MQ_LOG_VHOST', 'AdaPos5.0DNW_Log');
+define('MQ_LOG_EXCHANGE', '');
+define('MQ_LOG_PORT', 5672);

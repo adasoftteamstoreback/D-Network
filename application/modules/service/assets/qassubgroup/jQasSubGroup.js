@@ -1,0 +1,612 @@
+var nStaQSGBrowseType = $('#oetCldStaBrowse').val();
+var tCallQSGBackOption = $('#oetCldCallBackOption').val();
+$('ducument').ready(function() {
+    localStorage.removeItem('LocalItemData');
+    $("#obtQASSubSubmitFromDoc").attr('disabled',false);
+    JSxCheckPinMenuClose(); /*Check เปิดปิด Menu ตาม Pin*/
+    JSxQSGNavDefult();
+    if (nStaQSGBrowseType != 1) {
+        JSvCallPageQasSubGroupList();
+    } else {
+        JSvCallPageQasSubGroupAdd();
+    }
+});
+
+
+///function : Function Clear Defult Button QasSubGroup
+//Parameters : -
+//Creator : 25/05/2021 Off
+//Update:   
+//Return : -
+//Return Type : -
+function JSxQSGNavDefult() {
+    // Menu Bar เข้ามาจาก หน้า Master หรือ Browse
+    if (nStaQSGBrowseType != 1) { // เข้ามาจาก  Master
+        $('.obtChoose').hide();
+        $('#oliQSGTitleAdd').hide();
+        $('#oliQSGTitleEdit').hide();
+        $('#odvBtnQSGAddEdit').hide();
+        $('#odvBtnQSGInfo').show();
+    } else { // เข้ามาจาก Browse Modal
+        $('#odvModalBody #odvQSGMainMenu').removeClass('main-menu');
+        $('#odvModalBody .xCNQSGBrowseLine').css('padding', '0px 0px');
+        $('#odvModalBody .xCNQSGBrowseLine').css('border-bottom', '1px solid #e3e3e3');
+    }
+}
+
+///function : Call QasSubGroup Page list  
+//Parameters : - 
+//Creator : 25/05/2021 Off
+//Update:   
+//Return : View
+//Return Type : View
+function JSvCallPageQasSubGroupList(pnPage) {
+    var nStaSession = JCNxFuncChkSessionExpired();
+    if (typeof(nStaSession) !== 'undefined' && nStaSession == 1) {
+        localStorage.tStaPageNow = 'JSvCallPageQasSubGroupList';
+        $('#oetSearchAll').val('');
+        $.ajax({
+            type: "POST",
+            url: "qassubgroupList",
+            cache: false,
+            timeout: 0,
+            success: function(tResult) {
+                $('#odvContentPageQasSubGroup').html(tResult);
+                JSvQasSubGroupDataTable(pnPage);
+            },
+            error: function(data) {
+                console.log(data);
+            }
+        });
+    } else {
+        JCNxShowMsgSessionExpired();
+    }
+}
+
+///function : Call QasSubGroup Data List
+//Parameters : Ajax Success Event 
+//Creator : 25/05/2021 Off
+//Update:   
+//Return : View
+//Return Type : View
+function JSvQasSubGroupDataTable(pnPage) {
+    var nStaSession = JCNxFuncChkSessionExpired();
+    if (typeof(nStaSession) !== 'undefined' && nStaSession == 1) {
+        var tSearchAll = $('#oetSearchAll').val();
+        var nPageCurrent = pnPage;
+        if (nPageCurrent == undefined || nPageCurrent == '') {
+            nPageCurrent = '1';
+        }
+        JCNxOpenLoading();
+        $.ajax({
+            type: "POST",
+            url: "qassubgroupDataTable",
+            data: {
+                tSearchAll: tSearchAll,
+                nPageCurrent: nPageCurrent,
+            },
+            cache: false,
+            Timeout: 0,
+            success: function(tResult) {
+                if (tResult != "") {
+                    $('#ostDataQasSubGroup').html(tResult);
+                    $(".xCNDocDisabled").removeAttr("onclick");
+                }
+                JSxQSGNavDefult();
+                JCNxLayoutControll();
+                JCNxCloseLoading();
+            },
+            error: function(data) {
+                console.log(data);
+            }
+        });
+    } else {
+        JCNxShowMsgSessionExpired();
+    }
+}
+
+//Functionality : Call QasSubGroup Page Add  
+//Parameters : -
+//Creator : 25/05/2021 Off
+//Update: 
+//Return : View
+//Return Type : View
+function JSvCallPageQasSubGroupAdd() {
+    var nStaSession = JCNxFuncChkSessionExpired();
+    if (typeof(nStaSession) !== 'undefined' && nStaSession == 1) {
+        JCNxOpenLoading();
+        JStCMMGetPanalLangSystemHTML('', '');
+        $.ajax({
+            type: "POST",
+            url: "qassubgroupPageAdd",
+            cache: false,
+            timeout: 0,
+            success: function(tResult) {
+                if (nStaQSGBrowseType == 1) {
+                    $('#odvModalBodyBrowse').html(tResult);
+                    $('#odvModalBodyBrowse .panel-body').css('padding-top', '0');
+                } else {
+                    $('#oliQSGTitleEdit').hide();
+                    $('#oliQSGTitleAdd').show();
+                    $('#odvBtnQSGInfo').hide();
+                    $('#odvBtnQSGAddEdit').show();
+                }
+                $('#odvContentPageQasSubGroup').html(tResult);
+                JCNxLayoutControll();
+                JCNxCloseLoading();
+            },
+            error: function(data) {
+                console.log(data);
+            }
+        });
+    } else {
+        JCNxShowMsgSessionExpired();
+    }
+}
+
+//Functionality : Call QasSubGroup Page Edit  
+//Parameters : -
+//Creator : 25/05/2021 Off
+//Update: 
+//Return : View
+//Return Type : View
+function JSvCallPageQasSubGroupEdit(ptQSGCode) {
+    var nStaSession = JCNxFuncChkSessionExpired();
+    if (typeof(nStaSession) !== 'undefined' && nStaSession == 1) {
+        JCNxOpenLoading();
+        JStCMMGetPanalLangSystemHTML('JSvCallPageQasSubGroupEdit', ptQSGCode);
+        $.ajax({
+            type: "POST",
+            url: "qassubgroupPageEdit",
+            data: { tQSGCode: ptQSGCode },
+            cache: false,
+            timeout: 0,
+            success: function(tResult) {
+                if (tResult != "") {
+                    $('#oliQSGTitleAdd').hide();
+                    $('#oliQSGTitleEdit').show();
+                    $('#odvBtnQSGInfo').hide();
+                    $('#odvBtnQSGAddEdit').show();
+                    $('#odvContentPageQasSubGroup').html(tResult);
+                    $('#oetQSGCode').addClass('xCNDisable');
+                    $('.xCNDisable').attr('readonly', true);
+                    $('.xCNiConGen').attr('disabled', true);
+                }
+                JCNxLayoutControll();
+                JCNxCloseLoading();
+            },
+            error: function(data) {
+                console.log(data);
+            }
+        });
+    } else {
+        JCNxShowMsgSessionExpired();
+    }
+}
+
+//Functionality : (event) Add/Edit QasSubGroup
+//Parameters : form
+//Creator : 25/05/2021 Off
+//Return : object Status Event And Event Call Back
+//Return Type : object
+function JSnAddEditQasSubGroup(ptRoute) {
+    var nStaSession = JCNxFuncChkSessionExpired();
+    JCNxOpenLoading();
+
+    if (typeof(nStaSession) !== 'undefined' && nStaSession == 1) {
+        $('#ofmAddQasSubGroup').validate().destroy();
+        
+        $.validator.addMethod('dublicateCode', function(value, element) {
+            if (ptRoute == "qassubgroupEventAdd") {
+                if ($("#ohdCheckDuplicateObjCode").val() == 1) {
+                    return false;
+                } else {
+                    return true;
+                }
+            } else {
+                return true;
+            }
+        }, '');
+
+
+        $('#ofmAddQasSubGroup').validate({
+            rules: {
+                oetObjCode: {
+                    "required": {
+                        depends: function(oElement) {
+                            if (ptRoute == "qassubgroupEventAdd") {
+                                if ($('#ocbQasSubGroupAutoGenCode').is(':checked')) {
+                                    return false;
+                                } else {
+                                    return true;
+                                }
+                            } else {
+                                return true;
+                            }
+                        }
+                    },
+                    "dublicateCode": {}
+                },
+                oetQSGName: { "required": {} },
+                ocmObjGroup: { "required": {} },
+            },
+            messages: {
+                oetObjCode: {
+                    "required": $('#oetObjCode').attr('data-validate-required'),
+                    "dublicateCode": $('#oetObjCode').attr('data-validate-dublicateCode')
+                },
+                oetObjName: {
+                    "required": $('#oetObjName').attr('data-validate-required'),
+                }
+            },
+            errorElement: "em",
+            errorPlacement: function(error, element) {
+                error.addClass("help-block");
+                if (element.prop("type") === "checkbox") {
+                    error.appendTo(element.parent("label"));
+                } else {
+                    var tCheck = $(element.closest('.form-group')).find('.help-block').length;
+                    if (tCheck == 0) {
+                        error.appendTo(element.closest('.form-group')).trigger('change');
+                    }
+                }
+            },
+            highlight: function(element, errorClass, validClass) {
+                $(element).closest('.form-group').addClass("has-error").removeClass("has-success");
+            },
+            unhighlight: function(element, errorClass, validClass) {
+                var nStaCheckValid = $(element).parents('.form-group').find('.help-block').length
+                if (nStaCheckValid != 0) {
+                    $(element).closest('.form-group').addClass("has-success").removeClass("has-error");
+                }
+            },
+            submitHandler: function(form) {
+                JCNxOpenLoading();
+                $("#obtQASSubSubmitFromDoc").attr('disabled',true);
+                setTimeout(function(){
+                    $.ajax({
+                        type: "POST",
+                        url: ptRoute,
+                        data: $('#ofmAddQasSubGroup').serialize(),
+                        async: false,
+                        cache: false,
+                        timeout: 0,
+                        success: function(tResult) {
+                            if (nStaQSGBrowseType != 1) {
+                                var aReturn = JSON.parse(tResult);
+                                if (aReturn['nStaEvent'] == 1) {
+                                    if (aReturn['nStaCallBack'] == '1' || aReturn['nStaCallBack'] == null) {
+                                        JSvCallPageQasSubGroupEdit(aReturn['tCodeReturn']);
+                                    } else if (aReturn['nStaCallBack'] == '2') {
+                                        JSvCallPageQasSubGroupAdd();
+                                    } else if (aReturn['nStaCallBack'] == '3') {
+                                        JSvCallPageQasSubGroupList();
+                                    }
+                                } else {
+                                    alert(aReturn['tStaMessg']);
+                                }
+                                $("#obtQASSubSubmitFromDoc").attr('disabled',false);
+                            } else {
+                                JCNxCloseLoading();
+                                JCNxBrowseData(tCallQSGBackOption);
+                                $("#obtQASSubSubmitFromDoc").attr('disabled',false);
+                            }
+                        },
+                        error: function(jqXHR, textStatus, errorThrown) {
+                            JCNxResponseError(jqXHR, textStatus, errorThrown);
+                        }
+                    });
+                }, 500)
+            }
+        });
+    } else {
+        JCNxShowMsgSessionExpired();
+    }
+}
+
+//Functionality: เปลี่ยนหน้า pagenation
+//Parameters: -
+//Creator : 25/05/2021 Off
+//Update: 
+//Return: View
+//Return Type: View
+function JSvClickPage(ptPage) {
+    var nPageCurrent = '';
+    var nPageNew;
+    switch (ptPage) {
+        case 'next': //กดปุ่ม Next
+            $('.xWBtnNext').addClass('disabled');
+            nPageOld = $('.xWPageQasSubGroupGrp .active').text(); // Get เลขก่อนหน้า
+            nPageNew = parseInt(nPageOld, 10) + 1; // +1 จำนวน
+            nPageCurrent = nPageNew;
+            break;
+        case 'previous': //กดปุ่ม Previous
+            nPageOld = $('.xWPageQasSubGroupGrp .active').text(); // Get เลขก่อนหน้า
+            nPageNew = parseInt(nPageOld, 10) - 1; // -1 จำนวน
+            nPageCurrent = nPageNew;
+            break;
+        default:
+            nPageCurrent = ptPage;
+    }
+    JSvQasSubGroupDataTable(nPageCurrent);
+}
+
+//Functionality: (event) Delete
+//Parameters: Button Event [tIDCode รหัสเหตุผล]
+//Creator : 25/05/2021 Off
+//Update: 
+//Return: Event Delete QasSubGroup List
+//Return Type: -
+
+function JSnQasSubGroupDel(pnCurrentPage, ptDelName, ptIDCode, ptYesOnNo) {
+    var nStaSession = JCNxFuncChkSessionExpired();
+    if (typeof(nStaSession) !== 'undefined' && nStaSession == 1) {
+        var aData = $('#ohdConfirmIDDelete').val();
+        var aTexts = aData.substring(0, aData.length - 2);
+        var aDataSplit = aTexts.split(" , ");
+        var aDataSplitlength = aDataSplit.length;
+        var aNewIdDelete = [];
+        if (aDataSplitlength == '1') {
+            $('#odvModalDelQasSubGroup').modal('show');
+            // $('#ospConfirmDelete').html($('#oetTextComfirmDeleteSingle').val() + tIDCode);
+            $('#ospConfirmDelete').html($('#oetTextComfirmDeleteSingle').val() + ptIDCode + ' ( ' + ptDelName + ' ) ' + ptYesOnNo);
+            $('#osmConfirm').off('click').on('click', function(evt) {
+                if (localStorage.StaDeleteArray != '1') {
+                    $.ajax({
+                        type: "POST",
+                        url: "qassubgroupEventDelete",
+                        data: { 'tIDCode': ptIDCode },
+                        cache: false,
+                        success: function(tResult) {
+                            var aReturn = JSON.parse(tResult);
+                            if (aReturn['nStaEvent'] == 1) {
+                                $('#odvModalDelQasSubGroup').modal('hide');
+                                $('#ospConfirmDelete').text($('#oetTextComfirmDeleteSingle').val());
+                                $('#ohdConfirmIDDelete').val('');
+                                localStorage.removeItem('LocalItemData');
+                                $('.modal-backdrop').remove();
+                                setTimeout(function() {
+                                    if (aReturn["nNumRowCldLoc"] != 0) {
+                                        if (aReturn["nNumRowCldLoc"] > 10) {
+                                            nNumPage = Math.ceil(aReturn["nNumRowCldLoc"] / 10);
+                                            if (pnCurrentPage <= nNumPage) {
+                                                JSvCallPageQasSubGroupList(pnCurrentPage);
+                                            } else {
+                                                JSvCallPageQasSubGroupList(nNumPage);
+                                            }
+                                        } else {
+                                            JSvCallPageQasSubGroupList(1);
+                                        }
+                                    } else {
+                                        JSvCallPageQasSubGroupList(1);
+                                    }
+                                    // JSvBntDataTable(pnPage);
+                                    // JSvQasSubGroupDataTable(tCurrentPage);
+                                }, 500);
+                            } else {
+                                FSvCMNSetMsgWarningDialog(aReturn['tStaMessg']);
+                                //alert(aReturn['tStaMessg']);
+                            }
+                            JSxQSGNavDefult();
+                        },
+                        error: function(data) {
+                            console.log(data);
+                        }
+                    });
+                }
+            });
+        }
+    } else {
+        JCNxShowMsgSessionExpired();
+    }
+}
+
+//Functionality : (event) Delete All
+//Parameters : Button Event 
+//Creator : 25/05/2021 Off
+//Update: 
+//Return : Event Delete All Select List
+//Return Type : -
+function JSnQasSubGroupDelChoose(ptCurrentPage) {
+    var nStaSession = JCNxFuncChkSessionExpired();
+    if (typeof(nStaSession) !== 'undefined' && nStaSession == 1) {
+        JCNxOpenLoading();
+        var aData = $('#ohdConfirmIDDelete').val();
+        var aTexts = aData.substring(0, aData.length - 2);
+        var aDataSplit = aTexts.split(" , ");
+        var aDataSplitlength = aDataSplit.length;
+        var aNewIdDelete = [];
+
+        for ($i = 0; $i < aDataSplitlength; $i++) {
+            aNewIdDelete.push(aDataSplit[$i]);
+        }
+        if (aDataSplitlength > 1) {
+            localStorage.StaDeleteArray = '1';
+            $.ajax({
+                type: "POST",
+                url: "qassubgroupEventDelete",
+                data: { 'tIDCode': aNewIdDelete },
+                success: function(tResult) {
+                    var aReturn = JSON.parse(tResult);
+                    if (aReturn['nStaEvent'] == '1') {
+                        setTimeout(function() {
+                            $('#odvModalDelQasSubGroup').modal('hide');
+                            JSvQasSubGroupDataTable(ptCurrentPage);
+                            $('#ospConfirmDelete').empty();
+                            $('#ohdConfirmIDDelete').val();
+                            localStorage.removeItem('LocalItemData');
+                            $('.modal-backdrop').remove();
+                            // JSvBntDataTable(pnPage);
+                            // JSvQasSubGroupDataTable(tCurrentPage);
+                        }, 1000);
+                    } else {
+                        alert(aReturn['tStaMessg']);
+                    }
+                    JSxQSGNavDefult();
+                },
+                error: function(data) {
+                    console.log(data);
+                }
+            });
+        } else {
+            localStorage.StaDeleteArray = '0';
+            return false;
+        }
+    } else {
+        JCNxShowMsgSessionExpired();
+    }
+}
+
+//Functionality: Function Show Button Delete All
+//Parameters:   Event Parameter
+//Creator : 25/05/2021 Off
+//Return: Event Button Delete All
+//Return Type: -
+function JSxShowButtonChoose() {
+    var aArrayConvert = [JSON.parse(localStorage.getItem("LocalItemData"))];
+    if (aArrayConvert[0] == null || aArrayConvert[0] == '') {
+        $('.obtChoose').hide();
+    } else {
+        nNumOfArr = aArrayConvert[0].length;
+        if (nNumOfArr > 1) {
+            $('.obtChoose').fadeIn(300);
+        } else {
+            $('.obtChoose').fadeOut(300);
+        }
+    }
+}
+
+//Functionality: Function Insert Text Delete
+//Parameters: Event Parameter
+//Creator : 25/05/2021 Off
+//Return: Event Insert Text
+//Return Type: -
+function JSxTextinModal() {
+    var aArrayConvert = [JSON.parse(localStorage.getItem("LocalItemData"))];
+
+    if (aArrayConvert[0] == null || aArrayConvert[0] == '') {} else {
+        var tText = '';
+        var tTextCode = '';
+        for ($i = 0; $i < aArrayConvert[0].length; $i++) {
+            tText += aArrayConvert[0][$i].tName + '(' + aArrayConvert[0][$i].nCode + ') ';
+            tText += ' , ';
+
+            tTextCode += aArrayConvert[0][$i].nCode;
+            tTextCode += ' , ';
+        }
+        var tTexts = tText.substring(0, tText.length - 2);
+        $('#ospConfirmDelete').text($('#oetTextComfirmDeleteSingle').val() + tTexts);
+        $('#ohdConfirmIDDelete').val(tTextCode);
+    }
+}
+
+//Functionality: Function Chack Dupilcate Data
+//Parameters: Event Select List QasSubGroup
+//Creator : 25/05/2021 Off
+//Return: Duplicate/none
+//Return Type: string
+function findObjectByKey(array, key, value) {
+    for (var i = 0; i < array.length; i++) {
+        if (array[i][key] === value) {
+            return 'Dupilcate';
+        }
+    }
+    return 'None';
+}
+
+//Choose Checkbox
+function JSxQasSubGroupVisibledDelAllBtn(poElement, poEvent) { // Action start after change check box value.
+    try {
+        var nCheckedCount = $('#odvCLDList td input:checked').length;
+        if (nCheckedCount > 1) {
+            $('#oliBtnDeleteAll').removeClass("disabled");
+        } else {
+            $('#oliBtnDeleteAll').addClass("disabled");
+        }
+        if (nCheckedCount > 1) {
+            $('.xCNIconDel').addClass('xCNDisabled');
+        } else {
+            $('.xCNIconDel').removeClass('xCNDisabled');
+        }
+    } catch (err) {
+        //console.log('JSxDepartmentVisibledDelAllBtn Error: ', err);
+    }
+}
+
+
+//Functionality: Insert Text In Modal Delete
+//Parameters: LocalStorage Data
+//Creator : 25/05/2021 Off
+//Return: -
+//Return Type: -
+function JSxPaseCodeDelInModal() {
+    var aArrayConvert = [JSON.parse(localStorage.getItem("LocalItemData"))];
+    if (aArrayConvert[0] == null || aArrayConvert[0] == '') {} else {
+        var tTextCode = '';
+        for ($i = 0; $i < aArrayConvert[0].length; $i++) {
+            tTextCode += aArrayConvert[0][$i].nCode;
+            tTextCode += ' , ';
+        }
+        $('#ospConfirmDelete').text($('#oetTextComfirmDeleteMulti').val());
+        $('#ohdConfirmIDDelete').val(tTextCode);
+    }
+}
+
+
+// Functionality: Function Check Is Create Page
+// Parameters: Event Documet Redy
+//Creator : 25/05/2021 Off
+// Return: object Status Delete
+// ReturnType: boolean
+function JSbQasSubGroupIsCreatePage() {
+    try {
+        const tQSGCode = $('#oetQSGCode').data('is-created');
+        var bStatus = false;
+        if (tQSGCode == "") { // No have data
+            bStatus = true;
+        }
+        
+        return bStatus;
+    } catch (err) {
+        console.log('JSbQasSubGroupIsCreatePage Error: ', err);
+    }
+}
+
+// Functionality: Function Check Is Update Page
+// Parameters: Event Documet Redy
+//Creator : 25/05/2021 Off
+// Return: object Status Delete
+// ReturnType: boolean
+function JSbQasSubGroupIsUpdatePage() {
+    try {
+        const tQSGCode = $('#oetQSGCode').data('is-created');
+        var bStatus = false;
+        if (!tQSGCode == "") { // Have data
+            bStatus = true;
+        }
+        return bStatus;
+    } catch (err) {
+        console.log('JSbQasSubGroupIsUpdatePage Error: ', err);
+    }
+}
+
+// Functionality : Show or Hide Component
+// Parameters : ptComponent is element on document(id or class or...),pbVisible is visible
+//Creator : 25/05/2021 Off
+// Return : -
+// Return Type : -
+function JSxQasSubGroupVisibleComponent(ptComponent, pbVisible, ptEffect) {
+    try {
+        if (pbVisible == false) {
+            $(ptComponent).addClass('hidden');
+        }
+        if (pbVisible == true) {
+            // $(ptComponent).removeClass('hidden');
+            $(ptComponent).removeClass('hidden fadeIn animated').addClass('fadeIn animated').one('webkitAnimationEnd mozAnimationEnd MSAnimationEnd oanimationend animationend', function() {
+                $(this).removeClass('hidden fadeIn animated');
+            });
+        }
+    } catch (err) {
+        console.log('JSxQasSubGroupVisibleComponent Error: ', err);
+    }
+}

@@ -1,0 +1,47 @@
+.xWcol-xs-55,
+.xWcol-sm-55,
+.xWcol-md-55,
+.xWcol-lg-55 {
+    position: relative;
+    min-height: 1px;
+    padding-right: 10px;
+    padding-left: 10px;
+}
+
+.xWcol-xs-55 {
+    float: left;
+}
+
+.xWcol-xs-55 {
+    width: 20%
+}
+
+@media (min-width:768px) {
+    .xWcol-sm-55 {
+        float: left
+    }
+
+    .xWcol-sm-55 {
+        width: 20%
+    }
+}
+
+@media (min-width:992px) {
+    .xWcol-md-55 {
+        float: left
+    }
+
+    .xWcol-md-55 {
+        width: 20%;
+    }
+}
+
+@media (min-width:1200px) {
+    .xWcol-lg-55 {
+        float: left
+    }
+
+    .xWcol-lg-55 {
+        width: 20%
+    }
+}
