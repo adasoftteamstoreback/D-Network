@@ -21,6 +21,7 @@ class mSaleOrderData extends CI_Model {
         $tSearchSODate          = $aAdvanceSearch['tSearchSODate'];
         $tSearchName            = $aAdvanceSearch['tSearchName'];
         $tSearchRefDoc          = $aAdvanceSearch['tSearchRefDoc'];
+        $bCheckSearch = false;
 
         $tSQLStatus = '';
         // ค้นหาสถานะการขาย
@@ -126,36 +127,43 @@ class mSaleOrderData extends CI_Model {
         // ค้นหาจาก เลขที่ใบสั่งขาย
         if(isset($tSearchSONo) && !empty($tSearchSONo)){
             $tSQL   .= " AND SOHD.FTXshDocNo LIKE '%$tSearchSONo%' ";
+            $bCheckSearch = true;
         }
 
         // ค้นหาจาก วันที่ใบสั่งขาย
         if(isset($tSearchSODate) && !empty($tSearchSODate)){
             $tSQL   .= " AND (SOHD.FDXshDocDate BETWEEN CONVERT(datetime,'$tSearchSODate 00:00:00') AND CONVERT(datetime,'$tSearchSODate 23:59:59') ) ";
+            $bCheckSearch = true;
         }
 
         // นหารหัสเอกสาร,ชือสาขา,วันที่เอกสาร
         if(isset($tSearchList) && !empty($tSearchList)){
             $tSQL .= " AND ((SOHD.FTXshDocNo LIKE '%$tSearchList%') OR (BCHL.FTBchName LIKE '%$tSearchList%') OR (CONVERT(CHAR(10),SOHD.FDXshDocDate,103) LIKE '%$tSearchList%'))";
+            $bCheckSearch = true;
         }
         
         // ชื่อนามสกุล
         if(isset($tSearchName) && !empty($tSearchName)){
             $tSQL .= " AND CSTL.FTCstName LIKE '%$tSearchName%' ";
+            $bCheckSearch = true;
         }
 
         // ค้นหาจากสาขา - ถึงสาขา
         if(!empty($tSearchBchCodeFrom) && !empty($tSearchBchCodeTo)){
             $tSQL .= " AND ((SOHD.FTBchCode BETWEEN '$tSearchBchCodeFrom' AND '$tSearchBchCodeTo') OR (SOHD.FTBchCode BETWEEN '$tSearchBchCodeTo' AND '$tSearchBchCodeFrom'))";
+            $bCheckSearch = true;
         }
 
         // วันที่ใบสั่งขาย
         if(!empty($tSearchDocDateFrom)){
             $tSQL .= " AND ((SOHD.FDXshDocDate BETWEEN CONVERT(datetime,'$tSearchDocDateFrom 00:00:00') AND CONVERT(datetime,'$tSearchDocDateFrom 23:59:59')))";
+            $bCheckSearch = true;
         }
 
         // วันที่อ้างอิง
         if(!empty($tSearchDocDateTo)){
             $tSQL .= " AND ((ExRef.FDXshRefDocDate BETWEEN CONVERT(datetime,'$tSearchDocDateTo 00:00:00') AND CONVERT(datetime,'$tSearchDocDateTo 23:59:59')))";
+            $bCheckSearch = true;
         }
 
         // ค้นหาสถานะเอกสาร
@@ -176,6 +184,7 @@ class mSaleOrderData extends CI_Model {
             } else {
                 $tSQL .= " AND SOHD.FNXshStaDocAct = 0";
             }
+            $bCheckSearch = true;
         }
 
 
@@ -184,18 +193,24 @@ class mSaleOrderData extends CI_Model {
         $tSQL   .= " LEFT JOIN TCNTPdtPickHD PickHD WITH (NOLOCK) ON HDDocRef_in.FTXshRefDocNo = PickHD.FTXthDocNo AND ( HDDocRef_in.FTXshRefKey = 'PCK' OR HDDocRef_in.FTXshRefKey = 'PdtPick' OR HDDocRef_in.FTXshRefKey = 'CSTPICK' ) ) AS A2 WHERE 1=1";
         if($tSearchStaSale == 1){
             $tSQL       .= " AND ISNULL(A2.DOCREF,'') = '' ";
+            $bCheckSearch = true;
         }if($tSearchStaSale == 8){
             $tSQL       .= " AND ISNULL(PARTITIONBYDOC2,'') = '' ";
+            $bCheckSearch = true;
         }
 
         // ค้นหา Docref
         if(isset($tSearchRefDoc) && !empty($tSearchRefDoc)){
             $tSQL .= " AND ((A2.SALEABB LIKE '%$tSearchRefDoc%') OR (A2.SALETAX LIKE '%$tSearchRefDoc%') OR (A2.SALEBOOK LIKE '%$tSearchRefDoc%') OR (A2.DOCREF LIKE '%$tSearchRefDoc%') OR ( A2.ExREF LIKE '%$tSearchRefDoc%' ) )";
+            $bCheckSearch = true;
         }
 
-        $tSQL .= " AND A2.FNRowID > $aRowLen[0] AND A2.FNRowID <= $aRowLen[1]";
+        
+        if($bCheckSearch == false){
+            $tSQL .= " AND A2.FNRowID > $aRowLen[0] AND A2.FNRowID <= $aRowLen[1]";
+        }
         $tSQL   .= " ORDER BY A2.FNRowID ASC " ;
-
+        // echo $tSQL;
         $oQuery = $this->db->query($tSQL);
         if($oQuery->num_rows() > 0){
             $oDataList          = $oQuery->result_array();
@@ -209,6 +224,8 @@ class mSaleOrderData extends CI_Model {
                 'rnAllPage'     => $nPageAll,
                 'rtCode'        => '1',
                 'rtDesc'        => 'success',
+                'tSQL'          => $tSQL
+
             );
         }else{
             $aResult = array(

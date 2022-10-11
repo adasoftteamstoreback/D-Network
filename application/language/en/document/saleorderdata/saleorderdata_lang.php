@@ -299,3 +299,11 @@ $lang['tPoFrancise']                        = "Gen PO Franchise";
 $lang['tSOTable_Agency']                    = "Agency/Franchise";
 $lang['tSOTable_CstFranchise']              = "Customer Franchise";
 $lang['tSOTBDocNoFS']                       = "Preorder Document Form Customer/Franchise";
+
+
+$lang['tSODAlert']                  = "Information";
+$lang['tSODAlertTimeNoti']          = "Notification Date : ";
+$lang['tSODAlertDocno']             = "Order Refer No. : ";
+$lang['tSODAlertRefNo']             = "Refer No. : ";
+$lang['tSODAlertRefDate']           = "Document Date : ";
+$lang['tSODAlertBchCode']           = "Branch Code : ";

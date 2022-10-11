@@ -150,7 +150,6 @@ class cSaleOrderData extends MX_Controller {
             $aParamQ['tExchangeName']   = 'AR_XReciveOrder';
             $aParamQ['tVhostType']      = 'S';
             $tTaxJsonString             = FCNxRabbitMQGetMassage($aParamQ);
-
             if( $tTaxJsonString != 'false' ){
                 $aGetData                   =  json_decode($tTaxJsonString, true);
 

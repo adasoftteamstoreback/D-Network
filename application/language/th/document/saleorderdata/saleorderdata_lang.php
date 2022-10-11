@@ -354,3 +354,12 @@ $lang['tSODStaApv1']                = "ยืนยันแล้ว";
 $lang['tSODStaApv2']                = "รอยืนยัน";
 $lang['tSODExamine']                = "ตรวจสอบ";
 
+
+$lang['tSODAlert']                  = "ข้อมูลคำสั่งซื้อ";
+$lang['tSODAlertTimeNoti']          = "วันที่แจ้งเตือน : ";
+$lang['tSODAlertDocno']             = "รับคำสั่งซื้อแล้วเลขที่ : ";
+$lang['tSODAlertRefNo']             = "เลขที่อ้างอิง : ";
+$lang['tSODAlertRefDate']           = "วันที่เอกสาร : ";
+$lang['tSODAlertBchCode']           = "รหัสสาขา : ";
+
+

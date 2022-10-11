@@ -39,6 +39,97 @@
 }
 
 
+.alerts {
+    position: fixed;
+    bottom: 0;
+    right: 30px;
+    width: 25rem;
+    min-height: 11.5rem;
+}
+ .alert {
+    position: relative;
+    overflow: hidden;
+    border: none !important;
+    margin-bottom: 8px;
+    box-shadow: rgb(0 0 0 / 15%) -1.95px 1.95px 2.6px;    
+    /* background: radial-gradient(circle at top right, transparent 60px, #eee 60px); */
+}
+
+.alert:before {
+    box-shadow: 0 0 0 1000px #fff;
+    border-radius: 100%;
+    position: absolute;
+    top: -20px;
+    height: 60px;
+    right: -20px;
+    width: 60px;
+    z-index: -1;
+    content: '';
+}
+
+.alert .odvSODAlertIcon {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    margin-left: -15px;
+    width: 80px;
+    text-align: center;
+}
+
+.alert .odvSODAlertIcon i{
+   font-size:2.5rem
+}
+
+.alert .odvSODAlertBody {
+    margin-left: 60px;
+    padding-left: 20px;
+    border-left: 1px solid rgba(0,0,0,.3);
+    line-height: 1.2;
+    cursor: default;
+}
+.alert .odvSODAlertBody h4 {
+    font-size: 18px;
+    font-weight: 600;
+    margin-bottom: 5px;
+}
+.alert .odvSODAlertBody  p {
+    font-size: 16px !important;
+    margin-bottom: 0;
+}
+
+.alert .odvSODAlertBody #obpSODTime{
+    position: absolute;
+    top: 0.6rem;
+    right: 2.8rem;
+    font-size: 15px !important;
+}
+
+.odvSODAlertClose {
+    opacity: 1;
+    background-color: #fff;
+    width: 30px;
+    height: 30px;
+    line-height: 32px;
+    text-align: center;
+    border-radius: 50%;
+    border: 2px solid #fff;
+    position: absolute;
+    top: 15px;
+    right: 0px;
+    transform: translateY(-50%);
+    cursor: pointer;
+}
+.odvSODAlert {
+    /* background-color: #fff; */
+    color: #31708f;
+    box-shadow: 0 0 20px 5px fade(#fff, 50%);
+    
+}
+.odvSODAlert .odvSODAlertClose {
+    color: #A3ADB2;
+    border-color: #A3ADB2;
+}
+
 </style>
 <?php
 if ($aDataList['rtCode'] == '1') {
@@ -73,17 +164,17 @@ if ($aDataList['rtCode'] == '1') {
                 <thead>
                     <tr class="xCNCenter">
                         <th nowrap class="xCNTextBold"><?= language('document/saleorderdata/saleorderdata', 'tSODDocNo') ?></th>
-                        <th nowrap class="xCNTextBold" width="10%"><?= language('document/saleorderdata/saleorderdata', 'tSODDocDate') ?></th>
+                        <th nowrap class="xCNTextBold" width="8%"><?= language('document/saleorderdata/saleorderdata', 'tSODDocDate') ?></th>
                         <th nowrap class="xCNTextBold" width="10%"><?= language('document/saleorderdata/saleorderdata', 'tSODCustomer') ?></th>
                         <th nowrap class="xCNTextBold" width="5%"><?= language('document/saleorderdata/saleorderdata', 'tSODDocRef') ?></th>
                         <th nowrap class="xCNTextBold" width="10%"><?= language('document/saleorderdata/saleorderdata', 'tSODDocRefDate') ?></th>
                         <th nowrap class="xCNTextBold" width="10%"><?= language('document/saleorderdata/saleorderdata', 'tSODDocStatus') ?></th>
                         <th nowrap class="xCNTextBold" width="8%"><?= language('document/saleorderdata/saleorderdata', 'tSODPCKNo') ?></th>
-                        <th nowrap class="xCNTextBold" width="8%"><?= language('document/saleorderdata/saleorderdata', 'tSODPCKStatus') ?></th>
+                        <th nowrap class="xCNTextBold" width="6%"><?= language('document/saleorderdata/saleorderdata', 'tSODPCKStatus') ?></th>
                         <th nowrap class="xCNTextBold" width="8%"><?= language('document/saleorderdata/saleorderdata', 'tSODABBNo') ?></th>
                         <th nowrap class="xCNTextBold" width="8%"><?= language('document/saleorderdata/saleorderdata', 'tSODTAXNo') ?></th>
-                        <th nowrap class="xCNTextBold" width="8%"><?= language('document/saleorderdata/saleorderdata', 'tSODTAXBook') ?></th>
-                        <th nowrap class="xCNTextBold sticky-col" width="8%"><?= language('document/saleorderdata/saleorderdata', 'tSODManage') ?></th>
+                        <th nowrap class="xCNTextBold" width="13%"><?= language('document/saleorderdata/saleorderdata', 'tSODTAXBook') ?></th>
+                        <th nowrap class="xCNTextBold sticky-col" width="13%"><?= language('document/saleorderdata/saleorderdata', 'tSODManage') ?></th>
                     </tr>
                 </thead>
                 <tbody>
@@ -351,14 +442,25 @@ if ($aDataList['rtCode'] == '1') {
 </audio>
 
 
-<div class="alert-container" hidden>
-  <a id='oahSODCloseNoti' class='xWSODCloseNoti '><i class="fa fa-times" aria-hidden="true"></i></a>
-  <div class="alert" id = 'toaseAlert' style="border: 1px solid !important;">
-    <p id='toase1'>รับคำสั่งซื้อแล้วเลขที่ Docno</p> 
-    <p id='toase2'>เลขที่อ้างอิง rtDocRefNo</p>
-    <p id='toase3'>วันที่ rtDocRefDate</p>
-    <p id='toase4'>รหัสสาขา rtBchCode</p>
-  </div>
+<div class="alerts" hidden>
+<div class="alert odvSODAlert animated bounceInRight" hidden>
+      <div class="odvSODAlertIcon pull-left">
+        <i class="fa fa-cart-plus"></i>
+      </div>
+      <div class="odvSODAlertBody">
+        <h4><?= language('document/saleorderdata/saleorderdata', 'tSODAlert'); ?></h4>
+        <p id="obpSODTime"><?= language('document/saleorderdata/saleorderdata', 'tSODAlertTimeNoti'); ?></p>
+        <div id ='toaseAlert'>
+            <p id='toase1'><?= language('document/saleorderdata/saleorderdata', 'tSODAlertDocno'); ?> Docno</p> 
+            <p id='toase2'><?= language('document/saleorderdata/saleorderdata', 'tSODAlertRefNo'); ?> rtDocRefNo</p>
+            <p id='toase3'><?= language('document/saleorderdata/saleorderdata', 'tSODAlertRefDate'); ?> rtDocRefDate</p>
+            <p id='toase4'><?= language('document/saleorderdata/saleorderdata', 'tSODAlertBchCode'); ?> rtBchCode</p>
+        </div>
+      </div>
+      <a id='oahSODCloseNoti' class="odvSODAlertClose">
+        <i class="fa fa-times"></i>
+      </a>
+    </div>
 </div>
 
 <?php
@@ -369,8 +471,13 @@ if ($aDataList['rtCode'] == '1') {
 clearInterval(oSetSaleOrderDataInterval);
 
 $('#oahSODCloseNoti').click(function(){
-    var alert = $(".alert-container");
-    alert.slideUp();
+    var alertBox = $(".alert");
+    alertBox.removeClass('bounceInRight');
+    alertBox.addClass('bounceOutRight');
+    alertBox.one('webkitAnimationEnd mozAnimationEnd MSAnimationEnd oanimationend animationend', function(){
+        alertBox.hide();
+        $('.alerts').hide();
+    });
 });
 
 var x = document.getElementById("myAudio"); 
@@ -403,6 +510,7 @@ function JSxSORecallRabbit(){
                     // $("#toaseAlert").empty();
                     // var tToaseText = "<p>ไม่พบคำสั่งซื้อเลขที่ "+aReturnData['tDocno']+"</p>";
                     // $('#toaseAlert').append(tToaseText);
+               
                     // $(function() {
                     // var alert = $(".alert-container");
                     // alert.hide();
@@ -411,7 +519,7 @@ function JSxSORecallRabbit(){
                     //     alert.slideUp();
                     //     }, 4000);
                     // });
-                    // playAudio();
+                    //playAudio();
                     // var alert = $(".alert-container");
                     // if(alert.css('display') != 'block'){
                     //     $("#toaseAlert").empty();
@@ -453,20 +561,28 @@ function JSxSORecallRabbit(){
                         tAddtr += "<button id='obtSODRentBook' disabled='' class='btn xCNBTNDefult xCNBTNDefult1Btn'>จองช่องฝาก</button></td></tr>";
                         $('#SODTable > tbody').prepend(tAddtr);
 
-                        var alert = $(".alert-container");
+                        var alert = $(".alert");
+                        // console.log(alert.css('display'));
                         if(alert.css('display') != 'block'){
+                            var today = new Date();
+                            $('#obpSODTime').text('วันที่แจ้งเตือน : ' + today.toLocaleString() );
                             $("#toaseAlert").empty();
-                            var tToaseText = "<p>รับคำสั่งซื้อแล้วเลขที่ "+aItems['rtDocNo']+"</p>";
-                            tToaseText += "<p>เลขที่อ้างอิง "+aItems['rtDocRefNo']+"</p>";
-                            tToaseText += "<p>วันที่ "+aItems['rtDocRefDate']+"</p>";
-                            tToaseText += "<p>รหัสสาขา "+aItems['rtBchCode']+"</p>";
+                            var tToaseText = "<p><?= language('document/saleorderdata/saleorderdata', 'tSODAlertDocno'); ?>"+aItems['rtDocNo']+"</p>";
+                            tToaseText += "<p><?= language('document/saleorderdata/saleorderdata', 'tSODAlertRefNo'); ?> "+aItems['rtDocRefNo']+"</p>";
+                            tToaseText += "<p><?= language('document/saleorderdata/saleorderdata', 'tSODAlertRefDate'); ?> "+aItems['rtDocRefDate']+"</p>";
+                            tToaseText += "<p><?= language('document/saleorderdata/saleorderdata', 'tSODAlertBchCode'); ?> "+aItems['rtBchCode']+"</p>";
                             // toase1.text('รับคำสั่งซื้อแล้วเลขที่ '+aItems['rtDocNo']);
                             // toase2.text('เลขที่อ้างอิง '+aItems['rtDocRefNo']);
                             // toase3.text('วันที่ '+aItems['rtDocRefDate']);
                             // toase4.text('รหัสสาขา '+aItems['rtBchCode']);
                             $('#toaseAlert').append(tToaseText);
-                            alert.hide();
-                            alert.slideDown();
+                            alert.removeClass('bounceOutRight');
+                            alert.addClass('bounceInRight');
+                            $('.alerts').show();
+                            alert.show();
+                            alert.one('webkitAnimationEnd mozAnimationEnd MSAnimationEnd oanimationend animationend', function(){
+                                alert.show();
+                             });
                             playAudio();
                         }
                     }
