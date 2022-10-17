@@ -228,8 +228,8 @@ function FCNxRabbitMQGetMassage(array $paParams = [])
         if(isset($paParams['nStaBindingEXC'])){
             if($paParams['nStaBindingEXC'] == '1'){
                 if(isset($paParams['tExchangeName']) && $paParams['tExchangeName'] != ''){
-                    
                     $tExchangeName = $paParams['tExchangeName'];
+                    $oChannel->exchange_declare($tExchangeName, 'fanout', false, false, false);
                     $binding_key = '';
                     $oChannel->queue_bind($tQname, $tExchangeName, $binding_key);
                 }
