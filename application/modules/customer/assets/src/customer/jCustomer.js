@@ -467,7 +467,7 @@ function JSxCheckCustomerCodeDupInDB() {
 
                     }
                 });
-                // $('#ofmAddCustomerInfo1').submit();
+                $('#ofmAddCustomerInfo1').submit();
 
             },
             error: function(jqXHR, textStatus, errorThrown) {
